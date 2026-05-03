@@ -1,43 +1,47 @@
-.gradle
+# Build outputs
 build/
-!gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
-.kotlin
-
-### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-*.iws
-*.iml
-*.ipr
+.gradle/
 out/
-!**/src/main/**/out/
-!**/src/test/**/out/
 
-### Eclipse ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+# Compiled classes
+*.class
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+# JARs (poza źródłami)
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
 
-### VS Code ###
+# Mappings (generowane)
+mappings/
+
+# Skidfuscator śmieci
+skidfuscator-error-*.txt
+skidfuscator.log
+skidfuscator.jar
+skidfuscator.hocon
+skidfuscator.yml
+
+# Payload / encrypt pliki
+payload*.txt
+payload*.b64
+encrypted_payload.b64
+payload_hex.txt
+payload_simple.b64
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE
+.idea/
 .vscode/
+*.iml
 
-### Mac OS ###
+# OS
 .DS_Store
+Thumbs.db
+
+# Stare pliki
+old-working.jar
+proguard-dict.txt
+x/
+pl/
