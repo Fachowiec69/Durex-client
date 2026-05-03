@@ -1,0 +1,73 @@
+handler=Block #M, types=[Ljava/io/IOException;], range=[Block #L, Block #K]
+===#Block A(size=8, flags=1)===
+   0. synth(lvar0 = lvar0);
+   1. synth(lvar1 = lvar1);
+   2. synth(lvar2 = lvar2);
+   3. synth(lvar3 = lvar3);
+   4. synth(lvar4 = lvar4);
+   5. synth(lvar5 = lvar5);
+   6. synth(lvar6 = lvar6);
+   7. synth(lvar7 = lvar7);
+      -> Immediate #A -> #B
+===#Block B(size=0, flags=0)===
+      -> Immediate #B -> #C
+      <- Immediate #A -> #B
+===#Block C(size=2, flags=0)===
+   0. // Frame: locals[1] [1] stack[0] []
+   1. if (lvar7 < {2069076779 ^ lvar22})
+      goto D
+      -> Immediate #C -> #E
+      -> ConditionalJump[IF_ICMPLT] #C -> #D
+      <- UnconditionalJump[GOTO] #M -> #C
+      <- Immediate #B -> #C
+===#Block D(size=2, flags=0)===
+   0. // Frame: locals[1] [null] stack[0] []
+   1. return;
+      <- ConditionalJump[IF_ICMPLT] #C -> #D
+===#Block E(size=4, flags=0)===
+   0. lvar9 = net.minecraft.class_9848.method_61320(lvar6);
+   1. lvar12 = {lvar7 * ({888108837 ^ lvar22})};
+   2. lvar10 = {lvar9 / lvar12};
+   3. lvar8 = java.lang.Math.max({888108838 ^ lvar22}, lvar10);
+      -> Immediate #E -> #F
+      <- Immediate #C -> #E
+===#Block F(size=7, flags=0)===
+   0. lvar11 = {lvar1 - lvar7};
+   1. lvar13 = {lvar2 - lvar7};
+   2. lvar15 = {lvar7 * ({60263051 ^ lvar22})};
+   3. lvar14 = {lvar3 + lvar15};
+   4. lvar17 = {lvar7 * ({60263051 ^ lvar22})};
+   5. lvar16 = {lvar4 + lvar17};
+   6. lvar18 = {lvar5 + lvar7};
+      -> Immediate #F -> #G
+      <- Immediate #E -> #F
+===#Block G(size=1, flags=0)===
+   0. lvar19 = pl.durex.client.gui.render.GuiRenderUtils.withAlpha(lvar6, lvar8);
+      -> Immediate #G -> #H
+      <- Immediate #F -> #G
+===#Block H(size=1, flags=0)===
+   0. _consume(pl.durex.client.gui.render.GuiRenderUtils.drawRoundedRect(lvar0, lvar11, lvar13, lvar14, lvar16, lvar18, lvar19));
+      -> Immediate #H -> #I
+      <- Immediate #G -> #H
+===#Block I(size=2, flags=0)===
+   0. lvar7 = {lvar7 + ({-1355161201 ^ lvar22})};
+   1. goto L
+      -> UnconditionalJump[GOTO] #I -> #L
+      <- Immediate #H -> #I
+===#Block L(size=2, flags=0)===
+   0. if (mnntxzybtgzxkcdx.juaxxcqugyybnazs.ixibojifbjufzxuc(lvar22) == 32608490)
+      goto K
+   1. throw nullconst;
+      -> ConditionalJump[IF_ICMPEQ] #L -> #K
+      -> TryCatch range: [L...K] -> M ([Ljava/io/IOException;])
+      <- UnconditionalJump[GOTO] #I -> #L
+===#Block K(size=1, flags=0)===
+   0. throw new java/io/IOException();
+      -> TryCatch range: [L...K] -> M ([Ljava/io/IOException;])
+      <- ConditionalJump[IF_ICMPEQ] #L -> #K
+===#Block M(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto C
+      -> UnconditionalJump[GOTO] #M -> #C
+      <- TryCatch range: [L...K] -> M ([Ljava/io/IOException;])
+      <- TryCatch range: [L...K] -> M ([Ljava/io/IOException;])

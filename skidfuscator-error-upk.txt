@@ -1,0 +1,43 @@
+handler=Block #H, types=[Ljava/lang/RuntimeException;], range=[Block #G, Block #F]
+===#Block A(size=2, flags=1)===
+   0. synth(lvar0 = lvar0);
+   1. synth(lvar1 = lvar1);
+      -> Immediate #A -> #B
+===#Block B(size=1, flags=0)===
+   0. if (({java.lang.System.currentTimeMillis() - lvar0.lastMs} CMP lvar1) < {451791080 ^ lvar6})
+      goto C
+      -> Immediate #B -> #D
+      -> ConditionalJump[IF_ICMPLT] #B -> #C
+      <- Immediate #A -> #B
+===#Block C(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. lvar3 = {1051280650 ^ lvar6};
+      -> Immediate #C -> #E
+      <- ConditionalJump[IF_ICMPLT] #B -> #C
+===#Block D(size=2, flags=0)===
+   0. lvar3 = {1270215537 ^ lvar6};
+   1. goto G
+      -> UnconditionalJump[GOTO] #D -> #G
+      <- Immediate #B -> #D
+===#Block G(size=2, flags=0)===
+   0. if (xwvqepduthapsuzx.brsgqoqywdojiuqf.bcigubzflshbhtpm(lvar6) == 66608141)
+      goto F
+   1. throw nullconst;
+      -> TryCatch range: [G...F] -> H ([Ljava/lang/RuntimeException;])
+      -> ConditionalJump[IF_ICMPEQ] #G -> #F
+      <- UnconditionalJump[GOTO] #D -> #G
+===#Block F(size=1, flags=0)===
+   0. throw new java/lang/RuntimeException();
+      -> TryCatch range: [G...F] -> H ([Ljava/lang/RuntimeException;])
+      <- ConditionalJump[IF_ICMPEQ] #G -> #F
+===#Block H(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto E
+      -> UnconditionalJump[GOTO] #H -> #E
+      <- TryCatch range: [G...F] -> H ([Ljava/lang/RuntimeException;])
+      <- TryCatch range: [G...F] -> H ([Ljava/lang/RuntimeException;])
+===#Block E(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[1] [1]
+   1. return lvar3;
+      <- UnconditionalJump[GOTO] #H -> #E
+      <- Immediate #C -> #E

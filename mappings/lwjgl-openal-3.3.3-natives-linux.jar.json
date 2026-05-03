@@ -1,0 +1,17 @@
+{
+  "name": "lwjgl-openal-3.3.3-natives-linux.jar",
+  "md5": "82bec56d8f88b000b29550c5946bada4",
+  "sha2": "3037360cc4595079bea240af250b6d1a527e0905",
+  "sha256": "9030fed928a71eac2fdf4ce1643cc4ec724d8710e3b437bdce750bdc9e982b2a",
+  "contents": {
+    "classes": {
+      "META-INF/versions/9/module-info.class": {
+        "ver": 53,
+        "acc": 32768,
+        "nme": "module-info",
+        "mthds": [],
+        "flds": []
+      }
+    }
+  }
+}

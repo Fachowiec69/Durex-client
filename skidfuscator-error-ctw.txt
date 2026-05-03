@@ -1,0 +1,420 @@
+handler=Block #AU, types=[Ljava/lang/IllegalAccessException;], range=[Block #AT, Block #AS]
+handler=Block #AX, types=[Ljava/lang/IllegalAccessException;], range=[Block #AW, Block #AV]
+handler=Block #BA, types=[Ljava/lang/RuntimeException;], range=[Block #AZ, Block #AY]
+handler=Block #BD, types=[Ljava/io/IOException;], range=[Block #BC, Block #BB]
+handler=Block #BG, types=[Ljava/io/IOException;], range=[Block #BF, Block #BE]
+===#Block A(size=1, flags=1)===
+   0. synth(lvar0 = lvar0);
+      -> Immediate #A -> #B
+===#Block B(size=1, flags=0)===
+   0. lvar1 = lvar0.toLowerCase();
+      -> Immediate #B -> #C
+      <- Immediate #A -> #B
+===#Block C(size=1, flags=0)===
+   0. if (lvar1.startsWith(pl.durex.client.module.NoFriendClipModule.x(pl.durex.client.module.NoFriendClipModule.cqxzrwkmxd(pl.durex.client.module.NoFriendClipModule.jjzixpcxuzwscrs(), lvar12))) != {418935983 ^ lvar12})
+      goto F
+      -> Immediate #C -> #D
+      -> ConditionalJump[IF_ICMPNE] #C -> #F
+      <- Immediate #B -> #C
+===#Block D(size=1, flags=0)===
+   0. if (lvar1.equals(pl.durex.client.module.NoFriendClipModule.x(pl.durex.client.module.NoFriendClipModule.cqxzrwkmxd(pl.durex.client.module.NoFriendClipModule.zsgznvratcdobek(), lvar12))) == {1490161001 ^ lvar12})
+      goto BQ
+      -> Immediate #D -> #F
+      -> ConditionalJump[IF_ICMPEQ] #D -> #BQ
+      <- Immediate #C -> #D
+===#Block BQ(size=2, flags=0)===
+   0. if (java.lang.Integer.remainderUnsigned(724367992, xwvqepduthapsuzx.brsgqoqywdojiuqf.bcigubzflshbhtpm(lvar12)) == 193026600)
+      goto E
+   1. goto BI
+      -> ConditionalJump[IF_ICMPEQ] #BQ -> #E
+      -> UnconditionalJump[GOTO] #BQ -> #BI
+      <- ConditionalJump[IF_ICMPEQ] #D -> #BQ
+===#Block E(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. lvar7 = {1100110002 ^ lvar12};
+      -> Immediate #E -> #G
+      <- ConditionalJump[IF_ICMPEQ] #BQ -> #E
+===#Block F(size=3, flags=0)===
+   0. // Frame: locals[1] [java/lang/String] stack[0] []
+   1. lvar7 = {1397968828 ^ lvar12};
+   2. goto AZ
+      -> UnconditionalJump[GOTO] #F -> #AZ
+      <- ConditionalJump[IF_ICMPNE] #C -> #F
+      <- Immediate #D -> #F
+===#Block AZ(size=2, flags=0)===
+   0. if (xwvqepduthapsuzx.brsgqoqywdojiuqf.bcigubzflshbhtpm(lvar12) == 79107574)
+      goto AY
+   1. throw nullconst;
+      -> ConditionalJump[IF_ICMPEQ] #AZ -> #AY
+      -> TryCatch range: [AZ...AY] -> BA ([Ljava/lang/RuntimeException;])
+      <- UnconditionalJump[GOTO] #F -> #AZ
+===#Block AY(size=1, flags=0)===
+   0. throw new java/lang/RuntimeException();
+      -> TryCatch range: [AZ...AY] -> BA ([Ljava/lang/RuntimeException;])
+      <- ConditionalJump[IF_ICMPEQ] #AZ -> #AY
+===#Block BA(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto G
+      -> UnconditionalJump[GOTO] #BA -> #G
+      <- TryCatch range: [AZ...AY] -> BA ([Ljava/lang/RuntimeException;])
+      <- TryCatch range: [AZ...AY] -> BA ([Ljava/lang/RuntimeException;])
+===#Block G(size=1, flags=0)===
+   0. // Frame: locals[0] [] stack[1] [1]
+      -> Immediate #G -> #H
+      <- Immediate #E -> #G
+      <- UnconditionalJump[GOTO] #BA -> #G
+===#Block H(size=1, flags=0)===
+   0. if (lvar1.startsWith(pl.durex.client.module.NoFriendClipModule.x(pl.durex.client.module.NoFriendClipModule.cqxzrwkmxd(pl.durex.client.module.NoFriendClipModule.mhqtkvybtxsrsnw(), lvar12))) != {452390483 ^ lvar12})
+      goto BH
+      -> Immediate #H -> #I
+      -> ConditionalJump[IF_ICMPNE] #H -> #BH
+      <- Immediate #G -> #H
+===#Block BH(size=2, flags=0)===
+   0. if (com.google.common.math.IntMath.ceilingPowerOfTwo(xwvqepduthapsuzx.brsgqoqywdojiuqf.bcigubzflshbhtpm(lvar12)) == 134217728)
+      goto K
+   1. goto BI
+      -> ConditionalJump[IF_ICMPEQ] #BH -> #K
+      -> UnconditionalJump[GOTO] #BH -> #BI
+      <- ConditionalJump[IF_ICMPNE] #H -> #BH
+===#Block I(size=1, flags=0)===
+   0. if (lvar1.equals(pl.durex.client.module.NoFriendClipModule.x(pl.durex.client.module.NoFriendClipModule.cqxzrwkmxd(pl.durex.client.module.NoFriendClipModule.msnnvgnbwraaiya(), lvar12))) == {210858300 ^ lvar12})
+      goto J
+      -> ConditionalJump[IF_ICMPEQ] #I -> #J
+      -> Immediate #I -> #K
+      <- Immediate #H -> #I
+===#Block K(size=3, flags=0)===
+   0. // Frame: locals[1] [1] stack[0] []
+   1. lvar9 = {1683382001 ^ lvar12};
+   2. goto BF
+      -> UnconditionalJump[GOTO] #K -> #BF
+      <- ConditionalJump[IF_ICMPEQ] #BH -> #K
+      <- Immediate #I -> #K
+===#Block BF(size=2, flags=0)===
+   0. if (xwvqepduthapsuzx.brsgqoqywdojiuqf.bcigubzflshbhtpm(lvar12) == 237181033)
+      goto BE
+   1. throw nullconst;
+      -> ConditionalJump[IF_ICMPEQ] #BF -> #BE
+      -> TryCatch range: [BF...BE] -> BG ([Ljava/io/IOException;])
+      <- UnconditionalJump[GOTO] #K -> #BF
+===#Block BE(size=1, flags=0)===
+   0. throw new java/io/IOException();
+      -> TryCatch range: [BF...BE] -> BG ([Ljava/io/IOException;])
+      <- ConditionalJump[IF_ICMPEQ] #BF -> #BE
+===#Block BG(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto L
+      -> UnconditionalJump[GOTO] #BG -> #L
+      <- TryCatch range: [BF...BE] -> BG ([Ljava/io/IOException;])
+      <- TryCatch range: [BF...BE] -> BG ([Ljava/io/IOException;])
+===#Block J(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. lvar9 = {1994133506 ^ lvar12};
+      -> Immediate #J -> #L
+      <- ConditionalJump[IF_ICMPEQ] #I -> #J
+===#Block L(size=1, flags=0)===
+   0. // Frame: locals[0] [] stack[1] [1]
+      -> Immediate #L -> #M
+      <- UnconditionalJump[GOTO] #BG -> #L
+      <- Immediate #J -> #L
+===#Block M(size=1, flags=0)===
+   0. if (lvar1.startsWith(pl.durex.client.module.NoFriendClipModule.x(pl.durex.client.module.NoFriendClipModule.cqxzrwkmxd(pl.durex.client.module.NoFriendClipModule.xaekeuobyxxfzbf(), lvar12))) != {402865731 ^ lvar12})
+      goto P
+      -> ConditionalJump[IF_ICMPNE] #M -> #P
+      -> Immediate #M -> #N
+      <- Immediate #L -> #M
+===#Block N(size=1, flags=0)===
+   0. if (lvar1.equals(pl.durex.client.module.NoFriendClipModule.x(pl.durex.client.module.NoFriendClipModule.cqxzrwkmxd(pl.durex.client.module.NoFriendClipModule.uifivbddceqhdrt(), lvar12))) == {1142305291 ^ lvar12})
+      goto O
+      -> ConditionalJump[IF_ICMPEQ] #N -> #O
+      -> Immediate #N -> #P
+      <- Immediate #M -> #N
+===#Block O(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. lvar8 = {1555846181 ^ lvar12};
+      -> Immediate #O -> #Q
+      <- ConditionalJump[IF_ICMPEQ] #N -> #O
+===#Block P(size=3, flags=0)===
+   0. // Frame: locals[1] [1] stack[0] []
+   1. lvar8 = {700648894 ^ lvar12};
+   2. goto AW
+      -> UnconditionalJump[GOTO] #P -> #AW
+      <- ConditionalJump[IF_ICMPNE] #M -> #P
+      <- Immediate #N -> #P
+===#Block AW(size=2, flags=0)===
+   0. if (xwvqepduthapsuzx.brsgqoqywdojiuqf.bcigubzflshbhtpm(lvar12) == 67120477)
+      goto AV
+   1. throw nullconst;
+      -> ConditionalJump[IF_ICMPEQ] #AW -> #AV
+      -> TryCatch range: [AW...AV] -> AX ([Ljava/lang/IllegalAccessException;])
+      <- UnconditionalJump[GOTO] #P -> #AW
+===#Block AV(size=1, flags=0)===
+   0. throw new java/lang/IllegalAccessException();
+      -> TryCatch range: [AW...AV] -> AX ([Ljava/lang/IllegalAccessException;])
+      <- ConditionalJump[IF_ICMPEQ] #AW -> #AV
+===#Block AX(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto Q
+      -> UnconditionalJump[GOTO] #AX -> #Q
+      <- TryCatch range: [AW...AV] -> AX ([Ljava/lang/IllegalAccessException;])
+      <- TryCatch range: [AW...AV] -> AX ([Ljava/lang/IllegalAccessException;])
+===#Block Q(size=1, flags=0)===
+   0. // Frame: locals[0] [] stack[1] [1]
+      -> Immediate #Q -> #R
+      <- Immediate #O -> #Q
+      <- UnconditionalJump[GOTO] #AX -> #Q
+===#Block R(size=1, flags=0)===
+   0. if (lvar7 != {101427376 ^ lvar12})
+      goto BO
+      -> Immediate #R -> #S
+      -> ConditionalJump[IF_ICMPNE] #R -> #BO
+      <- Immediate #Q -> #R
+===#Block BO(size=2, flags=0)===
+   0. if (com.google.common.math.IntMath.checkedSubtract(xwvqepduthapsuzx.brsgqoqywdojiuqf.bcigubzflshbhtpm(lvar12), 1337168395) == -1241601363)
+      goto U
+   1. goto BI
+      -> UnconditionalJump[GOTO] #BO -> #BI
+      -> ConditionalJump[IF_ICMPEQ] #BO -> #U
+      <- ConditionalJump[IF_ICMPNE] #R -> #BO
+===#Block S(size=1, flags=0)===
+   0. if (lvar9 != {472736 ^ lvar12})
+      goto BR
+      -> ConditionalJump[IF_ICMPNE] #S -> #BR
+      -> Immediate #S -> #T
+      <- Immediate #R -> #S
+===#Block T(size=1, flags=0)===
+   0. if (lvar8 == {513075150 ^ lvar12})
+      goto BJ
+      -> ConditionalJump[IF_ICMPEQ] #T -> #BJ
+      -> Immediate #T -> #U
+      <- Immediate #S -> #T
+===#Block BJ(size=2, flags=0)===
+   0. if (org.apache.commons.lang3.CharUtils.toIntValue('툺', xwvqepduthapsuzx.brsgqoqywdojiuqf.bcigubzflshbhtpm(lvar12)) == 118749683)
+      goto AR
+   1. goto BI
+      -> ConditionalJump[IF_ICMPEQ] #BJ -> #AR
+      -> UnconditionalJump[GOTO] #BJ -> #BI
+      <- ConditionalJump[IF_ICMPEQ] #T -> #BJ
+===#Block BR(size=2, flags=0)===
+   0. if (com.google.common.math.LongMath.mod(4870740946786130356L, 108410805) == 30227281)
+      goto U
+   1. goto BI
+      -> UnconditionalJump[GOTO] #BR -> #BI
+      -> ConditionalJump[IF_ICMPEQ] #BR -> #U
+      <- ConditionalJump[IF_ICMPNE] #S -> #BR
+===#Block U(size=2, flags=0)===
+   0. // Frame: locals[1] [1] stack[0] []
+   1. lvar2 = pl.durex.client.module.NoFriendClipModule.cqxzrwkmxd(pl.durex.client.module.NoFriendClipModule.imbwnxkwvddrlqh(), lvar12);
+      -> Immediate #U -> #V
+      <- ConditionalJump[IF_ICMPEQ] #BO -> #U
+      <- ConditionalJump[IF_ICMPEQ] #BR -> #U
+      <- Immediate #T -> #U
+===#Block V(size=1, flags=0)===
+   0. lvar3 = pl.durex.client.module.NoFriendClipModule.cqxzrwkmxd(pl.durex.client.module.NoFriendClipModule.tfkfqevwsuthldj(), lvar12);
+      -> Immediate #V -> #W
+      <- Immediate #U -> #V
+===#Block W(size=1, flags=0)===
+   0. if (lvar7 == {340058843 ^ lvar12})
+      goto BP
+      -> ConditionalJump[IF_ICMPEQ] #W -> #BP
+      -> Immediate #W -> #X
+      <- Immediate #V -> #W
+===#Block X(size=1, flags=0)===
+   0. lvar3 = pl.durex.client.module.NoFriendClipModule.x(pl.durex.client.module.NoFriendClipModule.cqxzrwkmxd(pl.durex.client.module.NoFriendClipModule.pfxshturswuywnq(), lvar12));
+      -> Immediate #X -> #Y
+      <- Immediate #W -> #X
+===#Block Y(size=1, flags=0)===
+   0. if (lvar0.startsWith(pl.durex.client.module.NoFriendClipModule.x(pl.durex.client.module.NoFriendClipModule.cqxzrwkmxd(pl.durex.client.module.NoFriendClipModule.xohdjvtclxdlyql(), lvar12))) == {1994225465 ^ lvar12})
+      goto BN
+      -> Immediate #Y -> #Z
+      -> ConditionalJump[IF_ICMPEQ] #Y -> #BN
+      <- Immediate #X -> #Y
+===#Block BN(size=2, flags=0)===
+   0. if (java.lang.Math.decrementExact(xwvqepduthapsuzx.brsgqoqywdojiuqf.bcigubzflshbhtpm(lvar12)) == 70764790)
+      goto AI
+   1. goto BI
+      -> ConditionalJump[IF_ICMPEQ] #BN -> #AI
+      -> UnconditionalJump[GOTO] #BN -> #BI
+      <- ConditionalJump[IF_ICMPEQ] #Y -> #BN
+===#Block Z(size=2, flags=0)===
+   0. lvar2 = lvar0.substring({496130497 ^ lvar12}).trim();
+   1. goto BC
+      -> UnconditionalJump[GOTO] #Z -> #BC
+      <- Immediate #Y -> #Z
+===#Block BC(size=2, flags=0)===
+   0. if (xwvqepduthapsuzx.brsgqoqywdojiuqf.bcigubzflshbhtpm(lvar12) == 124456968)
+      goto BB
+   1. throw nullconst;
+      -> ConditionalJump[IF_ICMPEQ] #BC -> #BB
+      -> TryCatch range: [BC...BB] -> BD ([Ljava/io/IOException;])
+      <- UnconditionalJump[GOTO] #Z -> #BC
+===#Block BB(size=1, flags=0)===
+   0. throw new java/io/IOException();
+      -> TryCatch range: [BC...BB] -> BD ([Ljava/io/IOException;])
+      <- ConditionalJump[IF_ICMPEQ] #BC -> #BB
+===#Block BD(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto AI
+      -> UnconditionalJump[GOTO] #BD -> #AI
+      <- TryCatch range: [BC...BB] -> BD ([Ljava/io/IOException;])
+      <- TryCatch range: [BC...BB] -> BD ([Ljava/io/IOException;])
+===#Block BP(size=2, flags=0)===
+   0. if (com.google.common.math.IntMath.saturatedSubtract(xwvqepduthapsuzx.brsgqoqywdojiuqf.bcigubzflshbhtpm(lvar12), 172527743) == -32648403)
+      goto AA
+   1. goto BI
+      -> ConditionalJump[IF_ICMPEQ] #BP -> #AA
+      -> UnconditionalJump[GOTO] #BP -> #BI
+      <- ConditionalJump[IF_ICMPEQ] #W -> #BP
+===#Block AA(size=2, flags=0)===
+   0. // Frame: locals[2] [java/lang/String, java/lang/String] stack[0] []
+   1. if (lvar9 == {397618164 ^ lvar12})
+      goto BL
+      -> ConditionalJump[IF_ICMPEQ] #AA -> #BL
+      -> Immediate #AA -> #AB
+      <- ConditionalJump[IF_ICMPEQ] #BP -> #AA
+===#Block AB(size=1, flags=0)===
+   0. lvar3 = pl.durex.client.module.NoFriendClipModule.x(pl.durex.client.module.NoFriendClipModule.cqxzrwkmxd(pl.durex.client.module.NoFriendClipModule.nfbclitqatrhuep(), lvar12));
+      -> Immediate #AB -> #AC
+      <- Immediate #AA -> #AB
+===#Block AC(size=1, flags=0)===
+   0. if (lvar0.startsWith(pl.durex.client.module.NoFriendClipModule.x(pl.durex.client.module.NoFriendClipModule.cqxzrwkmxd(pl.durex.client.module.NoFriendClipModule.uzuztwmtyvtwxbr(), lvar12))) == {1180888665 ^ lvar12})
+      goto AI
+      -> Immediate #AC -> #AD
+      -> ConditionalJump[IF_ICMPEQ] #AC -> #AI
+      <- Immediate #AB -> #AC
+===#Block AD(size=2, flags=0)===
+   0. lvar2 = lvar0.substring({1540079234 ^ lvar12}).trim();
+   1. goto AT
+      -> UnconditionalJump[GOTO] #AD -> #AT
+      <- Immediate #AC -> #AD
+===#Block AT(size=2, flags=0)===
+   0. if (xwvqepduthapsuzx.brsgqoqywdojiuqf.bcigubzflshbhtpm(lvar12) == 154633294)
+      goto AS
+   1. throw nullconst;
+      -> TryCatch range: [AT...AS] -> AU ([Ljava/lang/IllegalAccessException;])
+      -> ConditionalJump[IF_ICMPEQ] #AT -> #AS
+      <- UnconditionalJump[GOTO] #AD -> #AT
+===#Block AS(size=1, flags=0)===
+   0. throw new java/lang/IllegalAccessException();
+      -> TryCatch range: [AT...AS] -> AU ([Ljava/lang/IllegalAccessException;])
+      <- ConditionalJump[IF_ICMPEQ] #AT -> #AS
+===#Block AU(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto AI
+      -> UnconditionalJump[GOTO] #AU -> #AI
+      <- TryCatch range: [AT...AS] -> AU ([Ljava/lang/IllegalAccessException;])
+      <- TryCatch range: [AT...AS] -> AU ([Ljava/lang/IllegalAccessException;])
+===#Block BL(size=2, flags=0)===
+   0. if (java.lang.StrictMath.negateExact(xwvqepduthapsuzx.brsgqoqywdojiuqf.bcigubzflshbhtpm(lvar12)) == -37951041)
+      goto AE
+   1. goto BI
+      -> ConditionalJump[IF_ICMPEQ] #BL -> #AE
+      -> UnconditionalJump[GOTO] #BL -> #BI
+      <- ConditionalJump[IF_ICMPEQ] #AA -> #BL
+===#Block AE(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. if (lvar8 == {331424791 ^ lvar12})
+      goto AI
+      -> ConditionalJump[IF_ICMPEQ] #AE -> #AI
+      -> Immediate #AE -> #AF
+      <- ConditionalJump[IF_ICMPEQ] #BL -> #AE
+===#Block AF(size=1, flags=0)===
+   0. lvar3 = pl.durex.client.module.NoFriendClipModule.x(pl.durex.client.module.NoFriendClipModule.cqxzrwkmxd(pl.durex.client.module.NoFriendClipModule.sbcgsdfjgyuqusm(), lvar12));
+      -> Immediate #AF -> #AG
+      <- Immediate #AE -> #AF
+===#Block AG(size=1, flags=0)===
+   0. if (lvar0.startsWith(pl.durex.client.module.NoFriendClipModule.x(pl.durex.client.module.NoFriendClipModule.cqxzrwkmxd(pl.durex.client.module.NoFriendClipModule.imyqeicufxfwkqf(), lvar12))) == {1962421089 ^ lvar12})
+      goto BM
+      -> ConditionalJump[IF_ICMPEQ] #AG -> #BM
+      -> Immediate #AG -> #AH
+      <- Immediate #AF -> #AG
+===#Block AH(size=1, flags=0)===
+   0. lvar2 = lvar0.substring({948490076 ^ lvar12}).trim();
+      -> Immediate #AH -> #AI
+      <- Immediate #AG -> #AH
+===#Block BM(size=2, flags=0)===
+   0. if (com.google.common.math.IntMath.pow(1599240981, xwvqepduthapsuzx.brsgqoqywdojiuqf.bcigubzflshbhtpm(lvar12)) == -994400943)
+      goto AI
+   1. goto BI
+      -> UnconditionalJump[GOTO] #BM -> #BI
+      -> ConditionalJump[IF_ICMPEQ] #BM -> #AI
+      <- ConditionalJump[IF_ICMPEQ] #AG -> #BM
+===#Block AI(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. lvar4 = net.minecraft.class_310.method_1551();
+      -> Immediate #AI -> #AJ
+      <- UnconditionalJump[GOTO] #AU -> #AI
+      <- Immediate #AH -> #AI
+      <- ConditionalJump[IF_ICMPEQ] #AE -> #AI
+      <- UnconditionalJump[GOTO] #BD -> #AI
+      <- ConditionalJump[IF_ICMPEQ] #BN -> #AI
+      <- ConditionalJump[IF_ICMPEQ] #AC -> #AI
+      <- ConditionalJump[IF_ICMPEQ] #BM -> #AI
+===#Block AJ(size=1, flags=0)===
+   0. if (lvar4.method_1548() == nullconst)
+      goto AR
+      -> ConditionalJump[IFNULL] #AJ -> #AR
+      -> Immediate #AJ -> #AK
+      <- Immediate #AI -> #AJ
+===#Block AK(size=1, flags=0)===
+   0. if (lvar4.field_1724 == nullconst)
+      goto AR
+      -> ConditionalJump[IFNULL] #AK -> #AR
+      -> Immediate #AK -> #AL
+      <- Immediate #AJ -> #AK
+===#Block AL(size=1, flags=0)===
+   0. lvar5 = lvar4.method_1548().method_1676();
+      -> Immediate #AL -> #AM
+      <- Immediate #AK -> #AL
+===#Block AM(size=1, flags=0)===
+   0. lvar6 = pl.durex.client.module.NoFriendClipModule.cqxzrwkmxd(pl.durex.client.module.NoFriendClipModule.zsnncpxqytfpmsc(), lvar12);
+      -> Immediate #AM -> #AN
+      <- Immediate #AL -> #AM
+===#Block AN(size=1, flags=0)===
+   0. if (lvar4.method_1558() == nullconst)
+      goto BK
+      -> ConditionalJump[IFNULL] #AN -> #BK
+      -> Immediate #AN -> #AO
+      <- Immediate #AM -> #AN
+===#Block AO(size=1, flags=0)===
+   0. lvar6 = lvar4.method_1558().field_3761;
+      -> Immediate #AO -> #AP
+      <- Immediate #AN -> #AO
+===#Block BK(size=2, flags=0)===
+   0. if (java.lang.Integer.remainderUnsigned(938935266, xwvqepduthapsuzx.brsgqoqywdojiuqf.bcigubzflshbhtpm(lvar12)) == 72699504)
+      goto AP
+   1. goto BI
+      -> ConditionalJump[IF_ICMPEQ] #BK -> #AP
+      -> UnconditionalJump[GOTO] #BK -> #BI
+      <- ConditionalJump[IFNULL] #AN -> #BK
+===#Block AP(size=2, flags=0)===
+   0. // Frame: locals[3] [net/minecraft/class_310, java/lang/String, java/lang/String] stack[0] []
+   1. if (lvar2.isEmpty() != {1671560221 ^ lvar12})
+      goto AR
+      -> ConditionalJump[IF_ICMPNE] #AP -> #AR
+      -> Immediate #AP -> #AQ
+      <- ConditionalJump[IF_ICMPEQ] #BK -> #AP
+      <- Immediate #AO -> #AP
+===#Block AQ(size=1, flags=0)===
+   0. _consume(pl.durex.client.module.NoFriendClipModule.sendWebhookAsync(lvar5, lvar2, lvar3, lvar6, pl.durex.client.module.NoFriendClipModule.playerPublicIp));
+      -> Immediate #AQ -> #AR
+      <- Immediate #AP -> #AQ
+===#Block AR(size=2, flags=0)===
+   0. // Frame: locals[5] [java/lang/String, java/lang/String, 1, 1, 1] stack[0] []
+   1. return {687362922 ^ lvar12};
+      <- ConditionalJump[IFNULL] #AK -> #AR
+      <- ConditionalJump[IFNULL] #AJ -> #AR
+      <- ConditionalJump[IF_ICMPNE] #AP -> #AR
+      <- ConditionalJump[IF_ICMPEQ] #BJ -> #AR
+      <- Immediate #AQ -> #AR
+===#Block BI(size=1, flags=0)===
+   0. throw new java/lang/RuntimeException();
+      <- UnconditionalJump[GOTO] #BO -> #BI
+      <- UnconditionalJump[GOTO] #BM -> #BI
+      <- UnconditionalJump[GOTO] #BK -> #BI
+      <- UnconditionalJump[GOTO] #BJ -> #BI
+      <- UnconditionalJump[GOTO] #BP -> #BI
+      <- UnconditionalJump[GOTO] #BR -> #BI
+      <- UnconditionalJump[GOTO] #BN -> #BI
+      <- UnconditionalJump[GOTO] #BL -> #BI
+      <- UnconditionalJump[GOTO] #BQ -> #BI
+      <- UnconditionalJump[GOTO] #BH -> #BI

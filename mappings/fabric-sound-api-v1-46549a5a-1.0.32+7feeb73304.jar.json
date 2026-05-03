@@ -1,0 +1,173 @@
+{
+  "name": "fabric-sound-api-v1-46549a5a-1.0.32+7feeb73304.jar",
+  "md5": "79e92ab10b6822f29d57c1e43ce69a19",
+  "sha2": "59d619347ff349a9e267ec3864d61de91c32f366",
+  "sha256": "1d71698bab14f219d3434be3ad0be34e21f7deee316844e6def3388d6932830e",
+  "contents": {
+    "classes": {
+      "net/fabricmc/fabric/api/client/sound/v1/FabricSoundInstance.class": {
+        "ver": 65,
+        "acc": 1537,
+        "nme": "net/fabricmc/fabric/api/client/sound/v1/FabricSoundInstance",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "getAudioStream",
+            "acc": 1,
+            "dsc": "(Lnet/minecraft/client/sound/SoundLoader;Lnet/minecraft/util/Identifier;Z)Ljava/util/concurrent/CompletableFuture;",
+            "sig": "(Lnet/minecraft/client/sound/SoundLoader;Lnet/minecraft/util/Identifier;Z)Ljava/util/concurrent/CompletableFuture<Lnet/minecraft/client/sound/AudioStream;>;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "EMPTY_SOUND",
+            "dsc": "Lnet/minecraft/util/Identifier;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Lnet/fabricmc/api/Environment;",
+            "vals": [
+              "value",
+              [
+                "Lnet/fabricmc/api/EnvType;",
+                "CLIENT"
+              ]
+            ]
+          }
+        ]
+      },
+      "net/fabricmc/fabric/mixin/client/sound/SoundSystemMixin.class": {
+        "ver": 65,
+        "acc": 33,
+        "nme": "net/fabricmc/fabric/mixin/client/sound/SoundSystemMixin",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "getStream",
+            "acc": 2,
+            "dsc": "(Lnet/minecraft/client/sound/SoundLoader;Lnet/minecraft/util/Identifier;ZLnet/minecraft/client/sound/SoundInstance;)Ljava/util/concurrent/CompletableFuture;",
+            "sig": "(Lnet/minecraft/client/sound/SoundLoader;Lnet/minecraft/util/Identifier;ZLnet/minecraft/client/sound/SoundInstance;)Ljava/util/concurrent/CompletableFuture<*>;",
+            "vanns": [
+              {
+                "dsc": "Lorg/spongepowered/asm/mixin/injection/Redirect;",
+                "vals": [
+                  "method",
+                  [
+                    "play(Lnet/minecraft/client/sound/SoundInstance;)V"
+                  ],
+                  "at",
+                  {
+                    "desc": "Lorg/spongepowered/asm/mixin/injection/At;",
+                    "values": [
+                      "value",
+                      "INVOKE",
+                      "target",
+                      "Lnet/minecraft/client/sound/SoundLoader;loadStreamed(Lnet/minecraft/util/Identifier;Z)Ljava/util/concurrent/CompletableFuture;"
+                    ],
+                    "api": 589824
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Lnet/fabricmc/api/Environment;",
+            "vals": [
+              "value",
+              [
+                "Lnet/fabricmc/api/EnvType;",
+                "CLIENT"
+              ]
+            ]
+          }
+        ],
+        "invanns": [
+          {
+            "dsc": "Lorg/spongepowered/asm/mixin/Mixin;",
+            "vals": [
+              "value",
+              [
+                {
+                  "itrlNme": "net/minecraft/client/sound/SoundSystem"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "net/fabricmc/fabric/mixin/client/sound/package-info.class": {
+        "ver": 65,
+        "acc": 5632,
+        "nme": "net/fabricmc/fabric/mixin/client/sound/package-info",
+        "super": "java/lang/Object",
+        "mthds": [],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Lnet/fabricmc/api/Environment;",
+            "vals": [
+              "value",
+              [
+                "Lnet/fabricmc/api/EnvType;",
+                "CLIENT"
+              ]
+            ]
+          }
+        ],
+        "invanns": [
+          {
+            "dsc": "Lorg/jetbrains/annotations/ApiStatus$Internal;"
+          }
+        ]
+      },
+      "net/fabricmc/fabric/mixin/client/sound/SoundInstanceMixin.class": {
+        "ver": 65,
+        "acc": 1537,
+        "nme": "net/fabricmc/fabric/mixin/client/sound/SoundInstanceMixin",
+        "super": "java/lang/Object",
+        "mthds": [],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Lnet/fabricmc/api/Environment;",
+            "vals": [
+              "value",
+              [
+                "Lnet/fabricmc/api/EnvType;",
+                "CLIENT"
+              ]
+            ]
+          }
+        ],
+        "invanns": [
+          {
+            "dsc": "Lorg/spongepowered/asm/mixin/Mixin;",
+            "vals": [
+              "value",
+              [
+                {
+                  "itrlNme": "net/minecraft/client/sound/SoundInstance"
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

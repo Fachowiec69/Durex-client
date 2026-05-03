@@ -1,0 +1,32 @@
+===#Block A(size=4, flags=1)===
+   0. lvar7 = {191576177 ^ {1374476540 ^ 1475628666}};
+   1. synth(lvar0 = lvar0);
+   2. synth(lvar1 = lvar1);
+   3. lvar7 = {989142234 ^ lvar7};
+      -> Immediate #A -> #B
+===#Block B(size=2, flags=0)===
+   0. lvar2 = lvar1.method_5667();
+   1. lvar7 = {1200916981 ^ lvar7};
+      -> Immediate #B -> #C
+      <- Immediate #A -> #B
+===#Block C(size=2, flags=0)===
+   0. if (lvar0.friends.contains(lvar2) == {1880243160 ^ lvar7})
+      goto G
+   1. lvar7 = {1213964897 ^ lvar7};
+      -> ConditionalJump[IF_ICMPEQ] #C -> #G
+      -> Immediate #C -> #D
+      <- Immediate #B -> #C
+===#Block D(size=2, flags=0)===
+   0. lvar3 = lvar0.friends.remove(lvar2);
+   1. return {944347577 ^ lvar7};
+      <- Immediate #C -> #D
+===#Block G(size=2, flags=10100)===
+   0. lvar7 = pl.durex.client.module.FriendModule.iukltpudfmdcrhxf(lvar7, 316987379);
+   1. goto E
+      -> UnconditionalJump[GOTO] #G -> #E
+      <- ConditionalJump[IF_ICMPEQ] #C -> #G
+===#Block E(size=3, flags=0)===
+   0. // Frame: locals[1] [java/util/UUID] stack[0] []
+   1. lvar4 = lvar0.friends.add(lvar2);
+   2. return {1660349482 ^ lvar7};
+      <- UnconditionalJump[GOTO] #G -> #E

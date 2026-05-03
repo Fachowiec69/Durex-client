@@ -1,0 +1,127 @@
+===#Block A(size=4, flags=1)===
+   0. lvar7 = {775054265 ^ {656035899 ^ 894730492}};
+   1. synth(lvar0 = lvar0);
+   2. synth(lvar1 = lvar1);
+   3. lvar7 = {1602397328 ^ lvar7};
+      -> Immediate #A -> #B
+===#Block B(size=2, flags=0)===
+   0. lvar2 = lvar1.field_1724;
+   1. lvar7 = {2096190214 ^ lvar7};
+      -> Immediate #B -> #C
+      <- Immediate #A -> #B
+===#Block C(size=2, flags=0)===
+   0. if (lvar1.field_1724 == nullconst)
+      goto M
+   1. lvar7 = {951215875 ^ lvar7};
+      -> Immediate #C -> #D
+      -> ConditionalJump[IFNULL] #C -> #M
+      <- Immediate #B -> #C
+===#Block M(size=1, flags=10100)===
+   0. switch (gkmbqssbqllpewke.rxutauxymyrwzcfy.axajezisknuzpeqe(lvar7)) {
+      case 204311182:
+      	 goto	#N
+      case 562276952:
+      	 goto	#K
+      case 594540649:
+      	 goto	#M
+      case 772895811:
+      	 goto	#O
+      default:
+      	 goto	#O
+   }
+      -> Immediate #M -> #N
+      -> Switch[562276952] #M -> #K
+      -> DefaultSwitch #M -> #O
+      -> Switch[204311182] #M -> #N
+      -> Switch[772895811] #M -> #O
+      -> Switch[594540649] #M -> #M
+      <- ConditionalJump[IFNULL] #C -> #M
+      <- Switch[594540649] #M -> #M
+===#Block N(size=2, flags=100)===
+   0. lvar7 = {926465518 ^ lvar7};
+   1. goto K
+      -> UnconditionalJump[GOTO] #N -> #K
+      <- Immediate #M -> #N
+      <- Switch[204311182] #M -> #N
+===#Block D(size=2, flags=0)===
+   0. if (lvar1.field_1761 != nullconst)
+      goto P
+   1. lvar7 = {260758253 ^ lvar7};
+      -> Immediate #D -> #K
+      -> ConditionalJump[IFNONNULL] #D -> #P
+      <- Immediate #C -> #D
+===#Block P(size=1, flags=10100)===
+   0. switch (gkmbqssbqllpewke.rxutauxymyrwzcfy.axajezisknuzpeqe(lvar7)) {
+      case 217993770:
+      	 goto	#Q
+      case 295405858:
+      	 goto	#P
+      case 1736068733:
+      	 goto	#O
+      case 1845137615:
+      	 goto	#E
+      default:
+      	 goto	#O
+   }
+      -> Switch[1736068733] #P -> #O
+      -> Switch[217993770] #P -> #Q
+      -> Switch[295405858] #P -> #P
+      -> Switch[1845137615] #P -> #E
+      -> Immediate #P -> #Q
+      -> DefaultSwitch #P -> #O
+      <- Switch[295405858] #P -> #P
+      <- ConditionalJump[IFNONNULL] #D -> #P
+===#Block Q(size=2, flags=100)===
+   0. lvar7 = {817011233 ^ lvar7};
+   1. goto E
+      -> UnconditionalJump[GOTO] #Q -> #E
+      <- Switch[217993770] #P -> #Q
+      <- Immediate #P -> #Q
+===#Block E(size=3, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. lvar3 = lvar0.findPreferredTarget(lvar1);
+   2. lvar7 = {630705096 ^ lvar7};
+      -> Immediate #E -> #F
+      <- Switch[1845137615] #P -> #E
+      <- UnconditionalJump[GOTO] #Q -> #E
+===#Block F(size=2, flags=0)===
+   0. if (lvar3 != nullconst)
+      goto R
+   1. lvar7 = {1823008013 ^ lvar7};
+      -> ConditionalJump[IFNONNULL] #F -> #R
+      -> Immediate #F -> #G
+      <- Immediate #E -> #F
+===#Block G(size=1, flags=0)===
+   0. return {1580242703 ^ lvar7};
+      <- Immediate #F -> #G
+===#Block R(size=2, flags=10100)===
+   0. lvar7 = {1485036528 ^ lvar7};
+   1. goto H
+      -> UnconditionalJump[GOTO] #R -> #H
+      <- ConditionalJump[IFNONNULL] #F -> #R
+===#Block H(size=3, flags=0)===
+   0. // Frame: locals[1] [net/minecraft/class_1297] stack[0] []
+   1. lvar4 = lvar1.field_1761.method_2905(lvar2, lvar3, net.minecraft.class_1268.field_5808);
+   2. lvar7 = {1253711409 ^ lvar7};
+      -> Immediate #H -> #I
+      <- UnconditionalJump[GOTO] #R -> #H
+===#Block I(size=2, flags=0)===
+   0. _consume(lvar2.method_6104(net.minecraft.class_1268.field_5808));
+   1. lvar7 = {1452121405 ^ lvar7};
+      -> Immediate #I -> #J
+      <- Immediate #H -> #I
+===#Block J(size=1, flags=0)===
+   0. return {1982606079 ^ lvar7};
+      <- Immediate #I -> #J
+===#Block O(size=1, flags=0)===
+   0. throw new java/lang/IllegalAccessException();
+      <- Switch[1736068733] #P -> #O
+      <- DefaultSwitch #M -> #O
+      <- Switch[772895811] #M -> #O
+      <- DefaultSwitch #P -> #O
+===#Block K(size=2, flags=0)===
+   0. // Frame: locals[1] [net/minecraft/class_746] stack[0] []
+   1. return {674756870 ^ lvar7};
+      <- Switch[562276952] #M -> #K
+      <- Immediate #D -> #K
+      <- UnconditionalJump[GOTO] #N -> #K

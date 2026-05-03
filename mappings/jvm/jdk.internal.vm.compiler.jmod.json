@@ -1,0 +1,17 @@
+{
+  "name": "jdk.internal.vm.compiler.jmod",
+  "md5": "925871d8e421138d79c54fea0c7da884",
+  "sha2": "50fef19018d1b1e6fdb9da7af91eb981410cbfd6",
+  "sha256": "27646e60d207517bef70bdd5b59bf4cacc9cbc4f81dee44e012754313ae18c50",
+  "contents": {
+    "classes": {
+      "classes/module-info.class": {
+        "ver": 65,
+        "acc": 32768,
+        "nme": "module-info",
+        "mthds": [],
+        "flds": []
+      }
+    }
+  }
+}

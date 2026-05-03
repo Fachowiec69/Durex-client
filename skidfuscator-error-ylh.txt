@@ -1,0 +1,115 @@
+handler=Block #Q, types=[Ljava/io/IOException;], range=[Block #I, Block #H]
+===#Block A(size=4, flags=1)===
+   0. lvar5 = {652454563 ^ {1934221037 ^ 1989002485}};
+   1. synth(lvar0 = lvar0);
+   2. synth(lvar1 = lvar1);
+   3. lvar5 = {612413367 ^ lvar5};
+      -> Immediate #A -> #B
+===#Block B(size=2, flags=0)===
+   0. if (lvar0.enabled == {128392972 ^ lvar5})
+      goto N
+   1. lvar5 = {1353197297 ^ lvar5};
+      -> Immediate #B -> #C
+      -> ConditionalJump[IF_ICMPEQ] #B -> #N
+      <- Immediate #A -> #B
+===#Block N(size=2, flags=10100)===
+   0. lvar5 = pl.durex.client.module.AntiKowalModule.ailzycctiyznljld(lvar5, 946707809);
+   1. goto F
+      -> UnconditionalJump[GOTO] #N -> #F
+      <- ConditionalJump[IF_ICMPEQ] #B -> #N
+===#Block C(size=2, flags=0)===
+   0. if (lvar0.hidePlayers == {1460615677 ^ lvar5})
+      goto P
+   1. lvar5 = {1782325593 ^ lvar5};
+      -> ConditionalJump[IF_ICMPEQ] #C -> #P
+      -> Immediate #C -> #D
+      <- Immediate #B -> #C
+===#Block D(size=2, flags=0)===
+   0. if (sdk.SDK.checkType(lvar1, "-6239400535200012029", {146791833 ^ lvar5}) == {1026758820 ^ lvar5})
+      goto O
+   1. lvar5 = {1127080362 ^ lvar5};
+      -> Immediate #D -> #E
+      -> ConditionalJump[IF_ICMPEQ] #D -> #O
+      <- Immediate #C -> #D
+===#Block O(size=2, flags=10100)===
+   0. lvar5 = {49912521 ^ lvar5};
+   1. goto F
+      -> UnconditionalJump[GOTO] #O -> #F
+      <- ConditionalJump[IF_ICMPEQ] #D -> #O
+===#Block E(size=2, flags=0)===
+   0. lvar2 = {2115959055 ^ lvar5};
+   1. goto M
+      -> UnconditionalJump[GOTO] #E -> #M
+      <- Immediate #D -> #E
+===#Block M(size=2, flags=10100)===
+   0. lvar5 = pl.durex.client.module.AntiKowalModule.ailzycctiyznljld(lvar5, 180044904);
+   1. goto I
+      -> UnconditionalJump[GOTO] #M -> #I
+      <- UnconditionalJump[GOTO] #E -> #M
+===#Block I(size=2, flags=0)===
+   0. if (xwvqepduthapsuzx.brsgqoqywdojiuqf.bcigubzflshbhtpm(lvar5) == 33647184)
+      goto H
+   1. throw nullconst;
+      -> ConditionalJump[IF_ICMPEQ] #I -> #H
+      -> TryCatch range: [I...H] -> Q ([Ljava/io/IOException;])
+      <- UnconditionalJump[GOTO] #M -> #I
+===#Block H(size=1, flags=0)===
+   0. throw new java/io/IOException();
+      -> TryCatch range: [I...H] -> Q ([Ljava/io/IOException;])
+      <- ConditionalJump[IF_ICMPEQ] #I -> #H
+===#Block Q(size=1, flags=0)===
+   0. switch (xwvqepduthapsuzx.brsgqoqywdojiuqf.xnzmcdwyoeyojuug(lvar5)) {
+      case -1523717325:
+      	 goto	#R
+      case 1568869872:
+      	 goto	#S
+      default:
+      	 goto	#T
+   }
+      -> DefaultSwitch #Q -> #T
+      -> Switch[1568869872] #Q -> #S
+      -> Switch[-1523717325] #Q -> #R
+      <- TryCatch range: [I...H] -> Q ([Ljava/io/IOException;])
+      <- TryCatch range: [I...H] -> Q ([Ljava/io/IOException;])
+===#Block R(size=2, flags=10100)===
+   0. lvar5 = {2039931740 ^ lvar5};
+   1. goto J
+      -> UnconditionalJump[GOTO] #R -> #J
+      <- Switch[-1523717325] #Q -> #R
+===#Block S(size=2, flags=10100)===
+   0. lvar5 = {109264772 ^ lvar5};
+   1. goto J
+      -> UnconditionalJump[GOTO] #S -> #J
+      <- Switch[1568869872] #Q -> #S
+===#Block J(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto L
+      -> UnconditionalJump[GOTO] #J -> #L
+      <- UnconditionalJump[GOTO] #R -> #J
+      <- UnconditionalJump[GOTO] #S -> #J
+===#Block L(size=2, flags=10100)===
+   0. lvar5 = pl.durex.client.module.AntiKowalModule.ailzycctiyznljld(lvar5, 1407587573);
+   1. goto G
+      -> UnconditionalJump[GOTO] #L -> #G
+      <- UnconditionalJump[GOTO] #J -> #L
+===#Block T(size=1, flags=0)===
+   0. throw new java/lang/RuntimeException("Error in hash");
+      <- DefaultSwitch #Q -> #T
+===#Block P(size=2, flags=10100)===
+   0. lvar5 = {1757789072 ^ lvar5};
+   1. goto F
+      -> UnconditionalJump[GOTO] #P -> #F
+      <- ConditionalJump[IF_ICMPEQ] #C -> #P
+===#Block F(size=3, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. lvar2 = {1070236269 ^ lvar5};
+   2. lvar5 = {1629472930 ^ lvar5};
+      -> Immediate #F -> #G
+      <- UnconditionalJump[GOTO] #P -> #F
+      <- UnconditionalJump[GOTO] #O -> #F
+      <- UnconditionalJump[GOTO] #N -> #F
+===#Block G(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[1] [1]
+   1. return lvar2;
+      <- UnconditionalJump[GOTO] #L -> #G
+      <- Immediate #F -> #G

@@ -1,0 +1,17 @@
+{
+  "name": "lwjgl-tinyfd-3.3.3-natives-linux.jar",
+  "md5": "36797f4097de3e127cefc1ed5aa09f02",
+  "sha2": "d8d58daa0c3e5fd906fee96f5fddbcbc07cc308b",
+  "sha256": "a076fa05a4d174762eab5852ee72c29d14ab10a5654f27fb00664ef1b52c0c05",
+  "contents": {
+    "classes": {
+      "META-INF/versions/9/module-info.class": {
+        "ver": 53,
+        "acc": 32768,
+        "nme": "module-info",
+        "mthds": [],
+        "flds": []
+      }
+    }
+  }
+}

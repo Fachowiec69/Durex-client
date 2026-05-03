@@ -1,0 +1,336 @@
+handler=Block #AS, types=[Ljava/lang/RuntimeException;], range=[Block #Y, Block #X]
+handler=Block #AW, types=[Ljava/lang/RuntimeException;], range=[Block #AB, Block #AA]
+===#Block A(size=4, flags=1)===
+   0. lvar10 = {1081359091 ^ {214514329 ^ 962011426}};
+   1. synth(lvar0 = lvar0);
+   2. synth(lvar1 = lvar1);
+   3. lvar10 = {2307552 ^ lvar10};
+      -> Immediate #A -> #B
+===#Block B(size=2, flags=0)===
+   0. if (lvar0.enabled == {1976112296 ^ lvar10})
+      goto AQ
+   1. lvar10 = {2144289696 ^ lvar10};
+      -> Immediate #B -> #C
+      -> ConditionalJump[IF_ICMPEQ] #B -> #AQ
+      <- Immediate #A -> #B
+===#Block AQ(size=2, flags=10100)===
+   0. lvar10 = {433730291 ^ lvar10};
+   1. goto V
+      -> UnconditionalJump[GOTO] #AQ -> #V
+      <- ConditionalJump[IF_ICMPEQ] #B -> #AQ
+===#Block C(size=2, flags=0)===
+   0. if (lvar1.field_1724 == nullconst)
+      goto AJ
+   1. lvar10 = {654247393 ^ lvar10};
+      -> Immediate #C -> #D
+      -> ConditionalJump[IFNULL] #C -> #AJ
+      <- Immediate #B -> #C
+===#Block AJ(size=2, flags=10100)===
+   0. lvar10 = pl.durex.client.module.FriendModule.toxkujdjidggrkxm(lvar10, 1712681299);
+   1. goto V
+      -> UnconditionalJump[GOTO] #AJ -> #V
+      <- ConditionalJump[IFNULL] #C -> #AJ
+===#Block D(size=2, flags=0)===
+   0. if (lvar1.field_1687 == nullconst)
+      goto AM
+   1. lvar10 = {1407616850 ^ lvar10};
+      -> ConditionalJump[IFNULL] #D -> #AM
+      -> Immediate #D -> #E
+      <- Immediate #C -> #D
+===#Block E(size=2, flags=0)===
+   0. if (lvar1.field_1765 != nullconst)
+      goto AR
+   1. lvar10 = {319615968 ^ lvar10};
+      -> ConditionalJump[IFNONNULL] #E -> #AR
+      -> Immediate #E -> #V
+      <- Immediate #D -> #E
+===#Block AR(size=2, flags=10100)===
+   0. lvar10 = {2093003348 ^ lvar10};
+   1. goto F
+      -> UnconditionalJump[GOTO] #AR -> #F
+      <- ConditionalJump[IFNONNULL] #E -> #AR
+===#Block F(size=3, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. if (sdk.SDK.checkType(lvar1.field_1765, "-7406617600839183966", {58552972 ^ lvar10}) == {64972783 ^ lvar10})
+      goto AO
+   2. lvar10 = {252601190 ^ lvar10};
+      -> ConditionalJump[IF_ICMPEQ] #F -> #AO
+      -> Immediate #F -> #G
+      <- UnconditionalJump[GOTO] #AR -> #F
+===#Block G(size=1, flags=0)===
+   0. lvar10 = {2058228841 ^ lvar10};
+      -> Immediate #G -> #H
+      <- Immediate #F -> #G
+===#Block H(size=2, flags=0)===
+   0. lvar7 = ((net.minecraft.class_3966)lvar1.field_1765).method_17782();
+   1. lvar10 = {847303328 ^ lvar10};
+      -> Immediate #H -> #I
+      <- Immediate #G -> #H
+===#Block I(size=2, flags=0)===
+   0. if (sdk.SDK.checkType(lvar7, "2417852080636999357", {1147000611 ^ lvar10}) != {1157612096 ^ lvar10})
+      goto AK
+   1. lvar10 = {1124670106 ^ lvar10};
+      -> Immediate #I -> #J
+      -> ConditionalJump[IF_ICMPNE] #I -> #AK
+      <- Immediate #H -> #I
+===#Block AK(size=2, flags=10100)===
+   0. lvar10 = pl.durex.client.module.FriendModule.toxkujdjidggrkxm(lvar10, 1492836531);
+   1. goto K
+      -> UnconditionalJump[GOTO] #AK -> #K
+      <- ConditionalJump[IF_ICMPNE] #I -> #AK
+===#Block K(size=3, flags=0)===
+   0. // Frame: locals[2] [net/minecraft/class_3966, net/minecraft/class_1297] stack[0] []
+   1. lvar2 = lvar0.toggle(lvar7);
+   2. lvar10 = {1239572257 ^ lvar10};
+      -> Immediate #K -> #L
+      <- UnconditionalJump[GOTO] #AK -> #K
+===#Block L(size=2, flags=0)===
+   0. lvar3 = lvar7.method_5477().getString();
+   1. lvar10 = {702706709 ^ lvar10};
+      -> Immediate #L -> #M
+      <- Immediate #K -> #L
+===#Block M(size=2, flags=0)===
+   0. if (sdk.SDK.checkType(lvar7, "523284222813444853", {2091326628 ^ lvar10}) == {2080704967 ^ lvar10})
+      goto AL
+   1. lvar10 = {1528825232 ^ lvar10};
+      -> Immediate #M -> #O
+      -> ConditionalJump[IF_ICMPEQ] #M -> #AL
+      <- Immediate #L -> #M
+===#Block AL(size=2, flags=10100)===
+   0. lvar10 = {836107640 ^ lvar10};
+   1. goto N
+      -> UnconditionalJump[GOTO] #AL -> #N
+      <- ConditionalJump[IF_ICMPEQ] #M -> #AL
+===#Block N(size=3, flags=0)===
+   0. // Frame: locals[2] [1, java/lang/String] stack[0] []
+   1. lvar5 = pl.durex.client.module.FriendModule.ebymgsvzfz(pl.durex.client.module.FriendModule.ryrzldcfzitfuhu(), pl.durex.client.module.FriendModule.skbljjngiqkxexu(), lvar10);
+   2. lvar10 = {78987887 ^ lvar10};
+      -> Immediate #N -> #P
+      <- UnconditionalJump[GOTO] #AL -> #N
+===#Block O(size=2, flags=0)===
+   0. lvar5 = pl.durex.client.module.FriendModule.ebymgsvzfz(pl.durex.client.module.FriendModule.lsdhnlchrysbknf(), pl.durex.client.module.FriendModule.skbljjngiqkxexu(), lvar10);
+   1. goto AE
+      -> UnconditionalJump[GOTO] #O -> #AE
+      <- Immediate #M -> #O
+===#Block AE(size=2, flags=10100)===
+   0. lvar10 = pl.durex.client.module.FriendModule.toxkujdjidggrkxm(lvar10, 272870852);
+   1. goto Y
+      -> UnconditionalJump[GOTO] #AE -> #Y
+      <- UnconditionalJump[GOTO] #O -> #AE
+===#Block Y(size=2, flags=0)===
+   0. if (mnntxzybtgzxkcdx.juaxxcqugyybnazs.ixibojifbjufzxuc(lvar10) == 190246506)
+      goto X
+   1. throw nullconst;
+      -> ConditionalJump[IF_ICMPEQ] #Y -> #X
+      -> TryCatch range: [Y...X] -> AS ([Ljava/lang/RuntimeException;])
+      <- UnconditionalJump[GOTO] #AE -> #Y
+===#Block X(size=1, flags=0)===
+   0. throw new java/lang/RuntimeException();
+      -> TryCatch range: [Y...X] -> AS ([Ljava/lang/RuntimeException;])
+      <- ConditionalJump[IF_ICMPEQ] #Y -> #X
+===#Block AS(size=1, flags=0)===
+   0. switch (mnntxzybtgzxkcdx.juaxxcqugyybnazs.ckmosqpappiyjjfr(lvar10)) {
+      case -1503334046:
+      	 goto	#AU
+      case -1154151271:
+      	 goto	#AT
+      default:
+      	 goto	#AV
+   }
+      -> Switch[-1154151271] #AS -> #AT
+      -> DefaultSwitch #AS -> #AV
+      -> Switch[-1503334046] #AS -> #AU
+      <- TryCatch range: [Y...X] -> AS ([Ljava/lang/RuntimeException;])
+      <- TryCatch range: [Y...X] -> AS ([Ljava/lang/RuntimeException;])
+===#Block AU(size=2, flags=10100)===
+   0. lvar10 = pl.durex.client.module.FriendModule.toxkujdjidggrkxm(lvar10, 2012843033);
+   1. goto Z
+      -> UnconditionalJump[GOTO] #AU -> #Z
+      <- Switch[-1503334046] #AS -> #AU
+===#Block AV(size=1, flags=0)===
+   0. throw new java/lang/RuntimeException("Error in hash");
+      <- DefaultSwitch #AS -> #AV
+===#Block AT(size=2, flags=10100)===
+   0. lvar10 = {341029798 ^ lvar10};
+   1. goto Z
+      -> UnconditionalJump[GOTO] #AT -> #Z
+      <- Switch[-1154151271] #AS -> #AT
+===#Block Z(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto AD
+      -> UnconditionalJump[GOTO] #Z -> #AD
+      <- UnconditionalJump[GOTO] #AT -> #Z
+      <- UnconditionalJump[GOTO] #AU -> #Z
+===#Block AD(size=2, flags=10100)===
+   0. lvar10 = {1783669989 ^ lvar10};
+   1. goto P
+      -> UnconditionalJump[GOTO] #AD -> #P
+      <- UnconditionalJump[GOTO] #Z -> #AD
+===#Block P(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[1] [java/lang/String]
+   1. lvar10 = {1356029589 ^ lvar10};
+      -> Immediate #P -> #Q
+      <- UnconditionalJump[GOTO] #AD -> #P
+      <- Immediate #N -> #P
+===#Block Q(size=3, flags=0)===
+   0. lvar4 = lvar1.field_1724;
+   1. if (lvar2 == {431417413 ^ lvar10})
+      goto AP
+   2. lvar10 = {1922022287 ^ lvar10};
+      -> ConditionalJump[IF_ICMPEQ] #Q -> #AP
+      -> Immediate #Q -> #R
+      <- Immediate #P -> #Q
+===#Block R(size=2, flags=0)===
+   0. lvar6 = dynamic_invoke<java.lang.String>(java.lang.invoke.StringConcatFactory.makeConcatWithConstants("§a[Durex] Dodales  §d§a do configu", lvar5, lvar3));
+   1. goto AG
+      -> UnconditionalJump[GOTO] #R -> #AG
+      <- Immediate #Q -> #R
+===#Block AG(size=1, flags=10100)===
+   0. switch (mnntxzybtgzxkcdx.juaxxcqugyybnazs.ixibojifbjufzxuc(lvar10)) {
+      case 264206702:
+      	 goto	#AH
+      case 593873605:
+      	 goto	#AB
+      case 680891370:
+      	 goto	#AI
+      case 1084640985:
+      	 goto	#AG
+      default:
+      	 goto	#AI
+   }
+      -> Immediate #AG -> #AH
+      -> Switch[680891370] #AG -> #AI
+      -> DefaultSwitch #AG -> #AI
+      -> Switch[1084640985] #AG -> #AG
+      -> Switch[264206702] #AG -> #AH
+      -> Switch[593873605] #AG -> #AB
+      <- Switch[1084640985] #AG -> #AG
+      <- UnconditionalJump[GOTO] #R -> #AG
+===#Block AH(size=2, flags=100)===
+   0. lvar10 = {254723486 ^ lvar10};
+   1. goto AB
+      -> UnconditionalJump[GOTO] #AH -> #AB
+      <- Immediate #AG -> #AH
+      <- Switch[264206702] #AG -> #AH
+===#Block AB(size=2, flags=0)===
+   0. if (mnntxzybtgzxkcdx.juaxxcqugyybnazs.ixibojifbjufzxuc(lvar10) == 32364373)
+      goto AA
+   1. throw nullconst;
+      -> ConditionalJump[IF_ICMPEQ] #AB -> #AA
+      -> TryCatch range: [AB...AA] -> AW ([Ljava/lang/RuntimeException;])
+      <- UnconditionalJump[GOTO] #AH -> #AB
+      <- Switch[593873605] #AG -> #AB
+===#Block AA(size=1, flags=0)===
+   0. throw new java/lang/RuntimeException();
+      -> TryCatch range: [AB...AA] -> AW ([Ljava/lang/RuntimeException;])
+      <- ConditionalJump[IF_ICMPEQ] #AB -> #AA
+===#Block AW(size=1, flags=0)===
+   0. switch (mnntxzybtgzxkcdx.juaxxcqugyybnazs.ckmosqpappiyjjfr(lvar10)) {
+      case 549237411:
+      	 goto	#AX
+      case 991851120:
+      	 goto	#AY
+      default:
+      	 goto	#AZ
+   }
+      -> DefaultSwitch #AW -> #AZ
+      -> Switch[549237411] #AW -> #AX
+      -> Switch[991851120] #AW -> #AY
+      <- TryCatch range: [AB...AA] -> AW ([Ljava/lang/RuntimeException;])
+      <- TryCatch range: [AB...AA] -> AW ([Ljava/lang/RuntimeException;])
+===#Block AY(size=2, flags=10100)===
+   0. lvar10 = {709878224 ^ lvar10};
+   1. goto AC
+      -> UnconditionalJump[GOTO] #AY -> #AC
+      <- Switch[991851120] #AW -> #AY
+===#Block AX(size=2, flags=10100)===
+   0. lvar10 = {1228650954 ^ lvar10};
+   1. goto AC
+      -> UnconditionalJump[GOTO] #AX -> #AC
+      <- Switch[549237411] #AW -> #AX
+===#Block AC(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto AF
+      -> UnconditionalJump[GOTO] #AC -> #AF
+      <- UnconditionalJump[GOTO] #AY -> #AC
+      <- UnconditionalJump[GOTO] #AX -> #AC
+===#Block AF(size=2, flags=10100)===
+   0. lvar10 = {229003315 ^ lvar10};
+   1. goto T
+      -> UnconditionalJump[GOTO] #AF -> #T
+      <- UnconditionalJump[GOTO] #AC -> #AF
+===#Block AZ(size=1, flags=0)===
+   0. throw new java/lang/RuntimeException("Error in hash");
+      <- DefaultSwitch #AW -> #AZ
+===#Block AP(size=2, flags=10100)===
+   0. lvar10 = {176061112 ^ lvar10};
+   1. goto S
+      -> UnconditionalJump[GOTO] #AP -> #S
+      <- ConditionalJump[IF_ICMPEQ] #Q -> #AP
+===#Block S(size=3, flags=0)===
+   0. // Frame: locals[7] [pl/durex/client/module/FriendModule, net/minecraft/class_310, net/minecraft/class_3966, net/minecraft/class_1297, 1, java/lang/String, java/lang/String] stack[1] [net/minecraft/class_746]
+   1. lvar6 = dynamic_invoke<java.lang.String>(java.lang.invoke.StringConcatFactory.makeConcatWithConstants("§c[Durex] Usunales  §d§c z configu", lvar5, lvar3));
+   2. lvar10 = {860024144 ^ lvar10};
+      -> Immediate #S -> #T
+      <- UnconditionalJump[GOTO] #AP -> #S
+===#Block T(size=3, flags=0)===
+   0. // Frame: locals[7] [pl/durex/client/module/FriendModule, net/minecraft/class_310, net/minecraft/class_3966, net/minecraft/class_1297, 1, java/lang/String, java/lang/String] stack[2] [net/minecraft/class_746, java/lang/String]
+   1. _consume(lvar4.method_7353(net.minecraft.class_2561.method_43470(lvar6), {545947565 ^ lvar10}));
+   2. lvar10 = {2066222373 ^ lvar10};
+      -> Immediate #T -> #U
+      <- UnconditionalJump[GOTO] #AF -> #T
+      <- Immediate #S -> #T
+===#Block J(size=1, flags=0)===
+   0. return;
+      <- Immediate #I -> #J
+===#Block AO(size=2, flags=10100)===
+   0. lvar10 = {1484592487 ^ lvar10};
+   1. goto U
+      -> UnconditionalJump[GOTO] #AO -> #U
+      <- ConditionalJump[IF_ICMPEQ] #F -> #AO
+===#Block U(size=2, flags=0)===
+   0. // Frame: locals[2] [pl/durex/client/module/FriendModule, net/minecraft/class_310] stack[0] []
+   1. return;
+      <- UnconditionalJump[GOTO] #AO -> #U
+      <- Immediate #T -> #U
+===#Block AM(size=1, flags=10100)===
+   0. switch (mnntxzybtgzxkcdx.juaxxcqugyybnazs.ixibojifbjufzxuc(lvar10)) {
+      case 119749722:
+      	 goto	#AN
+      case 927322557:
+      	 goto	#V
+      case 1138906611:
+      	 goto	#AI
+      case 1251965130:
+      	 goto	#AM
+      default:
+      	 goto	#AI
+   }
+      -> Switch[1251965130] #AM -> #AM
+      -> Switch[927322557] #AM -> #V
+      -> Switch[1138906611] #AM -> #AI
+      -> DefaultSwitch #AM -> #AI
+      -> Switch[119749722] #AM -> #AN
+      -> Immediate #AM -> #AN
+      <- Switch[1251965130] #AM -> #AM
+      <- ConditionalJump[IFNULL] #D -> #AM
+===#Block AN(size=2, flags=100)===
+   0. lvar10 = {1089107122 ^ lvar10};
+   1. goto V
+      -> UnconditionalJump[GOTO] #AN -> #V
+      <- Switch[119749722] #AM -> #AN
+      <- Immediate #AM -> #AN
+===#Block AI(size=1, flags=0)===
+   0. throw new java/io/IOException();
+      <- Switch[680891370] #AG -> #AI
+      <- DefaultSwitch #AG -> #AI
+      <- Switch[1138906611] #AM -> #AI
+      <- DefaultSwitch #AM -> #AI
+===#Block V(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. return;
+      <- Switch[927322557] #AM -> #V
+      <- UnconditionalJump[GOTO] #AQ -> #V
+      <- UnconditionalJump[GOTO] #AJ -> #V
+      <- Immediate #E -> #V
+      <- UnconditionalJump[GOTO] #AN -> #V

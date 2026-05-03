@@ -1,0 +1,127 @@
+handler=Block #O, types=[Ljava/lang/IllegalAccessException;], range=[Block #J, Block #I]
+===#Block A(size=10, flags=1)===
+   0. lvar33 = {224383649 ^ {1108284584 ^ 238008684}};
+   1. synth(lvar0 = lvar0);
+   2. synth(lvar1 = lvar1);
+   3. synth(lvar2 = lvar2);
+   4. synth(lvar3 = lvar3);
+   5. synth(lvar4 = lvar4);
+   6. synth(lvar5 = lvar5);
+   7. synth(lvar6 = lvar6);
+   8. synth(lvar7 = lvar7);
+   9. lvar33 = {213203046 ^ lvar33};
+      -> Immediate #A -> #B
+===#Block B(size=2, flags=0)===
+   0. lvar8 = {1305102083 ^ lvar33};
+   1. lvar33 = {546435200 ^ lvar33};
+      -> Immediate #B -> #C
+      <- Immediate #A -> #B
+===#Block C(size=3, flags=0)===
+   0. // Frame: locals[1] [1] stack[0] []
+   1. if (lvar8 >= lvar6)
+      goto N
+   2. lvar33 = {966125390 ^ lvar33};
+      -> Immediate #C -> #D
+      -> ConditionalJump[IF_ICMPGE] #C -> #N
+      <- UnconditionalJump[GOTO] #L -> #C
+      <- Immediate #B -> #C
+===#Block N(size=2, flags=10100)===
+   0. lvar33 = {1350303260 ^ lvar33};
+   1. goto G
+      -> UnconditionalJump[GOTO] #N -> #G
+      <- ConditionalJump[IF_ICMPGE] #C -> #N
+===#Block G(size=2, flags=0)===
+   0. // Frame: locals[1] [null] stack[0] []
+   1. return;
+      <- UnconditionalJump[GOTO] #N -> #G
+===#Block D(size=10, flags=0)===
+   0. lvar9 = {lvar1 + lvar8};
+   1. lvar12 = {lvar2 + lvar8};
+   2. lvar18 = {lvar8 * ({1422807247 ^ lvar33})};
+   3. lvar15 = {lvar3 - lvar18};
+   4. lvar23 = {lvar8 * ({1422807247 ^ lvar33})};
+   5. lvar19 = {lvar4 - lvar23};
+   6. lvar27 = {lvar5 - lvar8};
+   7. lvar24 = java.lang.Math.max({1422807244 ^ lvar33}, lvar27);
+   8. _consume(pl.durex.client.gui.render.GuiRenderUtils.drawRoundedRect(lvar0, lvar9, lvar12, lvar15, lvar19, lvar24, lvar7));
+   9. lvar33 = {1665461990 ^ lvar33};
+      -> Immediate #D -> #E
+      <- Immediate #C -> #D
+===#Block E(size=16, flags=0)===
+   0. lvar10 = {lvar1 + lvar8};
+   1. lvar11 = {lvar10 + ({931839530 ^ lvar33})};
+   2. lvar13 = {lvar2 + lvar8};
+   3. lvar14 = {lvar13 + ({931839530 ^ lvar33})};
+   4. lvar20 = {lvar8 * ({931839529 ^ lvar33})};
+   5. lvar16 = {lvar3 - lvar20};
+   6. lvar17 = {lvar16 - ({931839529 ^ lvar33})};
+   7. lvar25 = {lvar8 * ({931839529 ^ lvar33})};
+   8. lvar21 = {lvar4 - lvar25};
+   9. lvar22 = {lvar21 - ({931839529 ^ lvar33})};
+   10. lvar28 = {lvar5 - lvar8};
+   11. lvar29 = {lvar28 - ({931839530 ^ lvar33})};
+   12. lvar26 = java.lang.Math.max({931839530 ^ lvar33}, lvar29);
+   13. lvar30 = pl.durex.client.gui.render.GuiRenderUtils.withAlpha(lvar7, {931839531 ^ lvar33});
+   14. _consume(pl.durex.client.gui.render.GuiRenderUtils.drawRoundedRect(lvar0, lvar11, lvar14, lvar17, lvar22, lvar26, lvar30));
+   15. lvar33 = {662583930 ^ lvar33};
+      -> Immediate #E -> #F
+      <- Immediate #D -> #E
+===#Block F(size=2, flags=0)===
+   0. lvar8 = {lvar8 + ({284460112 ^ lvar33})};
+   1. goto M
+      -> UnconditionalJump[GOTO] #F -> #M
+      <- Immediate #E -> #F
+===#Block M(size=2, flags=10100)===
+   0. lvar33 = {280083018 ^ lvar33};
+   1. goto J
+      -> UnconditionalJump[GOTO] #M -> #J
+      <- UnconditionalJump[GOTO] #F -> #M
+===#Block J(size=2, flags=0)===
+   0. if (koryhdikmoapuasr.kntgjicpvlesihgy.lofdwzcppiveywis(lvar33) == 4254332)
+      goto I
+   1. throw nullconst;
+      -> TryCatch range: [J...I] -> O ([Ljava/lang/IllegalAccessException;])
+      -> ConditionalJump[IF_ICMPEQ] #J -> #I
+      <- UnconditionalJump[GOTO] #M -> #J
+===#Block I(size=1, flags=0)===
+   0. throw new java/lang/IllegalAccessException();
+      -> TryCatch range: [J...I] -> O ([Ljava/lang/IllegalAccessException;])
+      <- ConditionalJump[IF_ICMPEQ] #J -> #I
+===#Block O(size=1, flags=0)===
+   0. switch (koryhdikmoapuasr.kntgjicpvlesihgy.orljtfegvfietnmf(lvar33)) {
+      case 36303064:
+      	 goto	#P
+      case 2016480769:
+      	 goto	#Q
+      default:
+      	 goto	#R
+   }
+      -> Switch[36303064] #O -> #P
+      -> Switch[2016480769] #O -> #Q
+      -> DefaultSwitch #O -> #R
+      <- TryCatch range: [J...I] -> O ([Ljava/lang/IllegalAccessException;])
+      <- TryCatch range: [J...I] -> O ([Ljava/lang/IllegalAccessException;])
+===#Block R(size=1, flags=0)===
+   0. throw new java/lang/IllegalAccessException("Error in hash");
+      <- DefaultSwitch #O -> #R
+===#Block Q(size=2, flags=10100)===
+   0. lvar33 = {1211102754 ^ lvar33};
+   1. goto K
+      -> UnconditionalJump[GOTO] #Q -> #K
+      <- Switch[2016480769] #O -> #Q
+===#Block P(size=2, flags=10100)===
+   0. lvar33 = pl.durex.client.gui.render.GuiRenderUtils.fqhnpkgvuretxoyj(lvar33, 1735191033);
+   1. goto K
+      -> UnconditionalJump[GOTO] #P -> #K
+      <- Switch[36303064] #O -> #P
+===#Block K(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto L
+      -> UnconditionalJump[GOTO] #K -> #L
+      <- UnconditionalJump[GOTO] #P -> #K
+      <- UnconditionalJump[GOTO] #Q -> #K
+===#Block L(size=2, flags=10100)===
+   0. lvar33 = {175267937 ^ lvar33};
+   1. goto C
+      -> UnconditionalJump[GOTO] #L -> #C
+      <- UnconditionalJump[GOTO] #K -> #L

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "durex-auto-rynek",
+  "version": "${version}",
+  "name": "Durex Auto Rynek",
+  "description": "Automatyczny skaner i flipper rynku z uczeniem cen.",
+  "authors": ["Durex"],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/durex-auto-rynek/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["pl.durex.autorynek.DurexAutoRynek"]
+  },
+  "mixins": ["durex-auto-rynek.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "fabric-api": "*",
+    "minecraft": "~1.21.4"
+  }
+}

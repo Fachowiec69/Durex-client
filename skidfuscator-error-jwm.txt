@@ -1,0 +1,55 @@
+handler=Block #J, types=[Ljava/lang/RuntimeException;], range=[Block #I, Block #H]
+===#Block A(size=2, flags=1)===
+   0. synth(lvar0 = lvar0);
+   1. synth(lvar1 = lvar1);
+      -> Immediate #A -> #B
+===#Block B(size=1, flags=0)===
+   0. if (lvar1.field_1724 == nullconst)
+      goto G
+      -> Immediate #B -> #C
+      -> ConditionalJump[IFNULL] #B -> #G
+      <- Immediate #A -> #B
+===#Block C(size=1, flags=0)===
+   0. if (lvar0.enabled == {2049847278 ^ lvar5})
+      goto D
+      -> Immediate #C -> #E
+      -> ConditionalJump[IF_ICMPEQ] #C -> #D
+      <- Immediate #B -> #C
+===#Block D(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[1] [net/minecraft/class_746]
+   1. lvar2 = pl.durex.client.module.AntiKowalModule.ytcsnlscpu(pl.durex.client.module.AntiKowalModule.ytcqvifrrctoqtb(), lvar5);
+      -> Immediate #D -> #F
+      <- ConditionalJump[IF_ICMPEQ] #C -> #D
+===#Block E(size=2, flags=0)===
+   0. lvar2 = pl.durex.client.module.AntiKowalModule.ytcsnlscpu(pl.durex.client.module.AntiKowalModule.bhhqtlskvkicfyv(), lvar5);
+   1. goto I
+      -> UnconditionalJump[GOTO] #E -> #I
+      <- Immediate #C -> #E
+===#Block I(size=2, flags=0)===
+   0. if (xwvqepduthapsuzx.brsgqoqywdojiuqf.bcigubzflshbhtpm(lvar5) == 23644581)
+      goto H
+   1. throw nullconst;
+      -> TryCatch range: [I...H] -> J ([Ljava/lang/RuntimeException;])
+      -> ConditionalJump[IF_ICMPEQ] #I -> #H
+      <- UnconditionalJump[GOTO] #E -> #I
+===#Block H(size=1, flags=0)===
+   0. throw new java/lang/RuntimeException();
+      -> TryCatch range: [I...H] -> J ([Ljava/lang/RuntimeException;])
+      <- ConditionalJump[IF_ICMPEQ] #I -> #H
+===#Block J(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto F
+      -> UnconditionalJump[GOTO] #J -> #F
+      <- TryCatch range: [I...H] -> J ([Ljava/lang/RuntimeException;])
+      <- TryCatch range: [I...H] -> J ([Ljava/lang/RuntimeException;])
+===#Block F(size=2, flags=0)===
+   0. // Frame: locals[2] [pl/durex/client/module/AntiKowalModule, net/minecraft/class_310] stack[2] [net/minecraft/class_746, java/lang/String]
+   1. _consume(lvar1.field_1724.method_7353(net.minecraft.class_2561.method_43470(dynamic_invoke<java.lang.String>(java.lang.invoke.StringConcatFactory.makeConcatWithConstants("[Durex] AntiKowal ", lvar2))), {194162548 ^ lvar5}));
+      -> Immediate #F -> #G
+      <- UnconditionalJump[GOTO] #J -> #F
+      <- Immediate #D -> #F
+===#Block G(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. return;
+      <- ConditionalJump[IFNULL] #B -> #G
+      <- Immediate #F -> #G

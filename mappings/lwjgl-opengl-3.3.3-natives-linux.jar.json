@@ -1,0 +1,17 @@
+{
+  "name": "lwjgl-opengl-3.3.3-natives-linux.jar",
+  "md5": "de05e5c258591d07d294a9c16096a383",
+  "sha2": "62c70a4b00ca5391882b0f4b787c1588d24f1c86",
+  "sha256": "d823a92c6a2810b5112da304dcc6abcd4cb102706f74f7e934a223cea2051250",
+  "contents": {
+    "classes": {
+      "META-INF/versions/9/module-info.class": {
+        "ver": 53,
+        "acc": 32768,
+        "nme": "module-info",
+        "mthds": [],
+        "flds": []
+      }
+    }
+  }
+}

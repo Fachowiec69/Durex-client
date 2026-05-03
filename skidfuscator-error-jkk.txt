@@ -1,0 +1,63 @@
+handler=Block #L, types=[Ljava/lang/IllegalAccessException;], range=[Block #K, Block #J]
+===#Block A(size=5, flags=1)===
+   0. synth(lvar0 = lvar0);
+   1. synth(lvar1 = lvar1);
+   2. synth(lvar2 = lvar2);
+   3. synth(lvar3 = lvar3);
+   4. synth(lvar4 = lvar4);
+      -> Immediate #A -> #B
+===#Block B(size=4, flags=0)===
+   0. lvar8 = lvar1.field_1687;
+   1. lvar6 = new net.minecraft.class_3959;
+   2. _consume(lvar6.<init>(lvar2, lvar3, net.minecraft.class_3959$class_3960.field_17558, net.minecraft.class_3959$class_242.field_1348, lvar1.field_1724));
+   3. lvar7 = lvar8.method_17742(lvar6);
+      -> Immediate #B -> #C
+      <- Immediate #A -> #B
+===#Block C(size=1, flags=0)===
+   0. if (lvar7.method_17783() == net.minecraft.class_239$class_240.field_1332)
+      goto D
+      -> Immediate #C -> #H
+      -> ConditionalJump[IF_ACMPEQ] #C -> #D
+      <- Immediate #B -> #C
+===#Block D(size=2, flags=0)===
+   0. // Frame: locals[1] [net/minecraft/class_3965] stack[0] []
+   1. if (({lvar2.method_1025(lvar7.method_17784()) + 1.0E-4D} CMP lvar4) >= {591873715 ^ lvar12})
+      goto F
+      -> ConditionalJump[IF_ICMPGE] #D -> #F
+      -> Immediate #D -> #E
+      <- ConditionalJump[IF_ACMPEQ] #C -> #D
+===#Block E(size=2, flags=0)===
+   0. lvar9 = {604485930 ^ lvar12};
+   1. goto K
+      -> UnconditionalJump[GOTO] #E -> #K
+      <- Immediate #D -> #E
+===#Block K(size=2, flags=0)===
+   0. if (mzjoyotpwyptdgrn.tfmldocwwrevuchl.ivrwmovootqfebkq(lvar12) == 10481349)
+      goto J
+   1. throw nullconst;
+      -> ConditionalJump[IF_ICMPEQ] #K -> #J
+      -> TryCatch range: [K...J] -> L ([Ljava/lang/IllegalAccessException;])
+      <- UnconditionalJump[GOTO] #E -> #K
+===#Block J(size=1, flags=0)===
+   0. throw new java/lang/IllegalAccessException();
+      -> TryCatch range: [K...J] -> L ([Ljava/lang/IllegalAccessException;])
+      <- ConditionalJump[IF_ICMPEQ] #K -> #J
+===#Block L(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto G
+      -> UnconditionalJump[GOTO] #L -> #G
+      <- TryCatch range: [K...J] -> L ([Ljava/lang/IllegalAccessException;])
+      <- TryCatch range: [K...J] -> L ([Ljava/lang/IllegalAccessException;])
+===#Block F(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. lvar9 = {1079136300 ^ lvar12};
+      -> Immediate #F -> #G
+      <- ConditionalJump[IF_ICMPGE] #D -> #F
+===#Block G(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[1] [1]
+   1. return lvar9;
+      <- UnconditionalJump[GOTO] #L -> #G
+      <- Immediate #F -> #G
+===#Block H(size=1, flags=0)===
+   0. return {34328040 ^ lvar12};
+      <- Immediate #C -> #H

@@ -1,0 +1,115 @@
+handler=Block #O, types=[Ljava/io/IOException;], range=[Block #H, Block #G]
+===#Block A(size=3, flags=1)===
+   0. lvar4 = {1190871030 ^ {546943314 ^ 400754602}};
+   1. synth(lvar0 = lvar0);
+   2. lvar4 = {271366929 ^ lvar4};
+      -> Immediate #A -> #B
+===#Block B(size=2, flags=0)===
+   0. if (lvar0.activeHand != pl.durex.client.module.ViewModelModule$Hand.RIGHT)
+      goto L
+   1. lvar4 = {2085948768 ^ lvar4};
+      -> ConditionalJump[IF_ACMPNE] #B -> #L
+      -> Immediate #B -> #D
+      <- Immediate #A -> #B
+===#Block D(size=2, flags=0)===
+   0. lvar1 = lvar0.rightPosX;
+   1. goto K
+      -> UnconditionalJump[GOTO] #D -> #K
+      <- Immediate #B -> #D
+===#Block K(size=2, flags=10100)===
+   0. lvar4 = pl.durex.client.module.ViewModelModule.ygogblxjuwwxrtmp(lvar4, 611084543);
+   1. goto H
+      -> UnconditionalJump[GOTO] #K -> #H
+      <- UnconditionalJump[GOTO] #D -> #K
+===#Block H(size=2, flags=0)===
+   0. if (gkmbqssbqllpewke.rxutauxymyrwzcfy.axajezisknuzpeqe(lvar4) == 261050396)
+      goto G
+   1. throw nullconst;
+      -> ConditionalJump[IF_ICMPEQ] #H -> #G
+      -> TryCatch range: [H...G] -> O ([Ljava/io/IOException;])
+      <- UnconditionalJump[GOTO] #K -> #H
+===#Block G(size=1, flags=0)===
+   0. throw new java/io/IOException();
+      -> TryCatch range: [H...G] -> O ([Ljava/io/IOException;])
+      <- ConditionalJump[IF_ICMPEQ] #H -> #G
+===#Block O(size=1, flags=0)===
+   0. switch (gkmbqssbqllpewke.rxutauxymyrwzcfy.bbbossvelppbyclp(lvar4)) {
+      case -861750271:
+      	 goto	#P
+      case 1204146586:
+      	 goto	#Q
+      default:
+      	 goto	#R
+   }
+      -> DefaultSwitch #O -> #R
+      -> Switch[1204146586] #O -> #Q
+      -> Switch[-861750271] #O -> #P
+      <- TryCatch range: [H...G] -> O ([Ljava/io/IOException;])
+      <- TryCatch range: [H...G] -> O ([Ljava/io/IOException;])
+===#Block P(size=2, flags=10100)===
+   0. lvar4 = pl.durex.client.module.ViewModelModule.ygogblxjuwwxrtmp(lvar4, 659554788);
+   1. goto I
+      -> UnconditionalJump[GOTO] #P -> #I
+      <- Switch[-861750271] #O -> #P
+===#Block Q(size=2, flags=10100)===
+   0. lvar4 = {1446833239 ^ lvar4};
+   1. goto I
+      -> UnconditionalJump[GOTO] #Q -> #I
+      <- Switch[1204146586] #O -> #Q
+===#Block I(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto J
+      -> UnconditionalJump[GOTO] #I -> #J
+      <- UnconditionalJump[GOTO] #P -> #I
+      <- UnconditionalJump[GOTO] #Q -> #I
+===#Block J(size=2, flags=10100)===
+   0. lvar4 = {1858260039 ^ lvar4};
+   1. goto E
+      -> UnconditionalJump[GOTO] #J -> #E
+      <- UnconditionalJump[GOTO] #I -> #J
+===#Block R(size=1, flags=0)===
+   0. throw new java/io/IOException("Error in hash");
+      <- DefaultSwitch #O -> #R
+===#Block L(size=1, flags=10100)===
+   0. switch (gkmbqssbqllpewke.rxutauxymyrwzcfy.axajezisknuzpeqe(lvar4)) {
+      case 156012145:
+      	 goto	#N
+      case 222294193:
+      	 goto	#M
+      case 865031059:
+      	 goto	#L
+      case 1289822172:
+      	 goto	#C
+      default:
+      	 goto	#N
+   }
+      -> Switch[865031059] #L -> #L
+      -> Switch[1289822172] #L -> #C
+      -> Immediate #L -> #M
+      -> Switch[156012145] #L -> #N
+      -> DefaultSwitch #L -> #N
+      -> Switch[222294193] #L -> #M
+      <- Switch[865031059] #L -> #L
+      <- ConditionalJump[IF_ACMPNE] #B -> #L
+===#Block N(size=1, flags=0)===
+   0. throw new java/io/IOException();
+      <- Switch[156012145] #L -> #N
+      <- DefaultSwitch #L -> #N
+===#Block M(size=2, flags=100)===
+   0. lvar4 = {416697371 ^ lvar4};
+   1. goto C
+      -> UnconditionalJump[GOTO] #M -> #C
+      <- Immediate #L -> #M
+      <- Switch[222294193] #L -> #M
+===#Block C(size=3, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. lvar1 = lvar0.leftPosX;
+   2. lvar4 = {159245351 ^ lvar4};
+      -> Immediate #C -> #E
+      <- Switch[1289822172] #L -> #C
+      <- UnconditionalJump[GOTO] #M -> #C
+===#Block E(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[1] [2]
+   1. return lvar1;
+      <- UnconditionalJump[GOTO] #J -> #E
+      <- Immediate #C -> #E

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "durex-auto-otchlan",
+  "version": "${version}",
+  "name": "Durex Auto Otchlan",
+  "description": "Automatyczna otchlan.",
+  "authors": ["Durex"],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/durex-auto-otchlan/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["pl.durex.autootchlan.DurexAutoOtchlan"]
+  },
+  "mixins": ["durex-auto-otchlan.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "fabric-api": "*",
+    "minecraft": "~1.21.4"
+  },
+  "description": "Automatyczny grabber otchlani. /dao | /dao gui | F5=GUI | F6=Toggle"
+}

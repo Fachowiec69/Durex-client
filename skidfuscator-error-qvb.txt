@@ -1,0 +1,33 @@
+===#Block A(size=2, flags=1)===
+   0. synth(lvar0 = lvar0);
+   1. synth(lvar1 = lvar1);
+      -> Immediate #A -> #B
+===#Block B(size=1, flags=0)===
+   0. if (lvar0.slots.size() <= {1739463893 ^ lvar5})
+      goto F
+      -> Immediate #B -> #C
+      -> ConditionalJump[IF_ICMPLE] #B -> #F
+      <- Immediate #A -> #B
+===#Block C(size=1, flags=0)===
+   0. if (lvar1 < {1744904075 ^ lvar5})
+      goto F
+      -> Immediate #C -> #D
+      -> ConditionalJump[IF_ICMPLT] #C -> #F
+      <- Immediate #B -> #C
+===#Block D(size=1, flags=0)===
+   0. if (lvar1 >= lvar0.slots.size())
+      goto F
+      -> Immediate #D -> #E
+      -> ConditionalJump[IF_ICMPGE] #D -> #F
+      <- Immediate #C -> #D
+===#Block E(size=1, flags=0)===
+   0. lvar2 = lvar0.slots.remove(lvar1);
+      -> Immediate #E -> #F
+      <- Immediate #D -> #E
+===#Block F(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. return;
+      <- Immediate #E -> #F
+      <- ConditionalJump[IF_ICMPLE] #B -> #F
+      <- ConditionalJump[IF_ICMPGE] #D -> #F
+      <- ConditionalJump[IF_ICMPLT] #C -> #F

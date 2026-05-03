@@ -1,0 +1,129 @@
+handler=Block #V, types=[Ljava/lang/IllegalAccessException;], range=[Block #U, Block #T]
+===#Block A(size=7, flags=1)===
+   0. synth(lvar0 = lvar0);
+   1. synth(lvar1 = lvar1);
+   2. synth(lvar2 = lvar2);
+   3. synth(lvar3 = lvar3);
+   4. synth(lvar4 = lvar4);
+   5. synth(lvar5 = lvar5);
+   6. synth(lvar6 = lvar6);
+      -> Immediate #A -> #B
+===#Block B(size=1, flags=0)===
+   0. if (lvar3 <= {555215536 ^ lvar39})
+      goto D
+      -> Immediate #B -> #C
+      -> ConditionalJump[IF_ICMPLE] #B -> #D
+      <- Immediate #A -> #B
+===#Block C(size=1, flags=0)===
+   0. if (lvar4 > {390178487 ^ lvar39})
+      goto E
+      -> ConditionalJump[IF_ICMPGT] #C -> #E
+      -> Immediate #C -> #D
+      <- Immediate #B -> #C
+===#Block D(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. return;
+      <- Immediate #C -> #D
+      <- ConditionalJump[IF_ICMPLE] #B -> #D
+===#Block E(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. lvar7 = java.lang.Math.min(lvar5, {java.lang.Math.min(lvar3, lvar4) / ({1923281206 ^ lvar39})});
+      -> Immediate #E -> #F
+      <- ConditionalJump[IF_ICMPGT] #C -> #E
+===#Block F(size=1, flags=0)===
+   0. if (lvar7 > {1869567467 ^ lvar39})
+      goto G
+      -> Immediate #F -> #Q
+      -> ConditionalJump[IF_ICMPGT] #F -> #G
+      <- Immediate #E -> #F
+===#Block G(size=2, flags=0)===
+   0. // Frame: locals[1] [1] stack[0] []
+   1. _consume(lvar0.method_25294({lvar1 + lvar7}, lvar2, {{lvar1 + lvar3} - lvar7}, {lvar2 + lvar4}, lvar6));
+      -> Immediate #G -> #H
+      <- ConditionalJump[IF_ICMPGT] #F -> #G
+===#Block H(size=1, flags=0)===
+   0. _consume(lvar0.method_25294(lvar1, {lvar2 + lvar7}, {lvar1 + lvar3}, {{lvar2 + lvar4} - lvar7}, lvar6));
+      -> Immediate #H -> #I
+      <- Immediate #G -> #H
+===#Block I(size=1, flags=0)===
+   0. lvar8 = {897935521 ^ lvar39};
+      -> Immediate #I -> #J
+      <- Immediate #H -> #I
+===#Block J(size=2, flags=0)===
+   0. // Frame: locals[1] [1] stack[0] []
+   1. if (lvar8 >= lvar7)
+      goto P
+      -> ConditionalJump[IF_ICMPGE] #J -> #P
+      -> Immediate #J -> #K
+      <- UnconditionalJump[GOTO] #V -> #J
+      <- Immediate #I -> #J
+===#Block K(size=2, flags=0)===
+   0. lvar12 = {lvar7 - lvar8};
+   1. lvar9 = {(double)lvar12 - 0.5D};
+      -> Immediate #K -> #L
+      <- Immediate #J -> #K
+===#Block L(size=7, flags=0)===
+   0. lvar16 = {lvar7 * lvar7};
+   1. lvar31 = {lvar9 * lvar9};
+   2. lvar17 = {(double)lvar16 - lvar31};
+   3. lvar19 = java.lang.Math.sqrt(lvar17);
+   4. lvar21 = java.lang.Math.floor(lvar19);
+   5. lvar13 = {lvar7 - (int)lvar21};
+   6. lvar11 = java.lang.Math.max({736545478 ^ lvar39}, lvar13);
+      -> Immediate #L -> #M
+      <- Immediate #K -> #L
+===#Block M(size=7, flags=0)===
+   0. lvar14 = {lvar1 + lvar11};
+   1. lvar23 = {lvar2 + lvar8};
+   2. lvar27 = {lvar1 + lvar3};
+   3. lvar28 = {lvar27 - lvar11};
+   4. lvar33 = {lvar2 + lvar8};
+   5. lvar34 = {lvar33 + ({765228698 ^ lvar39})};
+   6. _consume(lvar0.method_25294(lvar14, lvar23, lvar28, lvar34, lvar6));
+      -> Immediate #M -> #N
+      <- Immediate #L -> #M
+===#Block N(size=9, flags=0)===
+   0. lvar15 = {lvar1 + lvar11};
+   1. lvar24 = {lvar2 + lvar4};
+   2. lvar25 = {lvar24 - lvar8};
+   3. lvar26 = {lvar25 - ({792166135 ^ lvar39})};
+   4. lvar29 = {lvar1 + lvar3};
+   5. lvar30 = {lvar29 - lvar11};
+   6. lvar35 = {lvar2 + lvar4};
+   7. lvar36 = {lvar35 - lvar8};
+   8. _consume(lvar0.method_25294(lvar15, lvar26, lvar30, lvar36, lvar6));
+      -> Immediate #N -> #O
+      <- Immediate #M -> #N
+===#Block O(size=2, flags=0)===
+   0. lvar8 = {lvar8 + ({306506083 ^ lvar39})};
+   1. goto U
+      -> UnconditionalJump[GOTO] #O -> #U
+      <- Immediate #N -> #O
+===#Block U(size=2, flags=0)===
+   0. if (ervyepatvszxhbdx.oekehudebzjjodrx.zbqmzxlkwxuiuujj(lvar39) == 188868734)
+      goto T
+   1. throw nullconst;
+      -> ConditionalJump[IF_ICMPEQ] #U -> #T
+      -> TryCatch range: [U...T] -> V ([Ljava/lang/IllegalAccessException;])
+      <- UnconditionalJump[GOTO] #O -> #U
+===#Block T(size=1, flags=0)===
+   0. throw new java/lang/IllegalAccessException();
+      -> TryCatch range: [U...T] -> V ([Ljava/lang/IllegalAccessException;])
+      <- ConditionalJump[IF_ICMPEQ] #U -> #T
+===#Block V(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto J
+      -> UnconditionalJump[GOTO] #V -> #J
+      <- TryCatch range: [U...T] -> V ([Ljava/lang/IllegalAccessException;])
+      <- TryCatch range: [U...T] -> V ([Ljava/lang/IllegalAccessException;])
+===#Block P(size=2, flags=0)===
+   0. // Frame: locals[1] [null] stack[0] []
+   1. return;
+      <- ConditionalJump[IF_ICMPGE] #J -> #P
+===#Block Q(size=1, flags=0)===
+   0. _consume(lvar0.method_25294(lvar1, lvar2, {lvar1 + lvar3}, {lvar2 + lvar4}, lvar6));
+      -> Immediate #Q -> #R
+      <- Immediate #F -> #Q
+===#Block R(size=1, flags=0)===
+   0. return;
+      <- Immediate #Q -> #R

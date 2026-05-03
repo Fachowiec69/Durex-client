@@ -1,0 +1,66 @@
+handler=Block #M, types=[Ljava/io/IOException;], range=[Block #L, Block #K]
+===#Block A(size=1, flags=1)===
+   0. synth(lvar0 = lvar0);
+      -> Immediate #A -> #B
+===#Block B(size=1, flags=0)===
+   0. if (lvar0.activeHand != pl.durex.client.module.ViewModelModule$Hand.RIGHT)
+      goto F
+      -> Immediate #B -> #C
+      -> ConditionalJump[IF_ACMPNE] #B -> #F
+      <- Immediate #A -> #B
+===#Block F(size=4, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. lvar0.leftRotZ = 0.0F;
+   2. lvar0.leftRotY = 0.0F;
+   3. lvar0.leftRotX = 0.0F;
+      -> Immediate #F -> #G
+      <- ConditionalJump[IF_ACMPNE] #B -> #F
+===#Block G(size=3, flags=0)===
+   0. lvar0.leftPosZ = 0.0F;
+   1. lvar0.leftPosY = 0.0F;
+   2. lvar0.leftPosX = 0.0F;
+      -> Immediate #G -> #H
+      <- Immediate #F -> #G
+===#Block H(size=1, flags=0)===
+   0. lvar0.leftScale = 1.0F;
+      -> Immediate #H -> #I
+      <- Immediate #G -> #H
+===#Block C(size=3, flags=0)===
+   0. lvar0.rightRotZ = 0.0F;
+   1. lvar0.rightRotY = 0.0F;
+   2. lvar0.rightRotX = 0.0F;
+      -> Immediate #C -> #D
+      <- Immediate #B -> #C
+===#Block D(size=3, flags=0)===
+   0. lvar0.rightPosZ = 0.0F;
+   1. lvar0.rightPosY = 0.0F;
+   2. lvar0.rightPosX = 0.0F;
+      -> Immediate #D -> #E
+      <- Immediate #C -> #D
+===#Block E(size=2, flags=0)===
+   0. lvar0.rightScale = 1.0F;
+   1. goto L
+      -> UnconditionalJump[GOTO] #E -> #L
+      <- Immediate #D -> #E
+===#Block L(size=2, flags=0)===
+   0. if (koryhdikmoapuasr.kntgjicpvlesihgy.lofdwzcppiveywis(lvar3) == 238439210)
+      goto K
+   1. throw nullconst;
+      -> ConditionalJump[IF_ICMPEQ] #L -> #K
+      -> TryCatch range: [L...K] -> M ([Ljava/io/IOException;])
+      <- UnconditionalJump[GOTO] #E -> #L
+===#Block K(size=1, flags=0)===
+   0. throw new java/io/IOException();
+      -> TryCatch range: [L...K] -> M ([Ljava/io/IOException;])
+      <- ConditionalJump[IF_ICMPEQ] #L -> #K
+===#Block M(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto I
+      -> UnconditionalJump[GOTO] #M -> #I
+      <- TryCatch range: [L...K] -> M ([Ljava/io/IOException;])
+      <- TryCatch range: [L...K] -> M ([Ljava/io/IOException;])
+===#Block I(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. return;
+      <- UnconditionalJump[GOTO] #M -> #I
+      <- Immediate #H -> #I

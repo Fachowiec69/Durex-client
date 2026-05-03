@@ -1,0 +1,17 @@
+{
+  "name": "lwjgl-freetype-3.3.3-natives-linux.jar",
+  "md5": "7da8d8e06e7315c6c877ae5e542407b6",
+  "sha2": "149070a5480900347071b7074779531f25a6e3dc",
+  "sha256": "9fc63518a27b8ff1ab78196343710ce28e8000ce88f60be851a2d3db5beab8e9",
+  "contents": {
+    "classes": {
+      "META-INF/versions/9/module-info.class": {
+        "ver": 53,
+        "acc": 32768,
+        "nme": "module-info",
+        "mthds": [],
+        "flds": []
+      }
+    }
+  }
+}

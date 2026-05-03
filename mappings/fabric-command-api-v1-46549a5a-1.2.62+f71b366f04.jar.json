@@ -1,0 +1,89 @@
+{
+  "name": "fabric-command-api-v1-46549a5a-1.2.62+f71b366f04.jar",
+  "md5": "d8d0e484097835e5d642b1700601751d",
+  "sha2": "e1d9cc76ff58ac9e31ab76375a82b8e6b73bb03c",
+  "sha256": "9b70f4e316d02bd8237b594ac9174371c1f2dc657631a1b9a6c39ac4ab2da2ca",
+  "contents": {
+    "classes": {
+      "net/fabricmc/fabric/impl/command/v1/LegacyHandler.class": {
+        "ver": 65,
+        "acc": 49,
+        "nme": "net/fabricmc/fabric/impl/command/v1/LegacyHandler",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "onInitialize",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "lambda$onInitialize$0",
+            "acc": 4106,
+            "dsc": "(Lcom/mojang/brigadier/CommandDispatcher;Lnet/minecraft/command/CommandRegistryAccess;Lnet/minecraft/server/command/CommandManager$RegistrationEnvironment;)V"
+          }
+        ],
+        "flds": []
+      },
+      "net/fabricmc/fabric/impl/command/v1/package-info.class": {
+        "ver": 65,
+        "acc": 5632,
+        "nme": "net/fabricmc/fabric/impl/command/v1/package-info",
+        "super": "java/lang/Object",
+        "mthds": [],
+        "flds": [],
+        "invanns": [
+          {
+            "dsc": "Lorg/jetbrains/annotations/ApiStatus$Internal;"
+          }
+        ]
+      },
+      "net/fabricmc/fabric/api/command/v1/CommandRegistrationCallback.class": {
+        "ver": 65,
+        "acc": 132609,
+        "nme": "net/fabricmc/fabric/api/command/v1/CommandRegistrationCallback",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "register",
+            "acc": 1025,
+            "dsc": "(Lcom/mojang/brigadier/CommandDispatcher;Z)V",
+            "sig": "(Lcom/mojang/brigadier/CommandDispatcher<Lnet/minecraft/server/command/ServerCommandSource;>;Z)V"
+          },
+          {
+            "nme": "lambda$static$1",
+            "acc": 4106,
+            "dsc": "([Lnet/fabricmc/fabric/api/command/v1/CommandRegistrationCallback;)Lnet/fabricmc/fabric/api/command/v1/CommandRegistrationCallback;"
+          },
+          {
+            "nme": "lambda$static$0",
+            "acc": 4106,
+            "dsc": "([Lnet/fabricmc/fabric/api/command/v1/CommandRegistrationCallback;Lcom/mojang/brigadier/CommandDispatcher;Z)V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "EVENT",
+            "dsc": "Lnet/fabricmc/fabric/api/event/Event;",
+            "sig": "Lnet/fabricmc/fabric/api/event/Event<Lnet/fabricmc/fabric/api/command/v1/CommandRegistrationCallback;>;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      }
+    }
+  }
+}

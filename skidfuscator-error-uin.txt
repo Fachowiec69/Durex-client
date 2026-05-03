@@ -1,0 +1,43 @@
+handler=Block #H, types=[Ljava/lang/IllegalAccessException;], range=[Block #G, Block #F]
+===#Block A(size=1, flags=1)===
+   0. synth(lvar0 = lvar0);
+      -> Immediate #A -> #B
+===#Block B(size=1, flags=0)===
+   0. if (lvar0.activeHand != pl.durex.client.module.ViewModelModule$Hand.RIGHT)
+      goto C
+      -> Immediate #B -> #D
+      -> ConditionalJump[IF_ACMPNE] #B -> #C
+      <- Immediate #A -> #B
+===#Block C(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[1] [pl/durex/client/module/ViewModelModule]
+   1. lvar1 = pl.durex.client.module.ViewModelModule$Hand.RIGHT;
+      -> Immediate #C -> #E
+      <- ConditionalJump[IF_ACMPNE] #B -> #C
+===#Block D(size=2, flags=0)===
+   0. lvar1 = pl.durex.client.module.ViewModelModule$Hand.LEFT;
+   1. goto G
+      -> UnconditionalJump[GOTO] #D -> #G
+      <- Immediate #B -> #D
+===#Block G(size=2, flags=0)===
+   0. if (xwvqepduthapsuzx.brsgqoqywdojiuqf.bcigubzflshbhtpm(lvar4) == 117677689)
+      goto F
+   1. throw nullconst;
+      -> ConditionalJump[IF_ICMPEQ] #G -> #F
+      -> TryCatch range: [G...F] -> H ([Ljava/lang/IllegalAccessException;])
+      <- UnconditionalJump[GOTO] #D -> #G
+===#Block F(size=1, flags=0)===
+   0. throw new java/lang/IllegalAccessException();
+      -> TryCatch range: [G...F] -> H ([Ljava/lang/IllegalAccessException;])
+      <- ConditionalJump[IF_ICMPEQ] #G -> #F
+===#Block H(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto E
+      -> UnconditionalJump[GOTO] #H -> #E
+      <- TryCatch range: [G...F] -> H ([Ljava/lang/IllegalAccessException;])
+      <- TryCatch range: [G...F] -> H ([Ljava/lang/IllegalAccessException;])
+===#Block E(size=3, flags=0)===
+   0. // Frame: locals[1] [pl/durex/client/module/ViewModelModule] stack[2] [pl/durex/client/module/ViewModelModule, pl/durex/client/module/ViewModelModule$Hand]
+   1. lvar0.activeHand = lvar1;
+   2. return;
+      <- UnconditionalJump[GOTO] #H -> #E
+      <- Immediate #C -> #E

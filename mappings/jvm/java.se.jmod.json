@@ -1,0 +1,17 @@
+{
+  "name": "java.se.jmod",
+  "md5": "317f6f9397d84d67308186ec6f594571",
+  "sha2": "218d7766168fddd40ddd406d3b1788f079c642b0",
+  "sha256": "bff2bfa71bce1f267d4377c842f1e9ed3d94eb6f84db26a3b52e04a487801d94",
+  "contents": {
+    "classes": {
+      "classes/module-info.class": {
+        "ver": 65,
+        "acc": 32768,
+        "nme": "module-info",
+        "mthds": [],
+        "flds": []
+      }
+    }
+  }
+}

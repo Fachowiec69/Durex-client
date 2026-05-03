@@ -1,0 +1,116 @@
+handler=Block #O, types=[Ljava/io/IOException;], range=[Block #H, Block #G]
+===#Block A(size=4, flags=1)===
+   0. lvar6 = {830896787 ^ {669277606 ^ 168877950}};
+   1. synth(lvar0 = lvar0);
+   2. synth(lvar1 = lvar1);
+   3. lvar6 = {234362612 ^ lvar6};
+      -> Immediate #A -> #B
+===#Block B(size=2, flags=0)===
+   0. if (({java.lang.System.currentTimeMillis() - lvar0.lastMs} CMP lvar1) < {294317759 ^ lvar6})
+      goto L
+   1. lvar6 = {770046778 ^ lvar6};
+      -> Immediate #B -> #D
+      -> ConditionalJump[IF_ICMPLT] #B -> #L
+      <- Immediate #A -> #B
+===#Block L(size=1, flags=10100)===
+   0. switch (mnntxzybtgzxkcdx.juaxxcqugyybnazs.ixibojifbjufzxuc(lvar6)) {
+      case 33373976:
+      	 goto	#M
+      case 995248006:
+      	 goto	#C
+      case 1280798911:
+      	 goto	#L
+      case 1538168420:
+      	 goto	#N
+      default:
+      	 goto	#N
+   }
+      -> Immediate #L -> #M
+      -> Switch[1280798911] #L -> #L
+      -> Switch[33373976] #L -> #M
+      -> Switch[995248006] #L -> #C
+      -> Switch[1538168420] #L -> #N
+      -> DefaultSwitch #L -> #N
+      <- Switch[1280798911] #L -> #L
+      <- ConditionalJump[IF_ICMPLT] #B -> #L
+===#Block N(size=1, flags=0)===
+   0. throw new java/lang/RuntimeException();
+      <- Switch[1538168420] #L -> #N
+      <- DefaultSwitch #L -> #N
+===#Block M(size=2, flags=100)===
+   0. lvar6 = {1347837595 ^ lvar6};
+   1. goto C
+      -> UnconditionalJump[GOTO] #M -> #C
+      <- Immediate #L -> #M
+      <- Switch[33373976] #L -> #M
+===#Block C(size=3, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. lvar3 = {1104982052 ^ lvar6};
+   2. lvar6 = {635668917 ^ lvar6};
+      -> Immediate #C -> #E
+      <- UnconditionalJump[GOTO] #M -> #C
+      <- Switch[995248006] #L -> #C
+===#Block D(size=2, flags=0)===
+   0. lvar3 = {1013912964 ^ lvar6};
+   1. goto K
+      -> UnconditionalJump[GOTO] #D -> #K
+      <- Immediate #B -> #D
+===#Block K(size=2, flags=10100)===
+   0. lvar6 = {1669383341 ^ lvar6};
+   1. goto H
+      -> UnconditionalJump[GOTO] #K -> #H
+      <- UnconditionalJump[GOTO] #D -> #K
+===#Block H(size=2, flags=0)===
+   0. if (mnntxzybtgzxkcdx.juaxxcqugyybnazs.ixibojifbjufzxuc(lvar6) == 165739218)
+      goto G
+   1. throw nullconst;
+      -> TryCatch range: [H...G] -> O ([Ljava/io/IOException;])
+      -> ConditionalJump[IF_ICMPEQ] #H -> #G
+      <- UnconditionalJump[GOTO] #K -> #H
+===#Block G(size=1, flags=0)===
+   0. throw new java/io/IOException();
+      -> TryCatch range: [H...G] -> O ([Ljava/io/IOException;])
+      <- ConditionalJump[IF_ICMPEQ] #H -> #G
+===#Block O(size=1, flags=0)===
+   0. switch (mnntxzybtgzxkcdx.juaxxcqugyybnazs.ckmosqpappiyjjfr(lvar6)) {
+      case -1451697584:
+      	 goto	#Q
+      case -8484542:
+      	 goto	#P
+      default:
+      	 goto	#R
+   }
+      -> Switch[-1451697584] #O -> #Q
+      -> Switch[-8484542] #O -> #P
+      -> DefaultSwitch #O -> #R
+      <- TryCatch range: [H...G] -> O ([Ljava/io/IOException;])
+      <- TryCatch range: [H...G] -> O ([Ljava/io/IOException;])
+===#Block R(size=1, flags=0)===
+   0. throw new java/lang/RuntimeException("Error in hash");
+      <- DefaultSwitch #O -> #R
+===#Block P(size=2, flags=10100)===
+   0. lvar6 = {1544347512 ^ lvar6};
+   1. goto I
+      -> UnconditionalJump[GOTO] #P -> #I
+      <- Switch[-8484542] #O -> #P
+===#Block Q(size=2, flags=10100)===
+   0. lvar6 = {382473498 ^ lvar6};
+   1. goto I
+      -> UnconditionalJump[GOTO] #Q -> #I
+      <- Switch[-1451697584] #O -> #Q
+===#Block I(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto J
+      -> UnconditionalJump[GOTO] #I -> #J
+      <- UnconditionalJump[GOTO] #P -> #I
+      <- UnconditionalJump[GOTO] #Q -> #I
+===#Block J(size=2, flags=10100)===
+   0. lvar6 = {1742485441 ^ lvar6};
+   1. goto E
+      -> UnconditionalJump[GOTO] #J -> #E
+      <- UnconditionalJump[GOTO] #I -> #J
+===#Block E(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[1] [1]
+   1. return lvar3;
+      <- Immediate #C -> #E
+      <- UnconditionalJump[GOTO] #J -> #E

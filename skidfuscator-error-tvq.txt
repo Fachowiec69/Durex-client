@@ -1,0 +1,43 @@
+handler=Block #H, types=[Ljava/lang/RuntimeException;], range=[Block #G, Block #F]
+===#Block A(size=2, flags=1)===
+   0. synth(lvar0 = lvar0);
+   1. synth(lvar1 = lvar1);
+      -> Immediate #A -> #B
+===#Block B(size=1, flags=0)===
+   0. if (lvar0.activeHand != pl.durex.client.module.ViewModelModule$Hand.RIGHT)
+      goto D
+      -> Immediate #B -> #C
+      -> ConditionalJump[IF_ACMPNE] #B -> #D
+      <- Immediate #A -> #B
+===#Block D(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. lvar0.leftPosZ = lvar1;
+      -> Immediate #D -> #E
+      <- ConditionalJump[IF_ACMPNE] #B -> #D
+===#Block C(size=2, flags=0)===
+   0. lvar0.rightPosZ = lvar1;
+   1. goto G
+      -> UnconditionalJump[GOTO] #C -> #G
+      <- Immediate #B -> #C
+===#Block G(size=2, flags=0)===
+   0. if (xwvqepduthapsuzx.brsgqoqywdojiuqf.bcigubzflshbhtpm(lvar4) == 104509791)
+      goto F
+   1. throw nullconst;
+      -> ConditionalJump[IF_ICMPEQ] #G -> #F
+      -> TryCatch range: [G...F] -> H ([Ljava/lang/RuntimeException;])
+      <- UnconditionalJump[GOTO] #C -> #G
+===#Block F(size=1, flags=0)===
+   0. throw new java/lang/RuntimeException();
+      -> TryCatch range: [G...F] -> H ([Ljava/lang/RuntimeException;])
+      <- ConditionalJump[IF_ICMPEQ] #G -> #F
+===#Block H(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto E
+      -> UnconditionalJump[GOTO] #H -> #E
+      <- TryCatch range: [G...F] -> H ([Ljava/lang/RuntimeException;])
+      <- TryCatch range: [G...F] -> H ([Ljava/lang/RuntimeException;])
+===#Block E(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. return;
+      <- UnconditionalJump[GOTO] #H -> #E
+      <- Immediate #D -> #E

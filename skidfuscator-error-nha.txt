@@ -1,0 +1,57 @@
+handler=Block #K, types=[Ljava/io/IOException;], range=[Block #J, Block #I]
+===#Block A(size=2, flags=1)===
+   0. synth(lvar0 = lvar0);
+   1. synth(lvar1 = lvar1);
+      -> Immediate #A -> #B
+===#Block B(size=1, flags=0)===
+   0. if (lvar0.enabled == {2123975221 ^ lvar5})
+      goto F
+      -> ConditionalJump[IF_ICMPEQ] #B -> #F
+      -> Immediate #B -> #C
+      <- Immediate #A -> #B
+===#Block C(size=1, flags=0)===
+   0. if (lvar0.hidePlayers == {457224020 ^ lvar5})
+      goto F
+      -> Immediate #C -> #D
+      -> ConditionalJump[IF_ICMPEQ] #C -> #F
+      <- Immediate #B -> #C
+===#Block D(size=1, flags=0)===
+   0. if (sdk.SDK.checkType(lvar1, "-1087746139496756675", {1297435804 ^ lvar5}) == {1377718258 ^ lvar5})
+      goto F
+      -> ConditionalJump[IF_ICMPEQ] #D -> #F
+      -> Immediate #D -> #E
+      <- Immediate #C -> #D
+===#Block E(size=2, flags=0)===
+   0. lvar2 = {986534056 ^ lvar5};
+   1. goto J
+      -> UnconditionalJump[GOTO] #E -> #J
+      <- Immediate #D -> #E
+===#Block J(size=2, flags=0)===
+   0. if (mzjoyotpwyptdgrn.tfmldocwwrevuchl.ivrwmovootqfebkq(lvar5) == 35901989)
+      goto I
+   1. throw nullconst;
+      -> TryCatch range: [J...I] -> K ([Ljava/io/IOException;])
+      -> ConditionalJump[IF_ICMPEQ] #J -> #I
+      <- UnconditionalJump[GOTO] #E -> #J
+===#Block I(size=1, flags=0)===
+   0. throw new java/io/IOException();
+      -> TryCatch range: [J...I] -> K ([Ljava/io/IOException;])
+      <- ConditionalJump[IF_ICMPEQ] #J -> #I
+===#Block K(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto G
+      -> UnconditionalJump[GOTO] #K -> #G
+      <- TryCatch range: [J...I] -> K ([Ljava/io/IOException;])
+      <- TryCatch range: [J...I] -> K ([Ljava/io/IOException;])
+===#Block F(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. lvar2 = {498401439 ^ lvar5};
+      -> Immediate #F -> #G
+      <- ConditionalJump[IF_ICMPEQ] #D -> #F
+      <- ConditionalJump[IF_ICMPEQ] #B -> #F
+      <- ConditionalJump[IF_ICMPEQ] #C -> #F
+===#Block G(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[1] [1]
+   1. return lvar2;
+      <- UnconditionalJump[GOTO] #K -> #G
+      <- Immediate #F -> #G

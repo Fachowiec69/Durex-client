@@ -1,0 +1,17 @@
+{
+  "name": "lwjgl-glfw-3.3.3-natives-linux.jar",
+  "md5": "9b31da2f80cbbdc6d76b72c8ac2cf943",
+  "sha2": "a03684c5e4b1b1dbbe0d29dbbdc27b985b6840f2",
+  "sha256": "b8306062b17741f34269088751421f1ac21a597bfbbd0c6c61226301cde744b8",
+  "contents": {
+    "classes": {
+      "META-INF/versions/9/module-info.class": {
+        "ver": 53,
+        "acc": 32768,
+        "nme": "module-info",
+        "mthds": [],
+        "flds": []
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+handler=Block #I, types=[Ljava/io/IOException;], range=[Block #H, Block #G]
+===#Block A(size=2, flags=1)===
+   0. synth(lvar0 = lvar0);
+   1. synth(lvar1 = lvar1);
+      -> Immediate #A -> #B
+===#Block B(size=1, flags=0)===
+   0. if (lvar1 <= {1296135780 ^ lvar6})
+      goto C
+      -> Immediate #B -> #D
+      -> ConditionalJump[IF_ICMPLE] #B -> #C
+      <- Immediate #A -> #B
+===#Block C(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. lvar2 = pl.durex.client.module.CooldownHudModule.cooldownDurations.remove(lvar0);
+      -> Immediate #C -> #E
+      <- ConditionalJump[IF_ICMPLE] #B -> #C
+===#Block D(size=2, flags=0)===
+   0. lvar3 = pl.durex.client.module.CooldownHudModule.cooldownDurations.put(lvar0, java.lang.Integer.valueOf(lvar1));
+   1. goto H
+      -> UnconditionalJump[GOTO] #D -> #H
+      <- Immediate #B -> #D
+===#Block H(size=2, flags=0)===
+   0. if (mnntxzybtgzxkcdx.juaxxcqugyybnazs.ixibojifbjufzxuc(lvar6) == 82424815)
+      goto G
+   1. throw nullconst;
+      -> ConditionalJump[IF_ICMPEQ] #H -> #G
+      -> TryCatch range: [H...G] -> I ([Ljava/io/IOException;])
+      <- UnconditionalJump[GOTO] #D -> #H
+===#Block G(size=1, flags=0)===
+   0. throw new java/io/IOException();
+      -> TryCatch range: [H...G] -> I ([Ljava/io/IOException;])
+      <- ConditionalJump[IF_ICMPEQ] #H -> #G
+===#Block I(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto E
+      -> UnconditionalJump[GOTO] #I -> #E
+      <- TryCatch range: [H...G] -> I ([Ljava/io/IOException;])
+      <- TryCatch range: [H...G] -> I ([Ljava/io/IOException;])
+===#Block E(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. return;
+      <- Immediate #C -> #E
+      <- UnconditionalJump[GOTO] #I -> #E

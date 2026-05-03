@@ -1,0 +1,50 @@
+handler=Block #K, types=[Ljava/io/IOException;], range=[Block #J, Block #I]
+===#Block A(size=1, flags=1)===
+   0. synth(lvar0 = lvar0);
+      -> Immediate #A -> #B
+===#Block B(size=1, flags=0)===
+   0. if (lvar0.enabled != {1458288320 ^ lvar4})
+      goto D
+      -> ConditionalJump[IF_ICMPNE] #B -> #D
+      -> Immediate #B -> #C
+      <- Immediate #A -> #B
+===#Block C(size=2, flags=0)===
+   0. lvar1 = {342629488 ^ lvar4};
+   1. goto J
+      -> UnconditionalJump[GOTO] #C -> #J
+      <- Immediate #B -> #C
+===#Block J(size=2, flags=0)===
+   0. if (gkmbqssbqllpewke.rxutauxymyrwzcfy.axajezisknuzpeqe(lvar4) == 100021245)
+      goto I
+   1. throw nullconst;
+      -> TryCatch range: [J...I] -> K ([Ljava/io/IOException;])
+      -> ConditionalJump[IF_ICMPEQ] #J -> #I
+      <- UnconditionalJump[GOTO] #C -> #J
+===#Block I(size=1, flags=0)===
+   0. throw new java/io/IOException();
+      -> TryCatch range: [J...I] -> K ([Ljava/io/IOException;])
+      <- ConditionalJump[IF_ICMPEQ] #J -> #I
+===#Block K(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto E
+      -> UnconditionalJump[GOTO] #K -> #E
+      <- TryCatch range: [J...I] -> K ([Ljava/io/IOException;])
+      <- TryCatch range: [J...I] -> K ([Ljava/io/IOException;])
+===#Block D(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[1] [pl/durex/client/module/AntiKowalModule]
+   1. lvar1 = {1683359830 ^ lvar4};
+      -> Immediate #D -> #E
+      <- ConditionalJump[IF_ICMPNE] #B -> #D
+===#Block E(size=2, flags=0)===
+   0. // Frame: locals[1] [pl/durex/client/module/AntiKowalModule] stack[2] [pl/durex/client/module/AntiKowalModule, 1]
+   1. lvar0.enabled = lvar1;
+      -> Immediate #E -> #F
+      <- Immediate #D -> #E
+      <- UnconditionalJump[GOTO] #K -> #E
+===#Block F(size=1, flags=0)===
+   0. _consume(lvar0.interactTimer.reset());
+      -> Immediate #F -> #G
+      <- Immediate #E -> #F
+===#Block G(size=1, flags=0)===
+   0. return;
+      <- Immediate #F -> #G

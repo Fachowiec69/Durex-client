@@ -1,0 +1,216 @@
+{
+  "name": "fabric-rendering-data-attachment-v1-46549a5a-0.3.58+73761d2e04.jar",
+  "md5": "d515183cc417fe0626b667f3a619c001",
+  "sha2": "46432d4bad726b3d01e83d02c25d0c6305bd80d5",
+  "sha256": "83f52f2c3170ae6d4650f3cf50a203409f70b544829db26aef7525c95f28645c",
+  "contents": {
+    "classes": {
+      "net/fabricmc/fabric/mixin/rendering/data/WorldViewMixin.class": {
+        "ver": 65,
+        "acc": 1537,
+        "nme": "net/fabricmc/fabric/mixin/rendering/data/WorldViewMixin",
+        "super": "java/lang/Object",
+        "mthds": [],
+        "flds": [],
+        "invanns": [
+          {
+            "dsc": "Lorg/spongepowered/asm/mixin/Mixin;",
+            "vals": [
+              "value",
+              [
+                {
+                  "itrlNme": "net/minecraft/world/WorldView"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "net/fabricmc/fabric/mixin/rendering/data/client/ChunkRendererRegionMixin.class": {
+        "ver": 65,
+        "acc": 1057,
+        "nme": "net/fabricmc/fabric/mixin/rendering/data/client/ChunkRendererRegionMixin",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Lnet/fabricmc/api/Environment;",
+            "vals": [
+              "value",
+              [
+                "Lnet/fabricmc/api/EnvType;",
+                "CLIENT"
+              ]
+            ]
+          }
+        ],
+        "invanns": [
+          {
+            "dsc": "Lorg/spongepowered/asm/mixin/Mixin;",
+            "vals": [
+              "value",
+              [
+                {
+                  "itrlNme": "net/minecraft/client/render/chunk/ChunkRendererRegion"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "net/fabricmc/fabric/mixin/rendering/data/BlockEntityMixin.class": {
+        "ver": 65,
+        "acc": 33,
+        "nme": "net/fabricmc/fabric/mixin/rendering/data/BlockEntityMixin",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "getRenderAttachmentData",
+            "acc": 1,
+            "dsc": "()Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/Nullable;"
+              }
+            ]
+          },
+          {
+            "nme": "getRenderData",
+            "acc": 1,
+            "dsc": "()Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/Nullable;"
+              }
+            ]
+          }
+        ],
+        "flds": [],
+        "invanns": [
+          {
+            "dsc": "Lorg/spongepowered/asm/mixin/Mixin;",
+            "vals": [
+              "value",
+              [
+                {
+                  "itrlNme": "net/minecraft/block/entity/BlockEntity"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "net/fabricmc/fabric/mixin/rendering/data/package-info.class": {
+        "ver": 65,
+        "acc": 5632,
+        "nme": "net/fabricmc/fabric/mixin/rendering/data/package-info",
+        "super": "java/lang/Object",
+        "mthds": [],
+        "flds": [],
+        "invanns": [
+          {
+            "dsc": "Lorg/jetbrains/annotations/ApiStatus$Internal;"
+          }
+        ]
+      },
+      "net/fabricmc/fabric/api/rendering/data/v1/RenderAttachmentBlockEntity.class": {
+        "ver": 65,
+        "acc": 132609,
+        "nme": "net/fabricmc/fabric/api/rendering/data/v1/RenderAttachmentBlockEntity",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "getRenderAttachmentData",
+            "acc": 132097,
+            "dsc": "()Ljava/lang/Object;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/Nullable;"
+              }
+            ]
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          },
+          {
+            "dsc": "Ljava/lang/FunctionalInterface;"
+          }
+        ]
+      },
+      "net/fabricmc/fabric/mixin/rendering/data/client/package-info.class": {
+        "ver": 65,
+        "acc": 5632,
+        "nme": "net/fabricmc/fabric/mixin/rendering/data/client/package-info",
+        "super": "java/lang/Object",
+        "mthds": [],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Lnet/fabricmc/api/Environment;",
+            "vals": [
+              "value",
+              [
+                "Lnet/fabricmc/api/EnvType;",
+                "CLIENT"
+              ]
+            ]
+          }
+        ],
+        "invanns": [
+          {
+            "dsc": "Lorg/jetbrains/annotations/ApiStatus$Internal;"
+          }
+        ]
+      },
+      "net/fabricmc/fabric/api/rendering/data/v1/RenderAttachedBlockView.class": {
+        "ver": 65,
+        "acc": 132609,
+        "nme": "net/fabricmc/fabric/api/rendering/data/v1/RenderAttachedBlockView",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "getBlockEntityRenderAttachment",
+            "acc": 131073,
+            "dsc": "(Lnet/minecraft/util/math/BlockPos;)Ljava/lang/Object;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/Nullable;"
+              }
+            ]
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      }
+    }
+  }
+}

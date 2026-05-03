@@ -1,0 +1,51 @@
+{
+  "name": "dev-launch-injector-0.2.1+build.8.jar",
+  "md5": "da8db1873e61fa5ac148bcb747b91f06",
+  "sha2": "da8bef7e6e2f952da707f282bdb46882a0fce5e3",
+  "sha256": "63bebba2a134d891ac9ac1fec6746ae055cbb19a187e2e2e05a0b9ea857952d8",
+  "contents": {
+    "classes": {
+      "net/fabricmc/devlaunchinjector/Main.class": {
+        "ver": 52,
+        "acc": 49,
+        "nme": "net/fabricmc/devlaunchinjector/Main",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "main",
+            "acc": 9,
+            "dsc": "([Ljava/lang/String;)V",
+            "exs": [
+              "java/lang/Throwable"
+            ]
+          },
+          {
+            "nme": "parseConfig",
+            "acc": 10,
+            "dsc": "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/util/List;Ljava/util/Map;)V",
+            "sig": "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "warnNoop",
+            "acc": 10,
+            "dsc": "(Ljava/lang/String;)V"
+          },
+          {
+            "nme": "decodeEscaped",
+            "acc": 10,
+            "dsc": "(Ljava/lang/String;)Ljava/lang/String;"
+          }
+        ],
+        "flds": []
+      }
+    }
+  }
+}

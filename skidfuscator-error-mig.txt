@@ -1,0 +1,119 @@
+===#Block A(size=4, flags=1)===
+   0. lvar6 = {1240425071 ^ {1818195889 ^ 1418542173}};
+   1. synth(lvar0 = lvar0);
+   2. synth(lvar1 = lvar1);
+   3. lvar6 = {1388118030 ^ lvar6};
+      -> Immediate #A -> #B
+===#Block B(size=2, flags=0)===
+   0. if (lvar0.method_7960() == {595601805 ^ lvar6})
+      goto P
+   1. lvar6 = {793570580 ^ lvar6};
+      -> ConditionalJump[IF_ICMPEQ] #B -> #P
+      -> Immediate #B -> #C
+      <- Immediate #A -> #B
+===#Block C(size=2, flags=0)===
+   0. if (lvar1.method_7960() == {214746265 ^ lvar6})
+      goto O
+   1. lvar6 = {411371418 ^ lvar6};
+      -> ConditionalJump[IF_ICMPEQ] #C -> #O
+      -> Immediate #C -> #D
+      <- Immediate #B -> #C
+===#Block D(size=1, flags=0)===
+   0. return {340378370 ^ lvar6};
+      <- Immediate #C -> #D
+===#Block O(size=2, flags=10100)===
+   0. lvar6 = pl.durex.client.module.AntiKostkaModule.pfcfeuzztsvsuqtl(lvar6, 565189141);
+   1. goto E
+      -> UnconditionalJump[GOTO] #O -> #E
+      <- ConditionalJump[IF_ICMPEQ] #C -> #O
+===#Block P(size=2, flags=10100)===
+   0. lvar6 = {251459329 ^ lvar6};
+   1. goto E
+      -> UnconditionalJump[GOTO] #P -> #E
+      <- ConditionalJump[IF_ICMPEQ] #B -> #P
+===#Block E(size=3, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. if (lvar0.method_7960() != {763158156 ^ lvar6})
+      goto Q
+   2. lvar6 = {1842328615 ^ lvar6};
+      -> Immediate #E -> #F
+      -> ConditionalJump[IF_ICMPNE] #E -> #Q
+      <- UnconditionalJump[GOTO] #O -> #E
+      <- UnconditionalJump[GOTO] #P -> #E
+===#Block Q(size=1, flags=10100)===
+   0. switch (mnntxzybtgzxkcdx.juaxxcqugyybnazs.ixibojifbjufzxuc(lvar6)) {
+      case 136430163:
+      	 goto	#R
+      case 424502306:
+      	 goto	#S
+      case 669179645:
+      	 goto	#Q
+      case 839697847:
+      	 goto	#L
+      default:
+      	 goto	#S
+   }
+      -> Switch[424502306] #Q -> #S
+      -> Immediate #Q -> #R
+      -> Switch[839697847] #Q -> #L
+      -> Switch[669179645] #Q -> #Q
+      -> DefaultSwitch #Q -> #S
+      -> Switch[136430163] #Q -> #R
+      <- ConditionalJump[IF_ICMPNE] #E -> #Q
+      <- Switch[669179645] #Q -> #Q
+===#Block R(size=2, flags=100)===
+   0. lvar6 = {1098251482 ^ lvar6};
+   1. goto L
+      -> UnconditionalJump[GOTO] #R -> #L
+      <- Immediate #Q -> #R
+      <- Switch[136430163] #Q -> #R
+===#Block S(size=1, flags=0)===
+   0. throw new java/io/IOException();
+      <- Switch[424502306] #Q -> #S
+      <- DefaultSwitch #Q -> #S
+===#Block F(size=2, flags=0)===
+   0. if (lvar1.method_7960() == {1085500075 ^ lvar6})
+      goto T
+   1. lvar6 = {750405885 ^ lvar6};
+      -> Immediate #F -> #L
+      -> ConditionalJump[IF_ICMPEQ] #F -> #T
+      <- Immediate #E -> #F
+===#Block T(size=2, flags=10100)===
+   0. lvar6 = {1398763775 ^ lvar6};
+   1. goto G
+      -> UnconditionalJump[GOTO] #T -> #G
+      <- ConditionalJump[IF_ICMPEQ] #F -> #T
+===#Block G(size=3, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. if (lvar0.method_7909() == lvar1.method_7909())
+      goto N
+   2. lvar6 = {1683651904 ^ lvar6};
+      -> ConditionalJump[IF_ACMPEQ] #G -> #N
+      -> Immediate #G -> #K
+      <- UnconditionalJump[GOTO] #T -> #G
+===#Block K(size=1, flags=0)===
+   0. return {2008442644 ^ lvar6};
+      <- Immediate #G -> #K
+===#Block N(size=2, flags=10100)===
+   0. lvar6 = pl.durex.client.module.AntiKostkaModule.pfcfeuzztsvsuqtl(lvar6, 2073213239);
+   1. goto H
+      -> UnconditionalJump[GOTO] #N -> #H
+      <- ConditionalJump[IF_ACMPEQ] #G -> #N
+===#Block H(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. lvar6 = {572913621 ^ lvar6};
+      -> Immediate #H -> #I
+      <- UnconditionalJump[GOTO] #N -> #H
+===#Block I(size=1, flags=0)===
+   0. lvar6 = {438927308 ^ lvar6};
+      -> Immediate #I -> #J
+      <- Immediate #H -> #I
+===#Block J(size=1, flags=0)===
+   0. return lvar0.method_58657().equals(lvar1.method_58657());
+      <- Immediate #I -> #J
+===#Block L(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. return {1812537942 ^ lvar6};
+      <- UnconditionalJump[GOTO] #R -> #L
+      <- Immediate #F -> #L
+      <- Switch[839697847] #Q -> #L

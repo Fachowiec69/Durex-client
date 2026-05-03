@@ -1,0 +1,160 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+    dependencies {
+        classpath 'com.guardsquare:proguard-gradle:7.5.0'
+    }
+}
+
+plugins {
+    id 'fabric-loom' version '1.15.5'
+    id 'maven-publish'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'IzzelAliz Maven'
+        url = 'https://maven.izzel.io/releases/'
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    implementation "icyllis.modernui:ModernUI-Core:${project.modernui_version}"
+    modImplementation "icyllis.modernui:ModernUI-Fabric:${project.minecraft_version}-${project.modernui_mod_version}"
+}
+
+processResources {
+    inputs.property "version", project.version
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = "UTF-8"
+    it.options.release = 21
+}
+
+publishing {
+    publications {
+        create("mavenJava", MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+// ── ProGuard + mapping injection pipeline ────────────────────────────────
+import proguard.gradle.ProGuardTask
+
+afterEvaluate {
+    def baseName   = project.base.archivesName.get()
+    def jmodsDir   = "/usr/lib/jvm/java-21-openjdk-amd64/jmods"
+    def mcJar      = "/home/xyz/.gradle/caches/fabric-loom/minecraftMaven/net/minecraft/minecraft-merged/1.21.4-net.fabricmc.yarn.1_21_4.1.21.4+build.8-v2/minecraft-merged-1.21.4-net.fabricmc.yarn.1_21_4.1.21.4+build.8-v2.jar"
+
+    def addLibraries = { task ->
+        task.libraryjars "${jmodsDir}/java.base.jmod",        filter: '!**.jar,!module-info.class'
+        task.libraryjars "${jmodsDir}/java.desktop.jmod",     filter: '!**.jar,!module-info.class'
+        task.libraryjars "${jmodsDir}/java.logging.jmod",     filter: '!**.jar,!module-info.class'
+        task.libraryjars "${jmodsDir}/java.net.http.jmod",    filter: '!**.jar,!module-info.class'
+        task.libraryjars "${jmodsDir}/java.naming.jmod",      filter: '!**.jar,!module-info.class'
+        task.libraryjars "${jmodsDir}/java.xml.jmod",         filter: '!**.jar,!module-info.class'
+        task.libraryjars "${jmodsDir}/java.sql.jmod",         filter: '!**.jar,!module-info.class'
+        task.libraryjars "${jmodsDir}/java.management.jmod",  filter: '!**.jar,!module-info.class'
+        task.libraryjars "${jmodsDir}/java.instrument.jmod",  filter: '!**.jar,!module-info.class'
+        task.libraryjars "${jmodsDir}/java.rmi.jmod",         filter: '!**.jar,!module-info.class'
+        task.doFirst {
+            task.libraryjars mcJar, filter: '!module-info.class'
+            configurations.runtimeClasspath.resolvedConfiguration.resolvedArtifacts.each { a ->
+                task.libraryjars a.file, filter: '!module-info.class'
+            }
+        }
+    }
+
+    // ── Obs-Full pipeline ─────────────────────────────────────────────
+    tasks.register('proguardObfuscate', ProGuardTask) {
+        dependsOn remapJar
+        injars  layout.buildDirectory.file("libs/${baseName}-${version}.jar").get().asFile
+        outjars layout.buildDirectory.file("libs/${baseName}-${version}-pg.jar").get().asFile
+        addLibraries(delegate)
+        configuration 'proguard-rules.pro'
+    }
+
+    tasks.register('injectMapping', InjectMappingTask) {
+        dependsOn proguardObfuscate
+        inputJar    = layout.buildDirectory.file("libs/${baseName}-${version}-pg.jar").get().asFile
+        outputJar   = layout.buildDirectory.file("libs/${baseName}-${version}-mapped.jar").get().asFile
+        mappingFile = layout.buildDirectory.file("proguard-mapping.txt").get().asFile
+    }
+
+    tasks.register('finalizeObf') {
+        dependsOn injectMapping
+        doLast {
+            def src = layout.buildDirectory.file("libs/${baseName}-${version}-mapped.jar").get().asFile
+            def dst = layout.buildDirectory.file("libs/${baseName}-${version}-Obs-Full.jar").get().asFile
+            if (src.exists()) java.nio.file.Files.copy(src.toPath(), dst.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+        }
+    }
+
+    build.finalizedBy tasks.named('finalizeObf')
+
+    // ── Legit pipeline (bez LicenseModule) ───────────────────────────
+    tasks.register('proguardLegit', ProGuardTask) {
+        dependsOn remapJar
+        injars  layout.buildDirectory.file("libs/${baseName}-${version}.jar").get().asFile,
+                filter: '!pl/durex/client/module/LicenseModule.class,!durex.cfg'
+        outjars layout.buildDirectory.file("libs/${baseName}-${version}-legit-pg.jar").get().asFile
+        addLibraries(delegate)
+        configuration 'proguard-rules.pro'
+    }
+
+    tasks.register('injectMappingLegit', InjectMappingTask) {
+        dependsOn proguardLegit
+        inputJar    = layout.buildDirectory.file("libs/${baseName}-${version}-legit-pg.jar").get().asFile
+        outputJar   = layout.buildDirectory.file("libs/${baseName}-${version}-legit-mapped.jar").get().asFile
+        mappingFile = layout.buildDirectory.file("proguard-mapping.txt").get().asFile
+    }
+
+    tasks.register('finalizeLegit') {
+        dependsOn injectMappingLegit
+        doLast {
+            def src = layout.buildDirectory.file("libs/${baseName}-${version}-legit-mapped.jar").get().asFile
+            def dst = layout.buildDirectory.file("libs/${baseName}-${version}-Legit.jar").get().asFile
+            if (src.exists()) java.nio.file.Files.copy(src.toPath(), dst.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+        }
+    }
+
+    build.finalizedBy tasks.named('finalizeLegit')
+
+    // ── Cleanup ───────────────────────────────────────────────────────
+    tasks.register('cleanObfIntermediate') {
+        dependsOn 'finalizeLegit', 'finalizeObf'
+        doLast {
+            [
+                "libs/${baseName}-${version}.jar",
+                "libs/${baseName}-${version}-pg.jar",
+                "libs/${baseName}-${version}-legit-pg.jar",
+                "libs/${baseName}-${version}-mapped.jar",
+                "libs/${baseName}-${version}-legit-mapped.jar"
+            ].each { name ->
+                def f = layout.buildDirectory.file(name).get().asFile
+                if (f.exists()) f.delete()
+            }
+        }
+    }
+    build.finalizedBy tasks.named('cleanObfIntermediate')
+}

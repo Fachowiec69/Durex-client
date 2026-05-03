@@ -1,0 +1,292 @@
+handler=Block #AL, types=[Ljava/io/IOException;], range=[Block #T, Block #S]
+handler=Block #AP, types=[Ljava/lang/IllegalAccessException;], range=[Block #W, Block #V]
+===#Block A(size=4, flags=1)===
+   0. lvar10 = {574231874 ^ {1847348316 ^ 894730492}};
+   1. synth(lvar0 = lvar0);
+   2. synth(lvar1 = lvar1);
+   3. lvar10 = {556753249 ^ lvar10};
+      -> Immediate #A -> #B
+===#Block B(size=2, flags=0)===
+   0. if (sdk.SDK.checkType(lvar1, "7022851058708483677", {732556855 ^ lvar10}) == {1482537091 ^ lvar10})
+      goto AJ
+   1. lvar10 = {593735017 ^ lvar10};
+      -> ConditionalJump[IF_ICMPEQ] #B -> #AJ
+      -> Immediate #B -> #D
+      <- Immediate #A -> #B
+===#Block D(size=1, flags=0)===
+   0. lvar10 = {1932926797 ^ lvar10};
+      -> Immediate #D -> #E
+      <- Immediate #B -> #D
+===#Block E(size=1, flags=0)===
+   0. goto AA
+      -> UnconditionalJump[GOTO] #E -> #AA
+      <- Immediate #D -> #E
+===#Block AA(size=2, flags=10100)===
+   0. lvar10 = {50803501 ^ lvar10};
+   1. goto W
+      -> UnconditionalJump[GOTO] #AA -> #W
+      <- UnconditionalJump[GOTO] #E -> #AA
+===#Block W(size=2, flags=0)===
+   0. if (gkmbqssbqllpewke.rxutauxymyrwzcfy.axajezisknuzpeqe(lvar10) == 91059316)
+      goto V
+   1. throw nullconst;
+      -> TryCatch range: [W...V] -> AP ([Ljava/lang/IllegalAccessException;])
+      -> ConditionalJump[IF_ICMPEQ] #W -> #V
+      <- UnconditionalJump[GOTO] #AA -> #W
+===#Block V(size=1, flags=0)===
+   0. throw new java/lang/IllegalAccessException();
+      -> TryCatch range: [W...V] -> AP ([Ljava/lang/IllegalAccessException;])
+      <- ConditionalJump[IF_ICMPEQ] #W -> #V
+===#Block AP(size=1, flags=0)===
+   0. switch (gkmbqssbqllpewke.rxutauxymyrwzcfy.bbbossvelppbyclp(lvar10)) {
+      case -1610370904:
+      	 goto	#AR
+      case 1484377168:
+      	 goto	#AQ
+      default:
+      	 goto	#AS
+   }
+      -> Switch[1484377168] #AP -> #AQ
+      -> Switch[-1610370904] #AP -> #AR
+      -> DefaultSwitch #AP -> #AS
+      <- TryCatch range: [W...V] -> AP ([Ljava/lang/IllegalAccessException;])
+      <- TryCatch range: [W...V] -> AP ([Ljava/lang/IllegalAccessException;])
+===#Block AS(size=1, flags=0)===
+   0. throw new java/io/IOException("Error in hash");
+      <- DefaultSwitch #AP -> #AS
+===#Block AR(size=2, flags=10100)===
+   0. lvar10 = {842468718 ^ lvar10};
+   1. goto X
+      -> UnconditionalJump[GOTO] #AR -> #X
+      <- Switch[-1610370904] #AP -> #AR
+===#Block AQ(size=2, flags=10100)===
+   0. lvar10 = {758661873 ^ lvar10};
+   1. goto X
+      -> UnconditionalJump[GOTO] #AQ -> #X
+      <- Switch[1484377168] #AP -> #AQ
+===#Block X(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto Y
+      -> UnconditionalJump[GOTO] #X -> #Y
+      <- UnconditionalJump[GOTO] #AQ -> #X
+      <- UnconditionalJump[GOTO] #AR -> #X
+===#Block Y(size=2, flags=10100)===
+   0. lvar10 = pl.durex.client.module.AntiKowalModule.opftkfxouvzvorqi(lvar10, 337728797);
+   1. goto F
+      -> UnconditionalJump[GOTO] #Y -> #F
+      <- UnconditionalJump[GOTO] #X -> #Y
+===#Block F(size=3, flags=0)===
+   0. // Frame: locals[1] [net/minecraft/class_1309] stack[0] []
+   1. if (sdk.SDK.checkType(lvar1, "-2434008177367695440", {1105361106 ^ lvar10}) != {840314470 ^ lvar10})
+      goto AH
+   2. lvar10 = {826079684 ^ lvar10};
+      -> ConditionalJump[IF_ICMPNE] #F -> #AH
+      -> Immediate #F -> #G
+      <- UnconditionalJump[GOTO] #Y -> #F
+===#Block G(size=2, flags=0)===
+   0. if (((net.minecraft.class_1309)lvar1).method_5805() == {53139362 ^ lvar10})
+      goto AC
+   1. lvar10 = {1541689635 ^ lvar10};
+      -> ConditionalJump[IF_ICMPEQ] #G -> #AC
+      -> Immediate #G -> #H
+      <- Immediate #F -> #G
+===#Block H(size=2, flags=0)===
+   0. if (((net.minecraft.class_1309)lvar1).method_31481() == {1489929857 ^ lvar10})
+      goto AD
+   1. lvar10 = {877350770 ^ lvar10};
+      -> Immediate #H -> #Q
+      -> ConditionalJump[IF_ICMPEQ] #H -> #AD
+      <- Immediate #G -> #H
+===#Block AD(size=2, flags=10100)===
+   0. lvar10 = pl.durex.client.module.AntiKowalModule.opftkfxouvzvorqi(lvar10, 1695237005);
+   1. goto I
+      -> UnconditionalJump[GOTO] #AD -> #I
+      <- ConditionalJump[IF_ICMPEQ] #H -> #AD
+===#Block I(size=4, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. lvar2 = java.util.Locale.ROOT;
+   2. lvar3 = lvar1.method_5477().getString().toLowerCase(lvar2);
+   3. lvar10 = {1900234161 ^ lvar10};
+      -> Immediate #I -> #J
+      <- UnconditionalJump[GOTO] #AD -> #I
+===#Block J(size=2, flags=0)===
+   0. lvar4 = pl.durex.client.module.AntiKowalModule.BLACKSMITH_NAMES.iterator();
+   1. lvar10 = {2012326723 ^ lvar10};
+      -> Immediate #J -> #K
+      <- Immediate #I -> #J
+===#Block K(size=4, flags=0)===
+   0. // Frame: locals[2] [java/lang/String, java/util/Iterator] stack[0] []
+   1. lvar5 = lvar4.hasNext();
+   2. if (lvar5 == {997665790 ^ lvar10})
+      goto AK
+   3. lvar10 = {1286234967 ^ lvar10};
+      -> Immediate #K -> #L
+      -> ConditionalJump[IF_ICMPEQ] #K -> #AK
+      <- Immediate #J -> #K
+      <- UnconditionalJump[GOTO] #AB -> #K
+===#Block AK(size=2, flags=10100)===
+   0. lvar10 = pl.durex.client.module.AntiKowalModule.opftkfxouvzvorqi(lvar10, 1517293095);
+   1. goto P
+      -> UnconditionalJump[GOTO] #AK -> #P
+      <- ConditionalJump[IF_ICMPEQ] #K -> #AK
+===#Block P(size=2, flags=0)===
+   0. // Frame: locals[1] [null] stack[0] []
+   1. return {1627858393 ^ lvar10};
+      <- UnconditionalJump[GOTO] #AK -> #P
+===#Block L(size=2, flags=0)===
+   0. lvar6 = lvar4.next();
+   1. lvar10 = {1901530891 ^ lvar10};
+      -> Immediate #L -> #M
+      <- Immediate #K -> #L
+===#Block M(size=3, flags=0)===
+   0. lvar7 = lvar3.contains((java.lang.String)lvar6);
+   1. if (lvar7 == {109725602 ^ lvar10})
+      goto AE
+   2. lvar10 = {686891770 ^ lvar10};
+      -> ConditionalJump[IF_ICMPEQ] #M -> #AE
+      -> Immediate #M -> #N
+      <- Immediate #L -> #M
+===#Block N(size=1, flags=0)===
+   0. return {779838809 ^ lvar10};
+      <- Immediate #M -> #N
+===#Block AE(size=1, flags=10100)===
+   0. switch (gkmbqssbqllpewke.rxutauxymyrwzcfy.axajezisknuzpeqe(lvar10)) {
+      case 102868397:
+      	 goto	#AF
+      case 564558045:
+      	 goto	#AE
+      case 1293558434:
+      	 goto	#O
+      case 1655303638:
+      	 goto	#AG
+      default:
+      	 goto	#AG
+   }
+      -> Switch[1293558434] #AE -> #O
+      -> Switch[1655303638] #AE -> #AG
+      -> DefaultSwitch #AE -> #AG
+      -> Switch[102868397] #AE -> #AF
+      -> Immediate #AE -> #AF
+      -> Switch[564558045] #AE -> #AE
+      <- ConditionalJump[IF_ICMPEQ] #M -> #AE
+      <- Switch[564558045] #AE -> #AE
+===#Block AF(size=2, flags=100)===
+   0. lvar10 = {1290232200 ^ lvar10};
+   1. goto O
+      -> UnconditionalJump[GOTO] #AF -> #O
+      <- Switch[102868397] #AE -> #AF
+      <- Immediate #AE -> #AF
+===#Block O(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. goto Z
+      -> UnconditionalJump[GOTO] #O -> #Z
+      <- Switch[1293558434] #AE -> #O
+      <- UnconditionalJump[GOTO] #AF -> #O
+===#Block Z(size=2, flags=10100)===
+   0. lvar10 = pl.durex.client.module.AntiKowalModule.opftkfxouvzvorqi(lvar10, 36402030);
+   1. goto T
+      -> UnconditionalJump[GOTO] #Z -> #T
+      <- UnconditionalJump[GOTO] #O -> #Z
+===#Block T(size=2, flags=0)===
+   0. if (gkmbqssbqllpewke.rxutauxymyrwzcfy.axajezisknuzpeqe(lvar10) == 201854325)
+      goto S
+   1. throw nullconst;
+      -> TryCatch range: [T...S] -> AL ([Ljava/io/IOException;])
+      -> ConditionalJump[IF_ICMPEQ] #T -> #S
+      <- UnconditionalJump[GOTO] #Z -> #T
+===#Block S(size=1, flags=0)===
+   0. throw new java/io/IOException();
+      -> TryCatch range: [T...S] -> AL ([Ljava/io/IOException;])
+      <- ConditionalJump[IF_ICMPEQ] #T -> #S
+===#Block AL(size=1, flags=0)===
+   0. switch (gkmbqssbqllpewke.rxutauxymyrwzcfy.bbbossvelppbyclp(lvar10)) {
+      case -744272368:
+      	 goto	#AN
+      case 1110616610:
+      	 goto	#AM
+      default:
+      	 goto	#AO
+   }
+      -> DefaultSwitch #AL -> #AO
+      -> Switch[1110616610] #AL -> #AM
+      -> Switch[-744272368] #AL -> #AN
+      <- TryCatch range: [T...S] -> AL ([Ljava/io/IOException;])
+      <- TryCatch range: [T...S] -> AL ([Ljava/io/IOException;])
+===#Block AN(size=2, flags=10100)===
+   0. lvar10 = pl.durex.client.module.AntiKowalModule.opftkfxouvzvorqi(lvar10, 116987689);
+   1. goto U
+      -> UnconditionalJump[GOTO] #AN -> #U
+      <- Switch[-744272368] #AL -> #AN
+===#Block AM(size=2, flags=10100)===
+   0. lvar10 = pl.durex.client.module.AntiKowalModule.opftkfxouvzvorqi(lvar10, 1422601135);
+   1. goto U
+      -> UnconditionalJump[GOTO] #AM -> #U
+      <- Switch[1110616610] #AL -> #AM
+===#Block U(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto AB
+      -> UnconditionalJump[GOTO] #U -> #AB
+      <- UnconditionalJump[GOTO] #AM -> #U
+      <- UnconditionalJump[GOTO] #AN -> #U
+===#Block AB(size=2, flags=10100)===
+   0. lvar10 = {670717205 ^ lvar10};
+   1. goto K
+      -> UnconditionalJump[GOTO] #AB -> #K
+      <- UnconditionalJump[GOTO] #U -> #AB
+===#Block AO(size=1, flags=0)===
+   0. throw new java/io/IOException("Error in hash");
+      <- DefaultSwitch #AL -> #AO
+===#Block AC(size=2, flags=10100)===
+   0. lvar10 = {1873747537 ^ lvar10};
+   1. goto Q
+      -> UnconditionalJump[GOTO] #AC -> #Q
+      <- ConditionalJump[IF_ICMPEQ] #G -> #AC
+===#Block AH(size=1, flags=10100)===
+   0. switch (gkmbqssbqllpewke.rxutauxymyrwzcfy.axajezisknuzpeqe(lvar10)) {
+      case 17484787:
+      	 goto	#AI
+      case 210076654:
+      	 goto	#Q
+      case 1083226311:
+      	 goto	#AH
+      case 1213369266:
+      	 goto	#AG
+      default:
+      	 goto	#AG
+   }
+      -> Immediate #AH -> #AI
+      -> Switch[1083226311] #AH -> #AH
+      -> DefaultSwitch #AH -> #AG
+      -> Switch[210076654] #AH -> #Q
+      -> Switch[1213369266] #AH -> #AG
+      -> Switch[17484787] #AH -> #AI
+      <- Switch[1083226311] #AH -> #AH
+      <- ConditionalJump[IF_ICMPNE] #F -> #AH
+===#Block AG(size=1, flags=0)===
+   0. throw new java/io/IOException();
+      <- Switch[1655303638] #AE -> #AG
+      <- DefaultSwitch #AE -> #AG
+      <- DefaultSwitch #AH -> #AG
+      <- Switch[1213369266] #AH -> #AG
+===#Block AI(size=2, flags=100)===
+   0. lvar10 = {1586751381 ^ lvar10};
+   1. goto Q
+      -> UnconditionalJump[GOTO] #AI -> #Q
+      <- Immediate #AH -> #AI
+      <- Switch[17484787] #AH -> #AI
+===#Block Q(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. return {1820707315 ^ lvar10};
+      <- UnconditionalJump[GOTO] #AC -> #Q
+      <- Immediate #H -> #Q
+      <- Switch[210076654] #AH -> #Q
+      <- UnconditionalJump[GOTO] #AI -> #Q
+===#Block AJ(size=2, flags=10100)===
+   0. lvar10 = pl.durex.client.module.AntiKowalModule.opftkfxouvzvorqi(lvar10, 799804438);
+   1. goto C
+      -> UnconditionalJump[GOTO] #AJ -> #C
+      <- ConditionalJump[IF_ICMPEQ] #B -> #AJ
+===#Block C(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. return {2012329109 ^ lvar10};
+      <- UnconditionalJump[GOTO] #AJ -> #C

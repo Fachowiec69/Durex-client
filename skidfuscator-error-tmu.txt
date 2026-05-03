@@ -1,0 +1,201 @@
+handler=Block #AC, types=[Ljava/io/IOException;], range=[Block #U, Block #T]
+===#Block A(size=9, flags=1)===
+   0. lvar39 = {460775030 ^ {1492835997 ^ 1660033153}};
+   1. synth(lvar0 = lvar0);
+   2. synth(lvar1 = lvar1);
+   3. synth(lvar2 = lvar2);
+   4. synth(lvar3 = lvar3);
+   5. synth(lvar4 = lvar4);
+   6. synth(lvar5 = lvar5);
+   7. synth(lvar6 = lvar6);
+   8. lvar39 = {1503476989 ^ lvar39};
+      -> Immediate #A -> #B
+===#Block B(size=2, flags=0)===
+   0. if (lvar3 <= {2028151959 ^ lvar39})
+      goto Z
+   1. lvar39 = {1002085703 ^ lvar39};
+      -> Immediate #B -> #C
+      -> ConditionalJump[IF_ICMPLE] #B -> #Z
+      <- Immediate #A -> #B
+===#Block Z(size=2, flags=10100)===
+   0. lvar39 = {1948006281 ^ lvar39};
+   1. goto D
+      -> UnconditionalJump[GOTO] #Z -> #D
+      <- ConditionalJump[IF_ICMPLE] #B -> #Z
+===#Block C(size=2, flags=0)===
+   0. if (lvar4 > {1129953744 ^ lvar39})
+      goto AB
+   1. lvar39 = {1336322766 ^ lvar39};
+      -> ConditionalJump[IF_ICMPGT] #C -> #AB
+      -> Immediate #C -> #D
+      <- Immediate #B -> #C
+===#Block D(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. return;
+      <- Immediate #C -> #D
+      <- UnconditionalJump[GOTO] #Z -> #D
+===#Block AB(size=2, flags=10100)===
+   0. lvar39 = {1113863470 ^ lvar39};
+   1. goto E
+      -> UnconditionalJump[GOTO] #AB -> #E
+      <- ConditionalJump[IF_ICMPGT] #C -> #AB
+===#Block E(size=3, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. lvar7 = java.lang.Math.min(lvar5, {java.lang.Math.min(lvar3, lvar4) / ({20811004 ^ lvar39})});
+   2. lvar39 = {1072709835 ^ lvar39};
+      -> Immediate #E -> #F
+      <- UnconditionalJump[GOTO] #AB -> #E
+===#Block F(size=2, flags=0)===
+   0. if (lvar7 > {1053674549 ^ lvar39})
+      goto AA
+   1. lvar39 = {1088307182 ^ lvar39};
+      -> ConditionalJump[IF_ICMPGT] #F -> #AA
+      -> Immediate #F -> #Q
+      <- Immediate #E -> #F
+===#Block Q(size=2, flags=0)===
+   0. _consume(lvar0.method_25294(lvar1, lvar2, {lvar1 + lvar3}, {lvar2 + lvar4}, lvar6));
+   1. lvar39 = {1577189572 ^ lvar39};
+      -> Immediate #Q -> #R
+      <- Immediate #F -> #Q
+===#Block R(size=1, flags=0)===
+   0. return;
+      <- Immediate #Q -> #R
+===#Block AA(size=2, flags=10100)===
+   0. lvar39 = {19617785 ^ lvar39};
+   1. goto G
+      -> UnconditionalJump[GOTO] #AA -> #G
+      <- ConditionalJump[IF_ICMPGT] #F -> #AA
+===#Block G(size=3, flags=0)===
+   0. // Frame: locals[1] [1] stack[0] []
+   1. _consume(lvar0.method_25294({lvar1 + lvar7}, lvar2, {{lvar1 + lvar3} - lvar7}, {lvar2 + lvar4}, lvar6));
+   2. lvar39 = {1480642135 ^ lvar39};
+      -> Immediate #G -> #H
+      <- UnconditionalJump[GOTO] #AA -> #G
+===#Block H(size=2, flags=0)===
+   0. _consume(lvar0.method_25294(lvar1, {lvar2 + lvar7}, {lvar1 + lvar3}, {{lvar2 + lvar4} - lvar7}, lvar6));
+   1. lvar39 = {1106830946 ^ lvar39};
+      -> Immediate #H -> #I
+      <- Immediate #G -> #H
+===#Block I(size=2, flags=0)===
+   0. lvar8 = {643740665 ^ lvar39};
+   1. lvar39 = {684718397 ^ lvar39};
+      -> Immediate #I -> #J
+      <- Immediate #H -> #I
+===#Block J(size=3, flags=0)===
+   0. // Frame: locals[1] [1] stack[0] []
+   1. if (lvar8 >= lvar7)
+      goto Y
+   2. lvar39 = {1017181908 ^ lvar39};
+      -> Immediate #J -> #K
+      -> ConditionalJump[IF_ICMPGE] #J -> #Y
+      <- UnconditionalJump[GOTO] #X -> #J
+      <- Immediate #I -> #J
+===#Block Y(size=2, flags=10100)===
+   0. lvar39 = {1051327817 ^ lvar39};
+   1. goto P
+      -> UnconditionalJump[GOTO] #Y -> #P
+      <- ConditionalJump[IF_ICMPGE] #J -> #Y
+===#Block P(size=2, flags=0)===
+   0. // Frame: locals[1] [null] stack[0] []
+   1. return;
+      <- UnconditionalJump[GOTO] #Y -> #P
+===#Block K(size=3, flags=0)===
+   0. lvar12 = {lvar7 - lvar8};
+   1. lvar9 = {(double)lvar12 - 0.5D};
+   2. lvar39 = {1882282404 ^ lvar39};
+      -> Immediate #K -> #L
+      <- Immediate #J -> #K
+===#Block L(size=8, flags=0)===
+   0. lvar16 = {lvar7 * lvar7};
+   1. lvar31 = {lvar9 * lvar9};
+   2. lvar17 = {(double)lvar16 - lvar31};
+   3. lvar19 = java.lang.Math.sqrt(lvar17);
+   4. lvar21 = java.lang.Math.floor(lvar19);
+   5. lvar13 = {lvar7 - (int)lvar21};
+   6. lvar11 = java.lang.Math.max({1107355060 ^ lvar39}, lvar13);
+   7. lvar39 = {322830611 ^ lvar39};
+      -> Immediate #L -> #M
+      <- Immediate #K -> #L
+===#Block M(size=8, flags=0)===
+   0. lvar14 = {lvar1 + lvar11};
+   1. lvar23 = {lvar2 + lvar8};
+   2. lvar27 = {lvar1 + lvar3};
+   3. lvar28 = {lvar27 - lvar11};
+   4. lvar33 = {lvar2 + lvar8};
+   5. lvar34 = {lvar33 + ({1363076262 ^ lvar39})};
+   6. _consume(lvar0.method_25294(lvar14, lvar23, lvar28, lvar34, lvar6));
+   7. lvar39 = {1413300639 ^ lvar39};
+      -> Immediate #M -> #N
+      <- Immediate #L -> #M
+===#Block N(size=10, flags=0)===
+   0. lvar15 = {lvar1 + lvar11};
+   1. lvar24 = {lvar2 + lvar4};
+   2. lvar25 = {lvar24 - lvar8};
+   3. lvar26 = {lvar25 - ({84124985 ^ lvar39})};
+   4. lvar29 = {lvar1 + lvar3};
+   5. lvar30 = {lvar29 - lvar11};
+   6. lvar35 = {lvar2 + lvar4};
+   7. lvar36 = {lvar35 - lvar8};
+   8. _consume(lvar0.method_25294(lvar15, lvar26, lvar30, lvar36, lvar6));
+   9. lvar39 = {2020418525 ^ lvar39};
+      -> Immediate #N -> #O
+      <- Immediate #M -> #N
+===#Block O(size=2, flags=0)===
+   0. lvar8 = {lvar8 + ({2104395492 ^ lvar39})};
+   1. goto W
+      -> UnconditionalJump[GOTO] #O -> #W
+      <- Immediate #N -> #O
+===#Block W(size=2, flags=10100)===
+   0. lvar39 = {1969844866 ^ lvar39};
+   1. goto U
+      -> UnconditionalJump[GOTO] #W -> #U
+      <- UnconditionalJump[GOTO] #O -> #W
+===#Block U(size=2, flags=0)===
+   0. if (gkmbqssbqllpewke.rxutauxymyrwzcfy.axajezisknuzpeqe(lvar39) == 126319911)
+      goto T
+   1. throw nullconst;
+      -> ConditionalJump[IF_ICMPEQ] #U -> #T
+      -> TryCatch range: [U...T] -> AC ([Ljava/io/IOException;])
+      <- UnconditionalJump[GOTO] #W -> #U
+===#Block T(size=1, flags=0)===
+   0. throw new java/io/IOException();
+      -> TryCatch range: [U...T] -> AC ([Ljava/io/IOException;])
+      <- ConditionalJump[IF_ICMPEQ] #U -> #T
+===#Block AC(size=1, flags=0)===
+   0. switch (gkmbqssbqllpewke.rxutauxymyrwzcfy.bbbossvelppbyclp(lvar39)) {
+      case -1053920453:
+      	 goto	#AE
+      case 1077912376:
+      	 goto	#AD
+      default:
+      	 goto	#AF
+   }
+      -> Switch[1077912376] #AC -> #AD
+      -> DefaultSwitch #AC -> #AF
+      -> Switch[-1053920453] #AC -> #AE
+      <- TryCatch range: [U...T] -> AC ([Ljava/io/IOException;])
+      <- TryCatch range: [U...T] -> AC ([Ljava/io/IOException;])
+===#Block AE(size=2, flags=10100)===
+   0. lvar39 = pl.durex.client.gui.render.GuiRenderUtils.hlprnszgfzushuzj(lvar39, 1871663510);
+   1. goto V
+      -> UnconditionalJump[GOTO] #AE -> #V
+      <- Switch[-1053920453] #AC -> #AE
+===#Block AF(size=1, flags=0)===
+   0. throw new java/lang/RuntimeException("Error in hash");
+      <- DefaultSwitch #AC -> #AF
+===#Block AD(size=2, flags=10100)===
+   0. lvar39 = pl.durex.client.gui.render.GuiRenderUtils.hlprnszgfzushuzj(lvar39, 531458966);
+   1. goto V
+      -> UnconditionalJump[GOTO] #AD -> #V
+      <- Switch[1077912376] #AC -> #AD
+===#Block V(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto X
+      -> UnconditionalJump[GOTO] #V -> #X
+      <- UnconditionalJump[GOTO] #AE -> #V
+      <- UnconditionalJump[GOTO] #AD -> #V
+===#Block X(size=2, flags=10100)===
+   0. lvar39 = pl.durex.client.gui.render.GuiRenderUtils.hlprnszgfzushuzj(lvar39, 423351605);
+   1. goto J
+      -> UnconditionalJump[GOTO] #X -> #J
+      <- UnconditionalJump[GOTO] #V -> #X

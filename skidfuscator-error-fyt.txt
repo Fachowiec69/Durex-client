@@ -1,0 +1,116 @@
+handler=Block #O, types=[Ljava/lang/IllegalAccessException;], range=[Block #H, Block #G]
+===#Block A(size=4, flags=1)===
+   0. lvar4 = {1498893216 ^ {26297525 ^ 808110536}};
+   1. synth(lvar0 = lvar0);
+   2. synth(lvar1 = lvar1);
+   3. lvar4 = {591828139 ^ lvar4};
+      -> Immediate #A -> #B
+===#Block B(size=2, flags=0)===
+   0. if (lvar0.activeHand != pl.durex.client.module.ViewModelModule$Hand.RIGHT)
+      goto L
+   1. lvar4 = {251035150 ^ lvar4};
+      -> Immediate #B -> #D
+      -> ConditionalJump[IF_ACMPNE] #B -> #L
+      <- Immediate #A -> #B
+===#Block L(size=1, flags=10100)===
+   0. switch (mnntxzybtgzxkcdx.juaxxcqugyybnazs.ixibojifbjufzxuc(lvar4)) {
+      case 43627630:
+      	 goto	#M
+      case 937973206:
+      	 goto	#L
+      case 1163806149:
+      	 goto	#C
+      case 1605208408:
+      	 goto	#N
+      default:
+      	 goto	#N
+   }
+      -> Switch[43627630] #L -> #M
+      -> Switch[1163806149] #L -> #C
+      -> Switch[937973206] #L -> #L
+      -> Immediate #L -> #M
+      -> Switch[1605208408] #L -> #N
+      -> DefaultSwitch #L -> #N
+      <- ConditionalJump[IF_ACMPNE] #B -> #L
+      <- Switch[937973206] #L -> #L
+===#Block N(size=1, flags=0)===
+   0. throw new java/lang/IllegalAccessException();
+      <- Switch[1605208408] #L -> #N
+      <- DefaultSwitch #L -> #N
+===#Block M(size=2, flags=100)===
+   0. lvar4 = {255491905 ^ lvar4};
+   1. goto C
+      -> UnconditionalJump[GOTO] #M -> #C
+      <- Switch[43627630] #L -> #M
+      <- Immediate #L -> #M
+===#Block C(size=3, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. lvar0.leftPosZ = lvar1;
+   2. lvar4 = {314392441 ^ lvar4};
+      -> Immediate #C -> #E
+      <- Switch[1163806149] #L -> #C
+      <- UnconditionalJump[GOTO] #M -> #C
+===#Block D(size=2, flags=0)===
+   0. lvar0.rightPosZ = lvar1;
+   1. goto J
+      -> UnconditionalJump[GOTO] #D -> #J
+      <- Immediate #B -> #D
+===#Block J(size=2, flags=10100)===
+   0. lvar4 = {465700080 ^ lvar4};
+   1. goto H
+      -> UnconditionalJump[GOTO] #J -> #H
+      <- UnconditionalJump[GOTO] #D -> #J
+===#Block H(size=2, flags=0)===
+   0. if (mnntxzybtgzxkcdx.juaxxcqugyybnazs.ixibojifbjufzxuc(lvar4) == 122826777)
+      goto G
+   1. throw nullconst;
+      -> ConditionalJump[IF_ICMPEQ] #H -> #G
+      -> TryCatch range: [H...G] -> O ([Ljava/lang/IllegalAccessException;])
+      <- UnconditionalJump[GOTO] #J -> #H
+===#Block G(size=1, flags=0)===
+   0. throw new java/lang/IllegalAccessException();
+      -> TryCatch range: [H...G] -> O ([Ljava/lang/IllegalAccessException;])
+      <- ConditionalJump[IF_ICMPEQ] #H -> #G
+===#Block O(size=1, flags=0)===
+   0. switch (mnntxzybtgzxkcdx.juaxxcqugyybnazs.ckmosqpappiyjjfr(lvar4)) {
+      case -1885759054:
+      	 goto	#Q
+      case -185514942:
+      	 goto	#P
+      default:
+      	 goto	#R
+   }
+      -> Switch[-1885759054] #O -> #Q
+      -> Switch[-185514942] #O -> #P
+      -> DefaultSwitch #O -> #R
+      <- TryCatch range: [H...G] -> O ([Ljava/lang/IllegalAccessException;])
+      <- TryCatch range: [H...G] -> O ([Ljava/lang/IllegalAccessException;])
+===#Block R(size=1, flags=0)===
+   0. throw new java/lang/IllegalAccessException("Error in hash");
+      <- DefaultSwitch #O -> #R
+===#Block P(size=2, flags=10100)===
+   0. lvar4 = pl.durex.client.module.ViewModelModule.hqcitnwohjtljsxk(lvar4, 884232673);
+   1. goto I
+      -> UnconditionalJump[GOTO] #P -> #I
+      <- Switch[-185514942] #O -> #P
+===#Block Q(size=2, flags=10100)===
+   0. lvar4 = {1004096095 ^ lvar4};
+   1. goto I
+      -> UnconditionalJump[GOTO] #Q -> #I
+      <- Switch[-1885759054] #O -> #Q
+===#Block I(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto K
+      -> UnconditionalJump[GOTO] #I -> #K
+      <- UnconditionalJump[GOTO] #Q -> #I
+      <- UnconditionalJump[GOTO] #P -> #I
+===#Block K(size=2, flags=10100)===
+   0. lvar4 = {1007119143 ^ lvar4};
+   1. goto E
+      -> UnconditionalJump[GOTO] #K -> #E
+      <- UnconditionalJump[GOTO] #I -> #K
+===#Block E(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. return;
+      <- UnconditionalJump[GOTO] #K -> #E
+      <- Immediate #C -> #E

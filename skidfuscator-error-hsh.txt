@@ -1,0 +1,51 @@
+===#Block A(size=2, flags=1)===
+   0. synth(lvar0 = lvar0);
+   1. synth(lvar1 = lvar1);
+      -> Immediate #A -> #B
+===#Block B(size=1, flags=0)===
+   0. lvar2 = lvar1.field_1724;
+      -> Immediate #B -> #C
+      <- Immediate #A -> #B
+===#Block C(size=1, flags=0)===
+   0. if (lvar1.field_1724 == nullconst)
+      goto K
+      -> Immediate #C -> #D
+      -> ConditionalJump[IFNULL] #C -> #K
+      <- Immediate #B -> #C
+===#Block D(size=1, flags=0)===
+   0. if (lvar1.field_1761 != nullconst)
+      goto E
+      -> Immediate #D -> #K
+      -> ConditionalJump[IFNONNULL] #D -> #E
+      <- Immediate #C -> #D
+===#Block E(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. lvar3 = lvar0.findPreferredTarget(lvar1);
+      -> Immediate #E -> #F
+      <- ConditionalJump[IFNONNULL] #D -> #E
+===#Block F(size=1, flags=0)===
+   0. if (lvar3 != nullconst)
+      goto H
+      -> ConditionalJump[IFNONNULL] #F -> #H
+      -> Immediate #F -> #G
+      <- Immediate #E -> #F
+===#Block G(size=1, flags=0)===
+   0. return {1580242703 ^ lvar7};
+      <- Immediate #F -> #G
+===#Block H(size=2, flags=0)===
+   0. // Frame: locals[1] [net/minecraft/class_1297] stack[0] []
+   1. lvar4 = lvar1.field_1761.method_2905(lvar2, lvar3, net.minecraft.class_1268.field_5808);
+      -> Immediate #H -> #I
+      <- ConditionalJump[IFNONNULL] #F -> #H
+===#Block I(size=1, flags=0)===
+   0. _consume(lvar2.method_6104(net.minecraft.class_1268.field_5808));
+      -> Immediate #I -> #J
+      <- Immediate #H -> #I
+===#Block J(size=1, flags=0)===
+   0. return {1982606079 ^ lvar7};
+      <- Immediate #I -> #J
+===#Block K(size=2, flags=0)===
+   0. // Frame: locals[1] [net/minecraft/class_746] stack[0] []
+   1. return {674756870 ^ lvar7};
+      <- Immediate #D -> #K
+      <- ConditionalJump[IFNULL] #C -> #K

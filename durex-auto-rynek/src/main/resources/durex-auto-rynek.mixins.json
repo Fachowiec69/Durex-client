@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "pl.durex.autorynek.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "HandledScreenMixin",
+    "ChatMixin",
+    "ContainerSetSlotMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,197 @@
+handler=Block #AF, types=[Ljava/io/IOException;], range=[Block #AE, Block #AD]
+handler=Block #AI, types=[Ljava/lang/IllegalAccessException;], range=[Block #AH, Block #AG]
+handler=Block #AL, types=[Ljava/lang/RuntimeException;], range=[Block #AK, Block #AJ]
+===#Block A(size=2, flags=1)===
+   0. synth(lvar0 = lvar0);
+   1. synth(lvar1 = lvar1);
+      -> Immediate #A -> #B
+===#Block B(size=2, flags=0)===
+   0. lvar2 = lvar1.field_1765;
+   1. if (sdk.SDK.checkType(lvar1.field_1765, "7818766340966869966", {560362326 ^ lvar23}) == {350926443 ^ lvar23})
+      goto G
+      -> ConditionalJump[IF_ICMPEQ] #B -> #G
+      -> Immediate #B -> #C
+      <- Immediate #A -> #B
+===#Block C(size=0, flags=0)===
+      -> Immediate #C -> #D
+      <- Immediate #B -> #C
+===#Block D(size=2, flags=0)===
+   0. lvar20 = ((net.minecraft.class_3966)lvar2).method_17782();
+   1. if (sdk.SDK.checkType(lvar20, "1869403508549618271", {1931288082 ^ lvar23}) == {1183963951 ^ lvar23})
+      goto G
+      -> ConditionalJump[IF_ICMPEQ] #D -> #G
+      -> Immediate #D -> #E
+      <- Immediate #C -> #D
+===#Block E(size=0, flags=0)===
+      -> Immediate #E -> #F
+      <- Immediate #D -> #E
+===#Block F(size=1, flags=0)===
+   0. return (net.minecraft.class_1309)lvar20;
+      <- Immediate #E -> #F
+===#Block G(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. lvar18 = lvar1.field_1724.method_5836(1.0F);
+      -> Immediate #G -> #H
+      <- ConditionalJump[IF_ICMPEQ] #B -> #G
+      <- ConditionalJump[IF_ICMPEQ] #D -> #G
+===#Block H(size=1, flags=0)===
+   0. lvar19 = lvar1.field_1724.method_5828(1.0F);
+      -> Immediate #H -> #I
+      <- Immediate #G -> #H
+===#Block I(size=0, flags=0)===
+      -> Immediate #I -> #J
+      <- Immediate #H -> #I
+===#Block J(size=1, flags=0)===
+   0. lvar3 = lvar18.method_1019(lvar19.method_1021(6.0D));
+      -> Immediate #J -> #K
+      <- Immediate #I -> #J
+===#Block K(size=0, flags=0)===
+      -> Immediate #K -> #L
+      <- Immediate #J -> #K
+===#Block L(size=1, flags=0)===
+   0. lvar4 = nullconst;
+      -> Immediate #L -> #M
+      <- Immediate #K -> #L
+===#Block M(size=1, flags=0)===
+   0. lvar5 = 1.7976931348623157E308D;
+      -> Immediate #M -> #N
+      <- Immediate #L -> #M
+===#Block N(size=1, flags=0)===
+   0. lvar7 = lvar1.field_1687.method_8335(lvar1.field_1724, lvar1.field_1724.method_5829().method_18804(lvar19.method_1021(6.0D)).method_1014(1.0D)).iterator();
+      -> Immediate #N -> #O
+      <- Immediate #M -> #N
+===#Block O(size=3, flags=0)===
+   0. // Frame: locals[10] [pl/durex/client/module/ProcenciarzModule, net/minecraft/class_310, net/minecraft/class_243, net/minecraft/class_243, 3, net/minecraft/class_243, net/minecraft/class_238, net/minecraft/class_1309, 3, java/util/Iterator] stack[0] []
+   1. lvar12 = lvar7.hasNext();
+   2. if (lvar12 == {820186090 ^ lvar23})
+      goto AC
+      -> ConditionalJump[IF_ICMPEQ] #O -> #AC
+      -> Immediate #O -> #P
+      <- UnconditionalJump[GOTO] #AF -> #O
+      <- Immediate #N -> #O
+      <- UnconditionalJump[GOTO] #AL -> #O
+      <- ConditionalJump[IF_ICMPEQ] #Q -> #O
+      <- UnconditionalJump[GOTO] #AI -> #O
+===#Block P(size=1, flags=0)===
+   0. lvar13 = lvar7.next();
+      -> Immediate #P -> #Q
+      <- Immediate #O -> #P
+===#Block Q(size=1, flags=0)===
+   0. if (sdk.SDK.checkType((net.minecraft.class_1297)lvar13, "1869403508549618271", {1947608896 ^ lvar23}) == {1100669565 ^ lvar23})
+      goto O
+      -> Immediate #Q -> #R
+      -> ConditionalJump[IF_ICMPEQ] #Q -> #O
+      <- Immediate #P -> #Q
+===#Block R(size=0, flags=0)===
+      -> Immediate #R -> #S
+      <- Immediate #Q -> #R
+===#Block S(size=2, flags=0)===
+   0. lvar14 = ((net.minecraft.class_1309)(net.minecraft.class_1297)lvar13).method_5805();
+   1. if (lvar14 != {1575113903 ^ lvar23})
+      goto U
+      -> Immediate #S -> #T
+      -> ConditionalJump[IF_ICMPNE] #S -> #U
+      <- Immediate #R -> #S
+===#Block U(size=3, flags=0)===
+   0. // Frame: locals[2] [net/minecraft/class_1297, net/minecraft/class_1309] stack[0] []
+   1. lvar15 = ((net.minecraft.class_1309)(net.minecraft.class_1297)lvar13).method_5829();
+   2. lvar8 = lvar15.method_1014(0.3D);
+      -> Immediate #U -> #V
+      <- ConditionalJump[IF_ICMPNE] #S -> #U
+===#Block V(size=1, flags=0)===
+   0. lvar9 = lvar8.method_992(lvar18, lvar3);
+      -> Immediate #V -> #W
+      <- Immediate #U -> #V
+===#Block W(size=2, flags=0)===
+   0. lvar16 = lvar9.isEmpty();
+   1. if (lvar16 == {1666671359 ^ lvar23})
+      goto X
+      -> Immediate #W -> #AB
+      -> ConditionalJump[IF_ICMPEQ] #W -> #X
+      <- Immediate #V -> #W
+===#Block X(size=3, flags=0)===
+   0. // Frame: locals[2] [net/minecraft/class_238, java/util/Optional] stack[0] []
+   1. lvar17 = lvar9.get();
+   2. lvar10 = lvar18.method_1025((net.minecraft.class_243)lvar17);
+      -> Immediate #X -> #Y
+      <- ConditionalJump[IF_ICMPEQ] #W -> #X
+===#Block Y(size=1, flags=0)===
+   0. if ((lvar10 CMP lvar5) >= {757011981 ^ lvar23})
+      goto AA
+      -> Immediate #Y -> #Z
+      -> ConditionalJump[IF_ICMPGE] #Y -> #AA
+      <- Immediate #X -> #Y
+===#Block Z(size=2, flags=0)===
+   0. lvar4 = (net.minecraft.class_1309)(net.minecraft.class_1297)lvar13;
+   1. lvar5 = lvar10;
+      -> Immediate #Z -> #AA
+      <- Immediate #Y -> #Z
+===#Block AA(size=2, flags=0)===
+   0. // Frame: locals[10] [pl/durex/client/module/ProcenciarzModule, net/minecraft/class_310, net/minecraft/class_243, net/minecraft/class_243, 3, net/minecraft/class_243, net/minecraft/class_238, net/minecraft/class_1309, 3, java/util/Iterator] stack[0] []
+   1. goto AK
+      -> UnconditionalJump[GOTO] #AA -> #AK
+      <- ConditionalJump[IF_ICMPGE] #Y -> #AA
+      <- Immediate #Z -> #AA
+===#Block AK(size=2, flags=0)===
+   0. if (xwvqepduthapsuzx.brsgqoqywdojiuqf.bcigubzflshbhtpm(lvar23) == 70881873)
+      goto AJ
+   1. throw nullconst;
+      -> TryCatch range: [AK...AJ] -> AL ([Ljava/lang/RuntimeException;])
+      -> ConditionalJump[IF_ICMPEQ] #AK -> #AJ
+      <- UnconditionalJump[GOTO] #AA -> #AK
+===#Block AJ(size=1, flags=0)===
+   0. throw new java/lang/RuntimeException();
+      -> TryCatch range: [AK...AJ] -> AL ([Ljava/lang/RuntimeException;])
+      <- ConditionalJump[IF_ICMPEQ] #AK -> #AJ
+===#Block AL(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto O
+      -> UnconditionalJump[GOTO] #AL -> #O
+      <- TryCatch range: [AK...AJ] -> AL ([Ljava/lang/RuntimeException;])
+      <- TryCatch range: [AK...AJ] -> AL ([Ljava/lang/RuntimeException;])
+===#Block AB(size=1, flags=0)===
+   0. goto AE
+      -> UnconditionalJump[GOTO] #AB -> #AE
+      <- Immediate #W -> #AB
+===#Block AE(size=2, flags=0)===
+   0. if (xwvqepduthapsuzx.brsgqoqywdojiuqf.bcigubzflshbhtpm(lvar23) == 104418582)
+      goto AD
+   1. throw nullconst;
+      -> TryCatch range: [AE...AD] -> AF ([Ljava/io/IOException;])
+      -> ConditionalJump[IF_ICMPEQ] #AE -> #AD
+      <- UnconditionalJump[GOTO] #AB -> #AE
+===#Block AD(size=1, flags=0)===
+   0. throw new java/io/IOException();
+      -> TryCatch range: [AE...AD] -> AF ([Ljava/io/IOException;])
+      <- ConditionalJump[IF_ICMPEQ] #AE -> #AD
+===#Block AF(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto O
+      -> UnconditionalJump[GOTO] #AF -> #O
+      <- TryCatch range: [AE...AD] -> AF ([Ljava/io/IOException;])
+      <- TryCatch range: [AE...AD] -> AF ([Ljava/io/IOException;])
+===#Block T(size=1, flags=0)===
+   0. goto AH
+      -> UnconditionalJump[GOTO] #T -> #AH
+      <- Immediate #S -> #T
+===#Block AH(size=2, flags=0)===
+   0. if (xwvqepduthapsuzx.brsgqoqywdojiuqf.bcigubzflshbhtpm(lvar23) == 46861898)
+      goto AG
+   1. throw nullconst;
+      -> ConditionalJump[IF_ICMPEQ] #AH -> #AG
+      -> TryCatch range: [AH...AG] -> AI ([Ljava/lang/IllegalAccessException;])
+      <- UnconditionalJump[GOTO] #T -> #AH
+===#Block AG(size=1, flags=0)===
+   0. throw new java/lang/IllegalAccessException();
+      -> TryCatch range: [AH...AG] -> AI ([Ljava/lang/IllegalAccessException;])
+      <- ConditionalJump[IF_ICMPEQ] #AH -> #AG
+===#Block AI(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto O
+      -> UnconditionalJump[GOTO] #AI -> #O
+      <- TryCatch range: [AH...AG] -> AI ([Ljava/lang/IllegalAccessException;])
+      <- TryCatch range: [AH...AG] -> AI ([Ljava/lang/IllegalAccessException;])
+===#Block AC(size=2, flags=0)===
+   0. // Frame: locals[1] [null] stack[0] []
+   1. return lvar4;
+      <- ConditionalJump[IF_ICMPEQ] #O -> #AC

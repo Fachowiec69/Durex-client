@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "durexclient",
+  "version": "1.0.0",
+  "name": "Durex Client",
+  "description": "Durex client :P.",
+  "authors": [
+    "Vixorek"
+  ],
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "pl.durex.client.DurexClient"
+    ]
+  },
+  "mixins": [
+    "durexclient.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "fabric-api": "*",
+    "minecraft": "1.21.4",
+    "java": ">=21"
+  },
+  "suggests": {
+    "modernui": "*"
+  }
+}

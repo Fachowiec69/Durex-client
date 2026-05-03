@@ -1,0 +1,17 @@
+{
+  "name": "lwjgl-stb-3.3.3-natives-linux.jar",
+  "md5": "23a604402c5e9527ecce65e66086308a",
+  "sha2": "fd1271ccd9d85eff2fa31f3fd543e02ccfaf5041",
+  "sha256": "c4489068ddc6dc44b103071943f801a2d076634d4b74db470927f84a308219e1",
+  "contents": {
+    "classes": {
+      "META-INF/versions/9/module-info.class": {
+        "ver": 53,
+        "acc": 32768,
+        "nme": "module-info",
+        "mthds": [],
+        "flds": []
+      }
+    }
+  }
+}

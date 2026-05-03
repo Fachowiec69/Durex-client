@@ -1,0 +1,116 @@
+# Skidfuscator - maksymalna obfuskacja dla Durex Client
+# Format: HOCON
+
+# Wyklucz klasy które MUSZĄ mieć oryginalne nazwy
+exempt: [
+    "class{^pl/durex/client/DurexClient}",
+    "class{^pl/durex/client/license/LicenseManager}",
+    "class{^pl/durex/client/license/LicenseScreen}",
+    "class{^pl/durex/client/config/DurexConfig}",
+    "class{^pl/durex/client/loader/DurexClassLoader}",
+    "class{^pl/durex/client/gui/DurexClickGuiScreen}",
+    "class{^pl/durex/client/mixin/}",
+    "class{^net/minecraft/}",
+    "class{^net/fabricmc/}",
+    "class{^icyllis/modernui/}",
+    "class{^com/mojang/}",
+    "class{^org/spongepowered/}"
+]
+
+libs: []
+
+# Obfuskacja interproceduralna (miesza wywołania między metodami)
+interprocedural: {
+  enabled: false  # Wyłączone - może powodować problemy z refleksją
+  exempt: []
+}
+
+# Szyfrowanie stringów w runtime - STANDARD (bezpieczniejsze niż PURE)
+stringEncryption {
+  type: STANDARD
+  enabled: true
+  exempt: [
+    "class{^pl/durex/client/DurexClient}",
+    "class{^pl/durex/client/license/LicenseManager}",
+    "class{^pl/durex/client/license/LicenseScreen}",
+    "class{^pl/durex/client/config/DurexConfig}",
+    "class{^pl/durex/client/loader/DurexClassLoader}"
+  ]
+}
+
+# Szyfrowanie liczb (zastępuje stałe wyrażeniami matematycznymi)
+numberEncryption {
+  enabled: true
+  exempt: [
+    "class{^pl/durex/client/DurexClient}",
+    "class{^pl/durex/client/license/LicenseManager}",
+    "class{^pl/durex/client/license/LicenseScreen}",
+    "class{^pl/durex/client/config/DurexConfig}",
+    "class{^pl/durex/client/loader/DurexClassLoader}"
+  ]
+}
+
+# Obfuskacja flow - fałszywe warunki (opaque predicates)
+flowCondition {
+  enabled: true
+  exempt: [
+    "class{^pl/durex/client/DurexClient}",
+    "class{^pl/durex/client/license/LicenseManager}",
+    "class{^pl/durex/client/license/LicenseScreen}",
+    "class{^pl/durex/client/config/DurexConfig}",
+    "class{^pl/durex/client/loader/DurexClassLoader}"
+  ]
+}
+
+# Fałszywe wyjątki w flow - GOOD (bezpieczniejsze niż AGGRESSIVE)
+flowException {
+  enabled: true
+  strength: GOOD
+  exempt: [
+    "class{^pl/durex/client/DurexClient}",
+    "class{^pl/durex/client/license/LicenseManager}",
+    "class{^pl/durex/client/license/LicenseScreen}",
+    "class{^pl/durex/client/config/DurexConfig}",
+    "class{^pl/durex/client/loader/DurexClassLoader}"
+  ]
+}
+
+# Obfuskacja zakresów zmiennych
+flowRange {
+  enabled: true
+  exempt: [
+    "class{^pl/durex/client/DurexClient}",
+    "class{^pl/durex/client/license/LicenseManager}",
+    "class{^pl/durex/client/license/LicenseScreen}",
+    "class{^pl/durex/client/config/DurexConfig}",
+    "class{^pl/durex/client/loader/DurexClassLoader}"
+  ]
+}
+
+# Obfuskacja switch
+flowSwitch {
+  enabled: true
+  exempt: [
+    "class{^pl/durex/client/DurexClient}",
+    "class{^pl/durex/client/license/LicenseManager}",
+    "class{^pl/durex/client/license/LicenseScreen}",
+    "class{^pl/durex/client/config/DurexConfig}",
+    "class{^pl/durex/client/loader/DurexClassLoader}"
+  ]
+}
+
+# Losowe śmieciowe metody (dead code injection)
+ahegao {
+  enabled: false  # Wyłączone - może zwiększać rozmiar i powodować problemy
+  exempt: []
+}
+
+driver: {
+  enabled: false
+}
+
+# Phantom data - dodaje fałszywe dane do klas
+phantom {
+  enabled: true
+  exempt: []
+}

@@ -1,0 +1,318 @@
+handler=Block #AG, types=[Ljava/lang/IllegalAccessException;], range=[Block #AF, Block #AE]
+handler=Block #AJ, types=[Ljava/lang/RuntimeException;], range=[Block #AI, Block #AH]
+handler=Block #AM, types=[Ljava/io/IOException;], range=[Block #AL, Block #AK]
+handler=Block #AP, types=[Ljava/lang/RuntimeException;], range=[Block #AO, Block #AN]
+handler=Block #AS, types=[Ljava/lang/IllegalAccessException;], range=[Block #AR, Block #AQ]
+handler=Block #AV, types=[Ljava/lang/IllegalAccessException;], range=[Block #AU, Block #AT]
+handler=Block #AY, types=[Ljava/lang/RuntimeException;], range=[Block #AX, Block #AW]
+handler=Block #BB, types=[Ljava/io/IOException;], range=[Block #BA, Block #AZ]
+===#Block A(size=3, flags=1)===
+   0. synth(lvar0 = lvar0);
+   1. synth(lvar1 = lvar1);
+   2. synth(lvar2 = lvar2);
+      -> Immediate #A -> #B
+===#Block B(size=1, flags=0)===
+   0. if (lvar1 < {194413977 ^ lvar18})
+      goto W
+      -> Immediate #B -> #C
+      -> ConditionalJump[IF_ICMPLT] #B -> #W
+      <- Immediate #A -> #B
+===#Block W(size=2, flags=0)===
+   0. if (com.google.common.math.IntMath.checkedAdd(mzjoyotpwyptdgrn.tfmldocwwrevuchl.ivrwmovootqfebkq(lvar18), 1337608820) == 1527473923)
+      goto V
+   1. goto AI
+      -> UnconditionalJump[GOTO] #W -> #AI
+      -> ConditionalJump[IF_ICMPEQ] #W -> #V
+      <- ConditionalJump[IF_ICMPLT] #B -> #W
+===#Block AI(size=2, flags=0)===
+   0. if (mzjoyotpwyptdgrn.tfmldocwwrevuchl.ivrwmovootqfebkq(lvar18) == 131160709)
+      goto AH
+   1. throw nullconst;
+      -> TryCatch range: [AI...AH] -> AJ ([Ljava/lang/RuntimeException;])
+      -> ConditionalJump[IF_ICMPEQ] #AI -> #AH
+      <- UnconditionalJump[GOTO] #W -> #AI
+===#Block AH(size=1, flags=0)===
+   0. throw new java/lang/RuntimeException();
+      -> TryCatch range: [AI...AH] -> AJ ([Ljava/lang/RuntimeException;])
+      <- ConditionalJump[IF_ICMPEQ] #AI -> #AH
+===#Block AJ(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto X
+      -> UnconditionalJump[GOTO] #AJ -> #X
+      <- TryCatch range: [AI...AH] -> AJ ([Ljava/lang/RuntimeException;])
+      <- TryCatch range: [AI...AH] -> AJ ([Ljava/lang/RuntimeException;])
+===#Block C(size=1, flags=0)===
+   0. if (lvar1 >= lvar0.slots.size())
+      goto AB
+      -> ConditionalJump[IF_ICMPGE] #C -> #AB
+      -> Immediate #C -> #D
+      <- Immediate #B -> #C
+===#Block D(size=1, flags=0)===
+   0. if (lvar2.field_1724 != nullconst)
+      goto AC
+      -> ConditionalJump[IFNONNULL] #D -> #AC
+      -> Immediate #D -> #V
+      <- Immediate #C -> #D
+===#Block AC(size=2, flags=0)===
+   0. if (com.google.common.math.IntMath.binomial(385729500, mzjoyotpwyptdgrn.tfmldocwwrevuchl.ivrwmovootqfebkq(lvar18)) == 2147483647)
+      goto E
+   1. goto AO
+      -> UnconditionalJump[GOTO] #AC -> #AO
+      -> ConditionalJump[IF_ICMPEQ] #AC -> #E
+      <- ConditionalJump[IFNONNULL] #D -> #AC
+===#Block E(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. lvar5 = lvar0.slots.get(lvar1);
+      -> Immediate #E -> #F
+      <- ConditionalJump[IF_ICMPEQ] #AC -> #E
+===#Block F(size=1, flags=0)===
+   0. if (((pl.durex.client.module.AntiKostkaModule$HotbarSlot)lvar5).hasSaved != {1404422505 ^ lvar18})
+      goto Z
+      -> ConditionalJump[IF_ICMPNE] #F -> #Z
+      -> Immediate #F -> #G
+      <- Immediate #E -> #F
+===#Block G(size=1, flags=0)===
+   0. _consume(lvar2.field_1724.method_7353(net.minecraft.class_2561.method_43470(dynamic_invoke<java.lang.String>(java.lang.invoke.StringConcatFactory.makeConcatWithConstants("§c[Durex] Brak zapisu: ", ((pl.durex.client.module.AntiKostkaModule$HotbarSlot)lvar5).name))), {837930857 ^ lvar18}));
+      -> Immediate #G -> #H
+      <- Immediate #F -> #G
+===#Block H(size=1, flags=0)===
+   0. return;
+      <- Immediate #G -> #H
+===#Block Z(size=2, flags=0)===
+   0. if (com.google.common.math.IntMath.floorPowerOfTwo(mzjoyotpwyptdgrn.tfmldocwwrevuchl.ivrwmovootqfebkq(lvar18)) == 134217728)
+      goto I
+   1. goto AL
+      -> ConditionalJump[IF_ICMPEQ] #Z -> #I
+      -> UnconditionalJump[GOTO] #Z -> #AL
+      <- ConditionalJump[IF_ICMPNE] #F -> #Z
+===#Block AL(size=2, flags=0)===
+   0. if (mzjoyotpwyptdgrn.tfmldocwwrevuchl.ivrwmovootqfebkq(lvar18) == 259646653)
+      goto AK
+   1. throw nullconst;
+      -> TryCatch range: [AL...AK] -> AM ([Ljava/io/IOException;])
+      -> ConditionalJump[IF_ICMPEQ] #AL -> #AK
+      <- UnconditionalJump[GOTO] #Z -> #AL
+===#Block AK(size=1, flags=0)===
+   0. throw new java/io/IOException();
+      -> TryCatch range: [AL...AK] -> AM ([Ljava/io/IOException;])
+      <- ConditionalJump[IF_ICMPEQ] #AL -> #AK
+===#Block AM(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto X
+      -> UnconditionalJump[GOTO] #AM -> #X
+      <- TryCatch range: [AL...AK] -> AM ([Ljava/io/IOException;])
+      <- TryCatch range: [AL...AK] -> AM ([Ljava/io/IOException;])
+===#Block I(size=2, flags=0)===
+   0. // Frame: locals[1] [pl/durex/client/module/AntiKostkaModule$HotbarSlot] stack[0] []
+   1. _consume(lvar0.swapQueue.clear());
+      -> Immediate #I -> #J
+      <- ConditionalJump[IF_ICMPEQ] #Z -> #I
+===#Block J(size=1, flags=0)===
+   0. lvar0.swapTickDelay = {1249862222 ^ lvar18};
+      -> Immediate #J -> #K
+      <- Immediate #I -> #J
+===#Block K(size=1, flags=0)===
+   0. lvar3 = {724382486 ^ lvar18};
+      -> Immediate #K -> #L
+      <- Immediate #J -> #K
+===#Block L(size=2, flags=0)===
+   0. // Frame: locals[1] [1] stack[0] []
+   1. if (lvar3 >= {293386355 ^ lvar18})
+      goto Y
+      -> ConditionalJump[IF_ICMPGE] #L -> #Y
+      -> Immediate #L -> #M
+      <- Immediate #K -> #L
+      <- UnconditionalJump[GOTO] #BB -> #L
+===#Block M(size=3, flags=0)===
+   0. lvar6 = ((pl.durex.client.module.AntiKostkaModule$HotbarSlot)lvar5).items;
+   1. lvar7 = lvar6[lvar3];
+   2. lvar4 = lvar7;
+      -> Immediate #M -> #N
+      <- Immediate #L -> #M
+===#Block N(size=2, flags=0)===
+   0. lvar8 = lvar4;
+   1. if (lvar8 == nullconst)
+      goto R
+      -> ConditionalJump[IFNULL] #N -> #R
+      -> Immediate #N -> #O
+      <- Immediate #M -> #N
+===#Block O(size=3, flags=0)===
+   0. lvar9 = lvar4;
+   1. lvar10 = lvar9.method_7960();
+   2. if (lvar10 == {1401577713 ^ lvar18})
+      goto AA
+      -> ConditionalJump[IF_ICMPEQ] #O -> #AA
+      -> Immediate #O -> #P
+      <- Immediate #N -> #O
+===#Block P(size=1, flags=0)===
+   0. goto AR
+      -> UnconditionalJump[GOTO] #P -> #AR
+      <- Immediate #O -> #P
+===#Block AR(size=2, flags=0)===
+   0. if (mzjoyotpwyptdgrn.tfmldocwwrevuchl.ivrwmovootqfebkq(lvar18) == 161022541)
+      goto AQ
+   1. throw nullconst;
+      -> ConditionalJump[IF_ICMPEQ] #AR -> #AQ
+      -> TryCatch range: [AR...AQ] -> AS ([Ljava/lang/IllegalAccessException;])
+      <- UnconditionalJump[GOTO] #P -> #AR
+===#Block AQ(size=1, flags=0)===
+   0. throw new java/lang/IllegalAccessException();
+      -> TryCatch range: [AR...AQ] -> AS ([Ljava/lang/IllegalAccessException;])
+      <- ConditionalJump[IF_ICMPEQ] #AR -> #AQ
+===#Block AS(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto R
+      -> UnconditionalJump[GOTO] #AS -> #R
+      <- TryCatch range: [AR...AQ] -> AS ([Ljava/lang/IllegalAccessException;])
+      <- TryCatch range: [AR...AQ] -> AS ([Ljava/lang/IllegalAccessException;])
+===#Block AA(size=2, flags=0)===
+   0. if (java.lang.Character.charCount(mzjoyotpwyptdgrn.tfmldocwwrevuchl.ivrwmovootqfebkq(lvar18)) == 2)
+      goto Q
+   1. goto AF
+      -> UnconditionalJump[GOTO] #AA -> #AF
+      -> ConditionalJump[IF_ICMPEQ] #AA -> #Q
+      <- ConditionalJump[IF_ICMPEQ] #O -> #AA
+===#Block Q(size=8, flags=0)===
+   0. // Frame: locals[1] [net/minecraft/class_1799] stack[0] []
+   1. lvar11 = lvar0.swapQueue;
+   2. lvar13 = new int[{1620365193 ^ lvar18}];
+   3. lvar13[{1620365195 ^ lvar18}] = lvar3;
+   4. lvar14 = lvar4;
+   5. lvar15 = java.lang.System.identityHashCode(lvar14);
+   6. lvar13[{1620365194 ^ lvar18}] = lvar15;
+   7. lvar12 = lvar11.add(lvar13);
+      -> Immediate #Q -> #R
+      <- ConditionalJump[IF_ICMPEQ] #AA -> #Q
+===#Block AF(size=2, flags=0)===
+   0. if (mzjoyotpwyptdgrn.tfmldocwwrevuchl.ivrwmovootqfebkq(lvar18) == 250548670)
+      goto AE
+   1. throw nullconst;
+      -> ConditionalJump[IF_ICMPEQ] #AF -> #AE
+      -> TryCatch range: [AF...AE] -> AG ([Ljava/lang/IllegalAccessException;])
+      <- UnconditionalJump[GOTO] #AA -> #AF
+===#Block AE(size=1, flags=0)===
+   0. throw new java/lang/IllegalAccessException();
+      -> TryCatch range: [AF...AE] -> AG ([Ljava/lang/IllegalAccessException;])
+      <- ConditionalJump[IF_ICMPEQ] #AF -> #AE
+===#Block AG(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto X
+      -> UnconditionalJump[GOTO] #AG -> #X
+      <- TryCatch range: [AF...AE] -> AG ([Ljava/lang/IllegalAccessException;])
+      <- TryCatch range: [AF...AE] -> AG ([Ljava/lang/IllegalAccessException;])
+===#Block R(size=3, flags=0)===
+   0. // Frame: locals[1] [null] stack[0] []
+   1. lvar3 = {lvar3 + ({1936930638 ^ lvar18})};
+   2. goto BA
+      -> UnconditionalJump[GOTO] #R -> #BA
+      <- Immediate #Q -> #R
+      <- UnconditionalJump[GOTO] #AS -> #R
+      <- ConditionalJump[IFNULL] #N -> #R
+===#Block BA(size=2, flags=0)===
+   0. if (mzjoyotpwyptdgrn.tfmldocwwrevuchl.ivrwmovootqfebkq(lvar18) == 202749723)
+      goto AZ
+   1. throw nullconst;
+      -> ConditionalJump[IF_ICMPEQ] #BA -> #AZ
+      -> TryCatch range: [BA...AZ] -> BB ([Ljava/io/IOException;])
+      <- UnconditionalJump[GOTO] #R -> #BA
+===#Block AZ(size=1, flags=0)===
+   0. throw new java/io/IOException();
+      -> TryCatch range: [BA...AZ] -> BB ([Ljava/io/IOException;])
+      <- ConditionalJump[IF_ICMPEQ] #BA -> #AZ
+===#Block BB(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto L
+      -> UnconditionalJump[GOTO] #BB -> #L
+      <- TryCatch range: [BA...AZ] -> BB ([Ljava/io/IOException;])
+      <- TryCatch range: [BA...AZ] -> BB ([Ljava/io/IOException;])
+===#Block Y(size=2, flags=0)===
+   0. if (java.lang.StrictMath.min(mzjoyotpwyptdgrn.tfmldocwwrevuchl.ivrwmovootqfebkq(lvar18), 1348236659) == 59559871)
+      goto S
+   1. goto AU
+      -> UnconditionalJump[GOTO] #Y -> #AU
+      -> ConditionalJump[IF_ICMPEQ] #Y -> #S
+      <- ConditionalJump[IF_ICMPGE] #L -> #Y
+===#Block S(size=2, flags=0)===
+   0. // Frame: locals[1] [null] stack[0] []
+   1. lvar0.activeLoadSlot = (pl.durex.client.module.AntiKostkaModule$HotbarSlot)lvar5;
+      -> Immediate #S -> #T
+      <- ConditionalJump[IF_ICMPEQ] #Y -> #S
+===#Block T(size=1, flags=0)===
+   0. _consume(lvar2.field_1724.method_7353(net.minecraft.class_2561.method_43470(dynamic_invoke<java.lang.String>(java.lang.invoke.StringConcatFactory.makeConcatWithConstants("§a[Durex] Ladowanie: ", ((pl.durex.client.module.AntiKostkaModule$HotbarSlot)lvar5).name))), {2026313556 ^ lvar18}));
+      -> Immediate #T -> #U
+      <- Immediate #S -> #T
+===#Block U(size=1, flags=0)===
+   0. return;
+      <- Immediate #T -> #U
+===#Block AU(size=2, flags=0)===
+   0. if (mzjoyotpwyptdgrn.tfmldocwwrevuchl.ivrwmovootqfebkq(lvar18) == 206112504)
+      goto AT
+   1. throw nullconst;
+      -> TryCatch range: [AU...AT] -> AV ([Ljava/lang/IllegalAccessException;])
+      -> ConditionalJump[IF_ICMPEQ] #AU -> #AT
+      <- UnconditionalJump[GOTO] #Y -> #AU
+===#Block AT(size=1, flags=0)===
+   0. throw new java/lang/IllegalAccessException();
+      -> TryCatch range: [AU...AT] -> AV ([Ljava/lang/IllegalAccessException;])
+      <- ConditionalJump[IF_ICMPEQ] #AU -> #AT
+===#Block AV(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto X
+      -> UnconditionalJump[GOTO] #AV -> #X
+      <- TryCatch range: [AU...AT] -> AV ([Ljava/lang/IllegalAccessException;])
+      <- TryCatch range: [AU...AT] -> AV ([Ljava/lang/IllegalAccessException;])
+===#Block AO(size=2, flags=0)===
+   0. if (mzjoyotpwyptdgrn.tfmldocwwrevuchl.ivrwmovootqfebkq(lvar18) == 197170451)
+      goto AN
+   1. throw nullconst;
+      -> ConditionalJump[IF_ICMPEQ] #AO -> #AN
+      -> TryCatch range: [AO...AN] -> AP ([Ljava/lang/RuntimeException;])
+      <- UnconditionalJump[GOTO] #AC -> #AO
+===#Block AN(size=1, flags=0)===
+   0. throw new java/lang/RuntimeException();
+      -> TryCatch range: [AO...AN] -> AP ([Ljava/lang/RuntimeException;])
+      <- ConditionalJump[IF_ICMPEQ] #AO -> #AN
+===#Block AP(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto X
+      -> UnconditionalJump[GOTO] #AP -> #X
+      <- TryCatch range: [AO...AN] -> AP ([Ljava/lang/RuntimeException;])
+      <- TryCatch range: [AO...AN] -> AP ([Ljava/lang/RuntimeException;])
+===#Block AB(size=2, flags=0)===
+   0. if (java.lang.Character.toUpperCase(mzjoyotpwyptdgrn.tfmldocwwrevuchl.ivrwmovootqfebkq(lvar18)) == 255535974)
+      goto V
+   1. goto AX
+      -> UnconditionalJump[GOTO] #AB -> #AX
+      -> ConditionalJump[IF_ICMPEQ] #AB -> #V
+      <- ConditionalJump[IF_ICMPGE] #C -> #AB
+===#Block V(size=2, flags=0)===
+   0. // Frame: locals[0] [] stack[0] []
+   1. return;
+      <- Immediate #D -> #V
+      <- ConditionalJump[IF_ICMPEQ] #W -> #V
+      <- ConditionalJump[IF_ICMPEQ] #AB -> #V
+===#Block AX(size=2, flags=0)===
+   0. if (mzjoyotpwyptdgrn.tfmldocwwrevuchl.ivrwmovootqfebkq(lvar18) == 129999448)
+      goto AW
+   1. throw nullconst;
+      -> ConditionalJump[IF_ICMPEQ] #AX -> #AW
+      -> TryCatch range: [AX...AW] -> AY ([Ljava/lang/RuntimeException;])
+      <- UnconditionalJump[GOTO] #AB -> #AX
+===#Block AW(size=1, flags=0)===
+   0. throw new java/lang/RuntimeException();
+      -> TryCatch range: [AX...AW] -> AY ([Ljava/lang/RuntimeException;])
+      <- ConditionalJump[IF_ICMPEQ] #AX -> #AW
+===#Block AY(size=2, flags=0)===
+   0. _consume(catch());
+   1. goto X
+      -> UnconditionalJump[GOTO] #AY -> #X
+      <- TryCatch range: [AX...AW] -> AY ([Ljava/lang/RuntimeException;])
+      <- TryCatch range: [AX...AW] -> AY ([Ljava/lang/RuntimeException;])
+===#Block X(size=1, flags=0)===
+   0. throw new java/io/IOException();
+      <- UnconditionalJump[GOTO] #AV -> #X
+      <- UnconditionalJump[GOTO] #AP -> #X
+      <- UnconditionalJump[GOTO] #AJ -> #X
+      <- UnconditionalJump[GOTO] #AG -> #X
+      <- UnconditionalJump[GOTO] #AM -> #X
+      <- UnconditionalJump[GOTO] #AY -> #X

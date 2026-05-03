@@ -1,0 +1,17 @@
+{
+  "name": "jdk.jdwp.agent.jmod",
+  "md5": "b59e94b586d1d59c6eda34b0254b7b27",
+  "sha2": "304b21f8842146dfd6dbf32dc3cba58c9d3f34db",
+  "sha256": "5fbe2930fcf2033a19f0c3e4a7b614114707b376cf64fae3337161e37fbebd7d",
+  "contents": {
+    "classes": {
+      "classes/module-info.class": {
+        "ver": 65,
+        "acc": 32768,
+        "nme": "module-info",
+        "mthds": [],
+        "flds": []
+      }
+    }
+  }
+}
