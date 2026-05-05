@@ -163,6 +163,7 @@ public final class DurexConfig {
             nt.addProperty("showHp",       pl.durex.client.module.NametagsModule.isShowHp());
             nt.addProperty("showDistance", pl.durex.client.module.NametagsModule.isShowDistance());
             nt.addProperty("showArmor",    pl.durex.client.module.NametagsModule.isShowArmor());
+            nt.addProperty("showPing",     pl.durex.client.module.NametagsModule.isShowPing());
             nt.addProperty("nickColorIdx", pl.durex.client.module.NametagsModule.getNickColorIdx());
             nt.addProperty("maxDistance",  pl.durex.client.module.NametagsModule.getMaxDistance());
             root.add("nametags", nt);
@@ -171,7 +172,23 @@ public final class DurexConfig {
             JsonObject tr = new JsonObject();
             tr.addProperty("enabled",     pl.durex.client.module.TracerModule.isEnabled());
             tr.addProperty("colorIdx",    pl.durex.client.module.TracerModule.getColorIdx());
+            tr.addProperty("styleIdx",    pl.durex.client.module.TracerModule.getStyleIdx());
             tr.addProperty("maxDistance", pl.durex.client.module.TracerModule.getMaxDistance());
+            // Custom styles
+            JsonArray customStylesArr = new JsonArray();
+            for (pl.durex.client.module.CustomTracerStyle cs : pl.durex.client.module.TracerModule.getCustomStyles()) {
+                JsonObject cso = new JsonObject();
+                cso.addProperty("name", cs.name);
+                JsonArray segsArr = new JsonArray();
+                for (float[] seg : cs.segments) {
+                    JsonArray segEl = new JsonArray();
+                    for (float f : seg) segEl.add(f);
+                    segsArr.add(segEl);
+                }
+                cso.add("segments", segsArr);
+                customStylesArr.add(cso);
+            }
+            tr.add("customStyles", customStylesArr);
             root.add("tracers", tr);
 
             // MsgBot
@@ -230,6 +247,14 @@ public final class DurexConfig {
                 freeArr.add(mo);
             }
             root.add("guiFreeMods", freeArr);
+
+            // ClientSettings — dźwięki, czcionki, motywy
+            JsonObject cs = new JsonObject();
+            cs.addProperty("selectedSound", pl.durex.client.settings.ClientSettings.selectedSound);
+            cs.addProperty("soundVolume", pl.durex.client.settings.ClientSettings.soundVolume);
+            cs.addProperty("selectedFont", pl.durex.client.settings.ClientSettings.selectedFont);
+            cs.addProperty("selectedTheme", pl.durex.client.settings.ClientSettings.selectedTheme);
+            root.add("clientSettings", cs);
 
             // Flaga: layout zarządzany przez bibliotekę modułów (nie migruj automatycznie)
             root.addProperty("libraryManaged", true);
@@ -391,6 +416,7 @@ public final class DurexConfig {
                 if (o.has("showHp"))       pl.durex.client.module.NametagsModule.setShowHp(o.get("showHp").getAsBoolean());
                 if (o.has("showDistance")) pl.durex.client.module.NametagsModule.setShowDistance(o.get("showDistance").getAsBoolean());
                 if (o.has("showArmor"))    pl.durex.client.module.NametagsModule.setShowArmor(o.get("showArmor").getAsBoolean());
+                if (o.has("showPing"))     pl.durex.client.module.NametagsModule.setShowPing(o.get("showPing").getAsBoolean());
                 if (o.has("nickColorIdx")) pl.durex.client.module.NametagsModule.setNickColorIdx(o.get("nickColorIdx").getAsInt());
                 if (o.has("maxDistance"))  pl.durex.client.module.NametagsModule.setMaxDistance(o.get("maxDistance").getAsFloat());
             }
@@ -401,6 +427,27 @@ public final class DurexConfig {
                 if (o.has("enabled"))     pl.durex.client.module.TracerModule.setEnabled(o.get("enabled").getAsBoolean());
                 if (o.has("colorIdx"))    pl.durex.client.module.TracerModule.setColorIdx(o.get("colorIdx").getAsInt());
                 if (o.has("maxDistance")) pl.durex.client.module.TracerModule.setMaxDistance(o.get("maxDistance").getAsFloat());
+                // Custom styles — wczytaj przed styleIdx żeby getTotalStyles() było poprawne
+                if (o.has("customStyles")) {
+                    pl.durex.client.module.TracerModule.getCustomStyles().clear();
+                    for (var el : o.getAsJsonArray("customStyles")) {
+                        JsonObject cso = el.getAsJsonObject();
+                        String csName = cso.has("name") ? cso.get("name").getAsString() : "Custom";
+                        java.util.List<float[]> segs = new java.util.ArrayList<>();
+                        if (cso.has("segments")) {
+                            for (var segEl : cso.getAsJsonArray("segments")) {
+                                JsonArray sa = segEl.getAsJsonArray();
+                                float[] seg = new float[sa.size()];
+                                for (int i = 0; i < sa.size(); i++) seg[i] = sa.get(i).getAsFloat();
+                                segs.add(seg);
+                            }
+                        }
+                        pl.durex.client.module.TracerModule.getCustomStyles().add(
+                            new pl.durex.client.module.CustomTracerStyle(csName, segs));
+                    }
+                }
+                // styleIdx po załadowaniu custom styles
+                if (o.has("styleIdx"))    pl.durex.client.module.TracerModule.setStyleIdx(o.get("styleIdx").getAsInt());
             }
 
             // MsgBot
@@ -476,6 +523,15 @@ public final class DurexConfig {
                     m.expanded = mo.has("expanded") && mo.get("expanded").getAsBoolean();
                     pl.durex.client.gui.DurexClickGuiScreen.freeMods.add(m);
                 }
+            }
+
+            // ClientSettings — dźwięki, czcionki, motywy
+            if (root.has("clientSettings")) {
+                JsonObject cs = root.getAsJsonObject("clientSettings");
+                if (cs.has("selectedSound")) pl.durex.client.settings.ClientSettings.selectedSound = cs.get("selectedSound").getAsString();
+                if (cs.has("soundVolume")) pl.durex.client.settings.ClientSettings.soundVolume = cs.get("soundVolume").getAsFloat();
+                if (cs.has("selectedFont")) pl.durex.client.settings.ClientSettings.selectedFont = cs.get("selectedFont").getAsString();
+                if (cs.has("selectedTheme")) pl.durex.client.settings.ClientSettings.selectedTheme = cs.get("selectedTheme").getAsString();
             }
 
             // Migracja: dodaj nowe moduły tylko jeśli config był zarządzany przez starą wersję

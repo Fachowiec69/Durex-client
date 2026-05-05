@@ -76,7 +76,7 @@ public final class AntiKowalModule {
         // Toggle AntiKowal po naciśnięciu klawisza (tylko gdy nie ma GUI)
         if (client.currentScreen == null) {
             long handle = client.getWindow().getHandle();
-            boolean isDown = InputUtil.isKeyPressed(handle, toggleKey.getCode());
+            boolean isDown = toggleKey.getCode() != -1 && InputUtil.isKeyPressed(handle, toggleKey.getCode());
             if (isDown && !wasKeyDown) {
                 toggle();
                 sendStateMessage(client);

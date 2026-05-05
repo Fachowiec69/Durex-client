@@ -1,0 +1,62 @@
+{
+  "asmr_click": {
+    "sounds": [
+      "durexclient:asmr/click"
+    ],
+    "subtitle": "ASMR Click"
+  },
+  "asmr_hover": {
+    "sounds": [
+      "durexclient:asmr/hover"
+    ],
+    "subtitle": "ASMR Hover"
+  },
+  "asmr_toggle_on": {
+    "sounds": [
+      "durexclient:asmr/toggle_on"
+    ],
+    "subtitle": "ASMR Toggle On"
+  },
+  "asmr_toggle_off": {
+    "sounds": [
+      "durexclient:asmr/toggle_off"
+    ],
+    "subtitle": "ASMR Toggle Off"
+  },
+  "asmr_whoosh": {
+    "sounds": [
+      "durexclient:asmr/whoosh"
+    ],
+    "subtitle": "ASMR Whoosh"
+  },
+  "asmr_pop": {
+    "sounds": [
+      "durexclient:asmr/pop"
+    ],
+    "subtitle": "ASMR Pop"
+  },
+  "asmr_tap": {
+    "sounds": [
+      "durexclient:asmr/tap"
+    ],
+    "subtitle": "ASMR Tap"
+  },
+  "asmr_swoosh": {
+    "sounds": [
+      "durexclient:asmr/swoosh"
+    ],
+    "subtitle": "ASMR Swoosh"
+  },
+  "asmr_ding": {
+    "sounds": [
+      "durexclient:asmr/ding"
+    ],
+    "subtitle": "ASMR Ding"
+  },
+  "asmr_soft": {
+    "sounds": [
+      "durexclient:asmr/soft"
+    ],
+    "subtitle": "ASMR Soft"
+  }
+}

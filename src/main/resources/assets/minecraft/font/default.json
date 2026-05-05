@@ -1,0 +1,20 @@
+{
+  "providers": [
+    {
+      "type": "reference",
+      "id": "minecraft:include/default"
+    },
+    {
+      "type": "unihex",
+      "hex_file": "minecraft:font/unifont.zip",
+      "size_overrides": [
+        {
+          "from": "\u1d400",
+          "to": "\u1d7ff",
+          "left": 0,
+          "right": 8
+        }
+      ]
+    }
+  ]
+}

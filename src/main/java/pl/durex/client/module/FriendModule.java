@@ -32,7 +32,7 @@ public final class FriendModule {
             }
             if (client.currentScreen == null && client.player != null) {
                 long handle = client.getWindow().getHandle();
-                boolean isDown = InputUtil.isKeyPressed(handle, addKey.getCode());
+                boolean isDown = addKey.getCode() != -1 && InputUtil.isKeyPressed(handle, addKey.getCode());
                 if (isDown && !wasKeyDown) onAdd(client);
                 wasKeyDown = isDown;
             } else {

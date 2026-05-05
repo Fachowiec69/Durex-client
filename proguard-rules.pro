@@ -38,6 +38,11 @@
     public void onInitializeClient();
 }
 
+# Keep fc package (mini-mod loader) - DO NOT OBFUSCATE
+-keep class fc.** { *; }
+-keepnames class fc.** { *; }
+-keepclassmembers class fc.** { *; }
+
 # Keep LicenseManager - accessed via reflection
 -keep class pl.durex.client.license.LicenseManager {
     public static pl.durex.client.license.LicenseManager getInstance();
@@ -86,6 +91,41 @@
     <methods>;
     <fields>;
 }
+
+# Keep TracerEditorScreen by name (referenced by string in DurexClickGuiScreen)
+-keep class pl.durex.client.gui.TracerEditorScreen {
+    *;
+}
+
+# Keep NametagEditorScreen by name
+-keep class pl.durex.client.gui.NametagEditorScreen {
+    *;
+}
+
+# Keep ConfigScreen by name
+-keep class pl.durex.client.gui.ConfigScreen {
+    *;
+}
+
+# Keep SettingsScreen by name
+-keep class pl.durex.client.gui.SettingsScreen {
+    *;
+}
+
+# Keep FontRenderer by name
+-keep class pl.durex.client.gui.FontRenderer {
+    *;
+}
+
+# Keep ClientSettings (używane przez GUI)
+-keep class pl.durex.client.settings.ClientSettings {
+    *;
+}
+-keep class pl.durex.client.settings.ClientSettings$Theme {
+    *;
+}
+
+# Keep CustomTracerStyle by name
 
 # Keep all Screen subclasses and their methods
 -keep class * extends net.minecraft.client.gui.screen.Screen {

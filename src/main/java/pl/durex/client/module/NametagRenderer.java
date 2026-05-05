@@ -1,140 +1,274 @@
 package pl.durex.client.module;
 
-import com.mojang.blaze3d.systems.RenderSystem;
-import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext;
-import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
+import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
-import net.minecraft.client.render.*;
-import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.client.render.Camera;
+import net.minecraft.client.render.RenderTickCounter;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Vec3d;
 import org.joml.Matrix4f;
+import org.joml.Quaternionf;
+import org.joml.Vector4f;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class NametagRenderer {
 
+    private static Matrix4f cachedProj = null;
+    private static Matrix4f cachedView = null;
+    private static int cachedScreenW = 0, cachedScreenH = 0;
+    private static long lastCacheFrame = -1;
+
     public static void register() {
-        WorldRenderEvents.AFTER_ENTITIES.register(NametagRenderer::onRender);
+        HudRenderCallback.EVENT.register(NametagRenderer::onHudRender);
     }
 
-    private static void onRender(WorldRenderContext ctx) {
+    private static void onHudRender(DrawContext ctx, RenderTickCounter tickCounter) {
         if (!NametagsModule.isEnabled()) return;
         MinecraftClient client = MinecraftClient.getInstance();
-        if (client.player == null || client.world == null) return;
+        if (client.player == null || client.world == null || client.gameRenderer == null) return;
 
-        Camera camera = ctx.camera();
+        Camera camera = client.gameRenderer.getCamera();
         Vec3d camPos = camera.getPos();
 
+        long frame = client.getRenderTime();
+        if (frame != lastCacheFrame) {
+            lastCacheFrame = frame;
+            cachedScreenW = client.getWindow().getScaledWidth();
+            cachedScreenH = client.getWindow().getScaledHeight();
+            cachedProj = client.gameRenderer.getBasicProjectionMatrix(client.options.getFov().getValue());
+            cachedView = new Matrix4f();
+            cachedView.rotate(camera.getRotation().conjugate(new Quaternionf()));
+        }
+
+        List<AbstractClientPlayerEntity> visible = new ArrayList<>();
         for (AbstractClientPlayerEntity player : client.world.getPlayers()) {
             if (player == client.player) continue;
             if (!player.isAlive()) continue;
             double dist = camPos.distanceTo(player.getPos());
             if (dist > NametagsModule.getMaxDistance()) continue;
+            visible.add(player);
+        }
+
+        for (AbstractClientPlayerEntity player : visible) {
+            double dist = camPos.distanceTo(player.getPos());
             NametagsModule.NametagData data = NametagsModule.getData(player, client);
             if (data == null) continue;
-            renderTag(camera, camPos, player, data, (float) dist);
+
+            float td = tickCounter.getTickDelta(true);
+            double wx = player.prevX + (player.getX() - player.prevX) * td;
+            double wy = player.getY() + player.getHeight() + 0.25;
+            double wz = player.prevZ + (player.getZ() - player.prevZ) * td;
+
+            int[] screen = worldToScreen(wx - camPos.x, wy - camPos.y, wz - camPos.z);
+            if (screen == null) continue;
+
+            // Ping
+            int ping = -1;
+            if (client.getNetworkHandler() != null) {
+                var entry = client.getNetworkHandler().getPlayerListEntry(player.getUuid());
+                if (entry != null) ping = entry.getLatency();
+            }
+
+            renderTag(ctx, client, screen[0], screen[1], data, (float) dist, ping);
         }
     }
 
-    private static void renderTag(Camera camera, Vec3d camPos,
-            AbstractClientPlayerEntity player, NametagsModule.NametagData data, float dist) {
+    private static void renderTag(DrawContext ctx, MinecraftClient client,
+            int sx, int sy, NametagsModule.NametagData data, float dist, int ping) {
 
-        MinecraftClient client = MinecraftClient.getInstance();
         TextRenderer tr = client.textRenderer;
 
-        double px = player.getX() - camPos.x;
-        double py = player.getY() + player.getHeight() + 0.35 - camPos.y;
-        double pz = player.getZ() - camPos.z;
-
-        // Buduj linie tekstu
+        // Nick
         String nickLine = NametagsModule.getNickColor() + data.name();
 
+        // HP
         String hpLine = null;
         if (NametagsModule.isShowHp()) {
             int hpInt    = (int) Math.ceil(data.hp());
             int maxHpInt = (int) data.maxHp();
-            hpLine = hpColor(data.hp(), data.maxHp()) + hpInt + "§7/" + maxHpInt + " HP";
+            hpLine = hpColor(data.hp(), data.maxHp()) + hpInt + "§7/" + maxHpInt;
         }
 
+        // Dystans
         String distLine = null;
         if (NametagsModule.isShowDistance()) {
             distLine = "§8" + String.format("%.1f", dist) + "m";
         }
 
-        String armorLine = null;
-        if (NametagsModule.isShowArmor() && data.armorPlus() != null) {
-            String[] ap = data.armorPlus();
-            String[] icons = {"H", "K", "S", "B"};
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < 4; i++) {
-                if (i > 0) sb.append(" ");
-                String plus = ap[i];
-                sb.append(NametagsModule.plusColor(plus))
-                  .append(icons[i]).append(":")
-                  .append(plus != null ? plus : "§8-");
+        // Ping
+        String pingLine = null;
+        if (NametagsModule.isShowPing() && ping >= 0) {
+            String pc = ping < 80 ? "§a" : ping < 150 ? "§e" : ping < 300 ? "§6" : "§c";
+            pingLine = pc + ping + "§7ms";
+        }
+
+        // Zbroja
+        ItemStack[] armorStacks = null;
+        String[] armorPlus = null;
+        int filledCount = 0;
+        if (NametagsModule.isShowArmor() && data.armorStacks() != null) {
+            armorStacks = data.armorStacks();
+            armorPlus = data.armorPlus();
+            for (ItemStack s : armorStacks) {
+                if (s != null && !s.isEmpty()) filledCount++;
             }
-            armorLine = sb.toString();
         }
 
-        String[] lines = {nickLine, hpLine, distLine, armorLine};
-        int maxW = 0, lineCount = 0;
-        for (String line : lines) {
+        // Itemy w rękach
+        ItemStack mainHand = null;
+        ItemStack offHand = null;
+        int handItemCount = 0;
+        if (NametagsModule.isShowItems()) {
+            mainHand = data.player().getMainHandStack();
+            offHand = data.player().getOffHandStack();
+            if (mainHand != null && !mainHand.isEmpty()) handItemCount++;
+            if (offHand != null && !offHand.isEmpty()) handItemCount++;
+        }
+
+        // Wymiary
+        int padX = 5, padY = 4, lh = 9;
+        int iconSize = 12, iconGap = 2;
+
+        String[] textLines = {nickLine, hpLine, distLine, pingLine};
+        int maxTextW = 0, textLineCount = 0;
+        for (String line : textLines) {
             if (line == null) continue;
-            maxW = Math.max(maxW, tr.getWidth(line));
-            lineCount++;
+            maxTextW = Math.max(maxTextW, tr.getWidth(line));
+            textLineCount++;
         }
-        if (lineCount == 0) return;
 
-        int lh = 10, padX = 5, padY = 3;
-        int boxW = maxW + padX * 2;
-        int boxH = lineCount * lh + padY * 2;
-        int boxX = -boxW / 2;
-        int boxY = -boxH;
+        int armorRowW = filledCount > 0 ? filledCount * (iconSize + iconGap) - iconGap : 0;
+        int handRowW = handItemCount > 0 ? handItemCount * (iconSize + iconGap) - iconGap : 0;
+        int contentW = Math.max(maxTextW, Math.max(armorRowW, handRowW));
+        int boxW = contentW + padX * 2;
+        int textH = textLineCount * lh;
+        int armorH = filledCount > 0 ? iconSize + padY : 0;
+        int handH = handItemCount > 0 ? iconSize + padY : 0;
+        int boxH = padY + textH + armorH + handH + padY;
 
-        float scale = 0.025f;
+        int bx = sx - boxW / 2;
+        int by = sy - boxH;
 
-        MatrixStack matrices = new MatrixStack();
-        matrices.translate(px, py, pz);
-        matrices.multiply(camera.getRotation());
-        matrices.scale(-scale, -scale, scale);
+        // Tło
+        int bg = 0xCC050010;
+        int border = 0xAA8800EE;
+        ctx.fill(bx + 2, by,     bx + boxW - 2, by + boxH,     bg);
+        ctx.fill(bx,     by + 2, bx + boxW,     by + boxH - 2, bg);
+        // Ramka
+        ctx.fill(bx + 2, by,           bx + boxW - 2, by + 1,           border);
+        ctx.fill(bx + 2, by + boxH - 1,bx + boxW - 2, by + boxH,        border);
+        ctx.fill(bx,     by + 2,       bx + 1,        by + boxH - 2,    border);
+        ctx.fill(bx + boxW - 1, by + 2,bx + boxW,     by + boxH - 2,    border);
+        // Narożniki
+        ctx.fill(bx + 1, by + 1,             bx + 2, by + 2,             border);
+        ctx.fill(bx + boxW - 2, by + 1,      bx + boxW - 1, by + 2,      border);
+        ctx.fill(bx + 1, by + boxH - 2,      bx + 2, by + boxH - 1,      border);
+        ctx.fill(bx + boxW - 2, by + boxH - 2, bx + boxW - 1, by + boxH - 1, border);
 
-        Matrix4f mat = matrices.peek().getPositionMatrix();
-
-        // ── Tło przez VertexConsumerProvider ─────────────────────────────
-        VertexConsumerProvider.Immediate vcp = client.getBufferBuilders().getEntityVertexConsumers();
-
-        // Tło — używamy TEXT_BACKGROUND layer (przezroczysty, widoczny przez ściany)
-        VertexConsumer bgBuf = vcp.getBuffer(RenderLayer.getTextBackgroundSeeThrough());
-        float ba = 0.75f, br = 0.03f, bg2 = 0f, bb = 0.08f;
-        quad(bgBuf, mat, boxX - 1, boxY - 1, boxW + 2, boxH + 2, 0.02f, 0f, 0f, 0f);
-        quad(bgBuf, mat, boxX,     boxY,     boxW,     boxH,     ba, br, bg2, bb);
-
-        // Ramka fioletowa
-        float ra = 1f, rr = 0.53f, rg = 0f, rb = 0.93f;
-        quad(bgBuf, mat, boxX,              boxY,              boxW, 1,    ra, rr, rg, rb);
-        quad(bgBuf, mat, boxX,              boxY + boxH - 1,   boxW, 1,    ra, rr, rg, rb);
-        quad(bgBuf, mat, boxX,              boxY,              1,    boxH, ra, rr, rg, rb);
-        quad(bgBuf, mat, boxX + boxW - 1,   boxY,              1,    boxH, ra, rr, rg, rb);
-
-        // ── Tekst ─────────────────────────────────────────────────────────
-        int ty = boxY + padY;
-        for (String line : lines) {
+        // Tekst
+        int ty = by + padY;
+        for (String line : textLines) {
             if (line == null) continue;
             int tw = tr.getWidth(line);
-            tr.draw(line, -tw / 2f, ty, 0xFFFFFFFF, false, mat, vcp,
-                TextRenderer.TextLayerType.SEE_THROUGH, 0, 0xF000F0);
+            ctx.drawText(tr, line, sx - tw / 2, ty, 0xFFFFFFFF, false);
             ty += lh;
         }
 
-        vcp.draw();
+        // Ikonki zbroi
+        if (filledCount > 0 && armorStacks != null) {
+            int totalW = filledCount * (iconSize + iconGap) - iconGap;
+            int armorStartX = sx - totalW / 2;
+            int armorY = ty + 2;
+            float scale = (float) iconSize / 16f;
+            int drawIdx = 0;
+            for (int i = 0; i < 4; i++) {
+                if (armorStacks[i] == null || armorStacks[i].isEmpty()) continue;
+                int ix = armorStartX + drawIdx * (iconSize + iconGap);
+                ctx.getMatrices().push();
+                ctx.getMatrices().translate(ix, armorY, 0);
+                ctx.getMatrices().scale(scale, scale, 1f);
+                ctx.drawItem(armorStacks[i], 0, 0);
+                ctx.getMatrices().pop();
+                String plusStr = armorPlus != null ? armorPlus[i] : null;
+                if (plusStr != null) {
+                    ctx.getMatrices().push();
+                    ctx.getMatrices().translate(ix + iconSize - 2, armorY + iconSize - 5, 200);
+                    ctx.getMatrices().scale(0.5f, 0.5f, 1f);
+                    ctx.drawText(tr, NametagsModule.plusColor(plusStr) + plusStr, 0, 0, 0xFFFFFFFF, false);
+                    ctx.getMatrices().pop();
+                }
+                drawIdx++;
+            }
+            ty = armorY + iconSize;
+        }
+
+        // Ikonki itemów w rękach
+        if (handItemCount > 0) {
+            int totalW = handItemCount * (iconSize + iconGap) - iconGap;
+            int handStartX = sx - totalW / 2;
+            int handY = ty + 2;
+            float scale = (float) iconSize / 16f;
+            int drawIdx = 0;
+
+            // Main hand (prawa ręka)
+            if (mainHand != null && !mainHand.isEmpty()) {
+                int ix = handStartX + drawIdx * (iconSize + iconGap);
+                ctx.getMatrices().push();
+                ctx.getMatrices().translate(ix, handY, 0);
+                ctx.getMatrices().scale(scale, scale, 1f);
+                ctx.drawItem(mainHand, 0, 0);
+                ctx.getMatrices().pop();
+                
+                // Liczba itemów
+                if (mainHand.getCount() > 1) {
+                    ctx.getMatrices().push();
+                    ctx.getMatrices().translate(ix + iconSize - 2, handY + iconSize - 5, 200);
+                    ctx.getMatrices().scale(0.5f, 0.5f, 1f);
+                    ctx.drawText(tr, "§e" + mainHand.getCount(), 0, 0, 0xFFFFFFFF, false);
+                    ctx.getMatrices().pop();
+                }
+                drawIdx++;
+            }
+
+            // Off hand (lewa ręka)
+            if (offHand != null && !offHand.isEmpty()) {
+                int ix = handStartX + drawIdx * (iconSize + iconGap);
+                ctx.getMatrices().push();
+                ctx.getMatrices().translate(ix, handY, 0);
+                ctx.getMatrices().scale(scale, scale, 1f);
+                ctx.drawItem(offHand, 0, 0);
+                ctx.getMatrices().pop();
+                
+                // Liczba itemów
+                if (offHand.getCount() > 1) {
+                    ctx.getMatrices().push();
+                    ctx.getMatrices().translate(ix + iconSize - 2, handY + iconSize - 5, 200);
+                    ctx.getMatrices().scale(0.5f, 0.5f, 1f);
+                    ctx.drawText(tr, "§b" + offHand.getCount(), 0, 0, 0xFFFFFFFF, false);
+                    ctx.getMatrices().pop();
+                }
+                drawIdx++;
+            }
+        }
     }
 
-    private static void quad(VertexConsumer buf, Matrix4f mat,
-            int x, int y, int w, int h, float a, float r, float g, float b) {
-        buf.vertex(mat, x,     y,     0).color(r, g, b, a);
-        buf.vertex(mat, x,     y + h, 0).color(r, g, b, a);
-        buf.vertex(mat, x + w, y + h, 0).color(r, g, b, a);
-        buf.vertex(mat, x + w, y,     0).color(r, g, b, a);
+    private static int[] worldToScreen(double dx, double dy, double dz) {
+        if (cachedProj == null || cachedView == null) return null;
+        Vector4f pos = new Vector4f((float)dx, (float)dy, (float)dz, 1.0f);
+        cachedView.transform(pos);
+        cachedProj.transform(pos);
+        if (pos.w <= 0) return null;
+        float ndcX = pos.x / pos.w;
+        float ndcY = pos.y / pos.w;
+        if (ndcX < -1.5f || ndcX > 1.5f || ndcY < -1.5f || ndcY > 1.5f) return null;
+        int sx = (int)((ndcX + 1f) / 2f * cachedScreenW);
+        int sy = (int)((1f - ndcY) / 2f * cachedScreenH);
+        return new int[]{sx, sy};
     }
 
     private static String hpColor(float hp, float maxHp) {

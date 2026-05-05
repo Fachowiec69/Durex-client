@@ -36,6 +36,10 @@ dependencies {
 
     implementation "icyllis.modernui:ModernUI-Core:${project.modernui_version}"
     modImplementation "icyllis.modernui:ModernUI-Fabric:${project.minecraft_version}-${project.modernui_mod_version}"
+    
+    // ASM for bytecode generation
+    implementation 'org.ow2.asm:asm:9.7'
+    implementation 'org.ow2.asm:asm-commons:9.7'
 }
 
 processResources {

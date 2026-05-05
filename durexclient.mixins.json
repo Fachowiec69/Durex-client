@@ -10,7 +10,13 @@
     "GuiBlurMixin",
     "InGameHudMixin",
     "ItemCooldownAccessor",
-    "HeldItemRendererMixin"
+    "HeldItemRendererMixin",
+    "NoPushMixin",
+    "LeverCobwebMixin",
+    "MsgBotChatMixin",
+    "MsgBotScreenHandlerMixin",
+    "MsgBotPauseMixin",
+    "HideVanillaNametagMixin"
   ],
   "injectors": {
     "defaultRequire": 1

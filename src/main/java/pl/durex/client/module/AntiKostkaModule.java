@@ -158,7 +158,8 @@ public final class AntiKostkaModule {
 
         long handle = client.getWindow().getHandle();
         for (int i = 0; i < slots.size(); i++) {
-            boolean isDown = InputUtil.isKeyPressed(handle, slots.get(i).loadKey.getCode());
+            int code = slots.get(i).loadKey.getCode();
+            boolean isDown = code != -1 && InputUtil.isKeyPressed(handle, code);
             if (isDown && !wasKeyDown[i]) loadSlot(i, client);
             wasKeyDown[i] = isDown;
         }

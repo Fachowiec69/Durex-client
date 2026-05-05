@@ -15,7 +15,8 @@
     "LeverCobwebMixin",
     "MsgBotChatMixin",
     "MsgBotScreenHandlerMixin",
-    "MsgBotPauseMixin"
+    "MsgBotPauseMixin",
+    "HideVanillaNametagMixin"
   ],
   "injectors": {
     "defaultRequire": 1

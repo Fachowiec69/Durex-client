@@ -21,6 +21,8 @@ public class NametagsModule {
     private static boolean showHp       = true;
     private static boolean showDistance = true;
     private static boolean showArmor    = true;
+    private static boolean showPing     = false;
+    private static boolean showItems    = true;
     private static float   maxDistance  = 64f;
 
     // Kolory nicku: 0=biały, 1=żółty, 2=zielony, 3=czerwony, 4=fioletowy
@@ -38,6 +40,10 @@ public class NametagsModule {
     public static void    setShowDistance(boolean v){ showDistance = v; }
     public static boolean isShowArmor()            { return showArmor; }
     public static void    setShowArmor(boolean v)  { showArmor = v; }
+    public static boolean isShowPing()             { return showPing; }
+    public static void    setShowPing(boolean v)   { showPing = v; }
+    public static boolean isShowItems()            { return showItems; }
+    public static void    setShowItems(boolean v)  { showItems = v; }
     public static float   getMaxDistance()         { return maxDistance; }
     public static void    setMaxDistance(float v)  { maxDistance = Math.max(8f, Math.min(256f, v)); }
     public static int     getNickColorIdx()        { return nickColorIdx; }
@@ -46,11 +52,13 @@ public class NametagsModule {
 
     /** Dane nametaga dla jednego gracza */
     public record NametagData(
+        PlayerEntity player,
         String name,
         float hp,
         float maxHp,
         float distance,
-        String[] armorPlus   // [helm, chest, legs, boots] lub null
+        String[] armorPlus,    // [helm, chest, legs, boots] lub null
+        ItemStack[] armorStacks // [helm, chest, legs, boots] lub null
     ) {}
 
     public static NametagData getData(PlayerEntity player, MinecraftClient client) {
@@ -62,16 +70,19 @@ public class NametagsModule {
         float dist  = (float) client.player.distanceTo(player);
 
         String[] armorPlus = null;
+        ItemStack[] armorStacks = null;
         if (showArmor) {
             armorPlus = new String[4];
+            armorStacks = new ItemStack[4];
             EquipmentSlot[] slots = {EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET};
             for (int i = 0; i < 4; i++) {
                 ItemStack stack = player.getEquippedStack(slots[i]);
+                armorStacks[i] = stack;
                 armorPlus[i] = stack.isEmpty() ? null : findPlus(stack);
             }
         }
 
-        return new NametagData(name, hp, maxHp, dist, armorPlus);
+        return new NametagData(player, name, hp, maxHp, dist, armorPlus, armorStacks);
     }
 
     private static String findPlus(ItemStack stack) {
