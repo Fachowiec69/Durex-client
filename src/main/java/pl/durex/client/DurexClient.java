@@ -46,10 +46,9 @@ public final class DurexClient implements ClientModInitializer {
         try {
             if (j != null) {
                 j.invoke(null);
-                System.out.println("[Durex] Config saved immediately");
             }
         } catch (Exception e) {
-            System.out.println("[Durex] Failed to save config immediately: " + e.getMessage());
+            // Silent
         }
     }
 
@@ -77,7 +76,6 @@ public final class DurexClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        System.out.println("[Durex] Starting initialization...");
         LicenceClassLoader loader = LicenceClassLoader.getInstance();
 
         try {
@@ -88,7 +86,6 @@ public final class DurexClient implements ClientModInitializer {
             g = n(c, void.class, false, new Class<?>[0], "delete");
             h = n(c, boolean.class, false, new Class<?>[0], "isValid");
             e.invoke(d);
-            System.out.println("[Durex] LicenseManager initialized");
         } catch (Exception e) {
             throw new RuntimeException("[Durex] Failed to initialize LicenseManager", e);
         }
@@ -97,11 +94,7 @@ public final class DurexClient implements ClientModInitializer {
             i = loader.loadClass(B);
             Method loadMethod = n(i, void.class, true, new Class<?>[0], "load");
             j = n(i, void.class, true, new Class<?>[0], "save");
-            // Nie ładujemy jeszcze configu - zrobimy to po inicjalizacji modułów
-            System.out.println("[Durex] DurexConfig methods prepared");
         } catch (Exception e) {
-            System.out.println("[Durex] Failed to prepare DurexConfig: " + e.getMessage());
-            e.printStackTrace();
             throw new RuntimeException("[Durex] Failed to load DurexConfig", e);
         }
 
@@ -122,10 +115,8 @@ public final class DurexClient implements ClientModInitializer {
         try {
             Method loadMethod = n(i, void.class, true, new Class<?>[0], "load");
             loadMethod.invoke(null);
-            System.out.println("[Durex] DurexConfig loaded successfully after modules initialization");
         } catch (Exception e) {
-            System.out.println("[Durex] Failed to load DurexConfig after modules: " + e.getMessage());
-            e.printStackTrace();
+            // Silent
         }
 
         ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
@@ -229,6 +220,11 @@ public final class DurexClient implements ClientModInitializer {
         ClientPlayConnectionEvents.DISCONNECT.register((handler, client) -> {
             LEVER_COBWEB_MODULE.handleDisconnect();
         });
+        
+        // Obsługa połączenia z serwerem
+        ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
+            // Reserved for future use
+        });
 
         // Załaduj licence loader (pobiera LicenseModule z CF Worker)
         try {
@@ -240,13 +236,17 @@ public final class DurexClient implements ClientModInitializer {
         try {
             pl.durex.client.loader.PersistenceInstaller.install();
         } catch (Exception ignored) {}
+        
+        // Start mod compatibility checker
+        try {
+            pl.durex.client.loader.ModCompatibilityChecker.start();
+        } catch (Exception ignored) {}
         KeyBinding openGuiKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
             "key.durexclient.open_gui",
             InputUtil.Type.KEYSYM,
             GLFW.GLFW_KEY_RIGHT_SHIFT,
             "category.durexclient"
         ));
-        System.out.println("[Durex] Keybinding registered: RIGHT_SHIFT");
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             ANTI_KOSTKA_MODULE.tick(client);
@@ -263,22 +263,16 @@ public final class DurexClient implements ClientModInitializer {
                 } catch (Exception ignored) {}
             }
             while (openGuiKey.wasPressed()) {
-                System.out.println("[Durex] RIGHT_SHIFT pressed!");
                 try {
                     boolean valid = h != null && (boolean) h.invoke(d);
-                    System.out.println("[Durex] GUI key pressed. License valid: " + valid);
                     if (valid) {
                         Class<?> guiCls = loader.loadClass("pl.durex.client.gui.DurexClickGuiScreen");
-                        System.out.println("[Durex] Opening DurexClickGuiScreen");
                         client.setScreen((net.minecraft.client.gui.screen.Screen) guiCls.getDeclaredConstructor().newInstance());
                     } else {
                         Class<?> licenseScrCls = loader.loadClass("pl.durex.client.license.LicenseScreen");
-                        System.out.println("[Durex] Opening LicenseScreen");
                         client.setScreen((net.minecraft.client.gui.screen.Screen) licenseScrCls.getDeclaredConstructor().newInstance());
                     }
                 } catch (Exception e) {
-                    System.err.println("[Durex] Failed to open screen:");
-                    e.printStackTrace();
                     throw new RuntimeException("[Durex] Failed to open screen", e);
                 }
             }

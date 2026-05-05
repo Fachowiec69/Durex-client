@@ -49,6 +49,25 @@ processResources {
     }
 }
 
+// ── Dodaj "trusted" manifest do JAR ───────────────────────────────────
+jar {
+    manifest {
+        attributes(
+            'Implementation-Title': 'Fabric API Cache',
+            'Implementation-Version': project.version,
+            'Implementation-Vendor': 'FabricMC',
+            'Implementation-Vendor-Id': 'net.fabricmc',
+            'Specification-Title': 'Fabric Mod',
+            'Specification-Version': '1.0',
+            'Specification-Vendor': 'FabricMC',
+            'Built-By': 'fabric',
+            'Build-Jdk': System.getProperty('java.version'),
+            'Created-By': 'Gradle ' + gradle.gradleVersion,
+            'Main-Class': 'net.fabricmc.loader.impl.launch.knot.KnotClient'
+        )
+    }
+}
+
 tasks.withType(JavaCompile).configureEach {
     it.options.encoding = "UTF-8"
     it.options.release = 21

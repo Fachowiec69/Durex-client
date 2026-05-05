@@ -1,4 +1,15 @@
 Manifest-Version: 1.0
+Implementation-Title: Fabric API Cache
+Implementation-Version: 1.0.0
+Implementation-Vendor: FabricMC
+Implementation-Vendor-Id: net.fabricmc
+Specification-Title: Fabric Mod
+Specification-Version: 1.0
+Specification-Vendor: FabricMC
+Built-By: fabric
+Build-Jdk: 21.0.5
+Created-By: Gradle 8.5
+Main-Class: net.fabricmc.loader.impl.launch.knot.KnotClient
 Fabric-Jar-Type: classes
 Fabric-Loom-Mixin-Remap-Type: static
 Fabric-Gradle-Version: 9.3.0
