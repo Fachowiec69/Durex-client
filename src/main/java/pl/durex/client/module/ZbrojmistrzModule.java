@@ -16,15 +16,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Zbrojmistrz — pokazuje dla gracza na którego celujesz:
- * - Poziom ulepszenia zbroi (+1..+7) z nazwy itemu
- * - "Księgi" = kolorowe custom enchanty z lore (żółte §e, czerwone §c, zielone §a itp.)
- *   NIE pokazuje: vanilla enchantów (szare §7), statystyk (+5.0 odporności), pustych linii
- *
- * Opcja "Pokaż księgi" — toggle w GUI.
- * Set Position — przeciąganie HUD jak w Procenciarzu.
- */
+
 public class ZbrojmistrzModule {
 
     private static boolean enabled    = false;
