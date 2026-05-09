@@ -6,30 +6,9 @@ out/
 # Compiled classes
 *.class
 
-# JARs (poza źródłami)
+# JARs (poza gradle wrapper)
 *.jar
 !gradle/wrapper/gradle-wrapper.jar
-
-# Mappings (generowane)
-mappings/
-
-# Skidfuscator śmieci
-skidfuscator-error-*.txt
-skidfuscator.log
-skidfuscator.jar
-skidfuscator.hocon
-skidfuscator.yml
-
-# Payload / encrypt pliki
-payload*.txt
-payload*.b64
-encrypted_payload.b64
-payload_hex.txt
-payload_simple.b64
-
-# Python cache
-__pycache__/
-*.pyc
 
 # IDE
 .idea/
@@ -40,8 +19,47 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
-# Stare pliki
-old-working.jar
-proguard-dict.txt
+# Payload / encrypt / wrażliwe pliki
+payload*.txt
+payload*.b64
+encrypted*.b64
+*_payload.*
+*.sh
+cloudflare-worker.js
+
+# Python skrypty
+*.py
+__pycache__/
+*.pyc
+dist/
+
+# Inne projekty / śmieci
+discord-ticket-bot/
+durex-auto-rynek/
+durex-auto-otchlan/
+solid-shop/
+msg-bot/
+nemos-helper-decompiled/
+nemos-helper-src/
+META-INF/
+assets/
 x/
 pl/
+mappings/
+
+# Skidfuscator
+skidfuscator*
+proguard-dict.txt
+proguard-legit.pro
+old-working.jar
+
+# Dokumenty wewnętrzne
+*.md
+!README.md
+
+# Kiro
+.kiro/
+
+# Inne
+package-lock.json
+GRIM_CLIENT_ANALIZA.txt
