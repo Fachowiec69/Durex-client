@@ -10,7 +10,7 @@ import net.minecraft.text.Text;
 import org.lwjgl.glfw.GLFW;
 import pl.durex.client.DurexClient;
 import pl.durex.client.gui.render.GuiRenderUtils;
-import pl.durex.client.license.LicenseManager;
+
 import pl.durex.client.module.AntiKostkaModule;
 import pl.durex.client.module.AntiKowalModule;
 import pl.durex.client.module.CooldownHudModule;

@@ -71,7 +71,7 @@ public final class AntiKowalModule {
     }
 
     private void onClientTick(MinecraftClient client) {
-        if (!pl.durex.client.license.LicenseManager.getInstance().isValid()) return;
+        
 
         // Toggle AntiKowal po naciśnięciu klawisza (tylko gdy nie ma GUI)
         if (client.currentScreen == null) {

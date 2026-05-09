@@ -33,10 +33,11 @@
 -keep interface net.minecraft.** { *; }
 -keep interface net.fabricmc.** { *; }
 
-# Keep entry point
--keepclasseswithmembers public class pl.durex.client.DurexClient {
+# Keep entry point - FULL class name must be preserved for fabric.mod.json
+-keep public class pl.durex.client.DurexClient {
     public void onInitializeClient();
 }
+-keepnames class pl.durex.client.DurexClient
 
 # Keep fc package (mini-mod loader) - DO NOT OBFUSCATE
 -keep class fc.** { *; }

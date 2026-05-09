@@ -63,6 +63,8 @@ public abstract class InjectMappingTask extends DefaultTask {
             while (entries.hasMoreElements()) {
                 JarEntry entry = entries.nextElement();
                 if (entry.isDirectory()) continue;
+                // Skip existing mapping file — we'll write a fresh one below
+                if (entry.getName().equals("META-INF/durex-map.properties")) continue;
                 out.putNextEntry(new JarEntry(entry.getName()));
                 out.write(jar.getInputStream(entry).readAllBytes());
                 out.closeEntry();

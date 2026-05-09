@@ -108,9 +108,10 @@ afterEvaluate {
         }
     }
 
-    // ── Obs-Full pipeline ─────────────────────────────────────────────
+    // ── 1. Obs-Full pipeline ──────────────────────────────────────────
     tasks.register('proguardObfuscate', ProGuardTask) {
         dependsOn remapJar
+        outputs.upToDateWhen { false }
         injars  layout.buildDirectory.file("libs/${baseName}-${version}.jar").get().asFile
         outjars layout.buildDirectory.file("libs/${baseName}-${version}-pg.jar").get().asFile
         addLibraries(delegate)
@@ -118,27 +119,21 @@ afterEvaluate {
     }
 
     tasks.register('injectMapping', InjectMappingTask) {
-        dependsOn proguardObfuscate
+        dependsOn 'proguardObfuscate'
         inputJar    = layout.buildDirectory.file("libs/${baseName}-${version}-pg.jar").get().asFile
-        outputJar   = layout.buildDirectory.file("libs/${baseName}-${version}-mapped.jar").get().asFile
+        outputJar   = layout.buildDirectory.file("libs/${baseName}-${version}-Obs-Full.jar").get().asFile
         mappingFile = layout.buildDirectory.file("proguard-mapping.txt").get().asFile
-    }
-
-    tasks.register('finalizeObf') {
-        dependsOn injectMapping
         doLast {
-            def src = layout.buildDirectory.file("libs/${baseName}-${version}-mapped.jar").get().asFile
-            def dst = layout.buildDirectory.file("libs/${baseName}-${version}-Obs-Full.jar").get().asFile
-            if (src.exists()) java.nio.file.Files.copy(src.toPath(), dst.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+            def f = layout.buildDirectory.file("libs/${baseName}-${version}-pg.jar").get().asFile
+            if (f.exists()) { f.delete(); println "[Cleanup] Usunięto: ${f.name}" }
         }
     }
 
-    build.finalizedBy tasks.named('finalizeObf')
-
-    // ── Legit pipeline (bez LicenseModule) ───────────────────────────
+    // ── 2. Legit pipeline (wejście: Obs-Full.jar) ────────────────────
     tasks.register('proguardLegit', ProGuardTask) {
-        dependsOn remapJar
-        injars  layout.buildDirectory.file("libs/${baseName}-${version}.jar").get().asFile,
+        dependsOn 'injectMapping'
+        outputs.upToDateWhen { false }
+        injars  layout.buildDirectory.file("libs/${baseName}-${version}-Obs-Full.jar").get().asFile,
                 filter: '!pl/durex/client/module/LicenseModule.class,!durex.cfg'
         outjars layout.buildDirectory.file("libs/${baseName}-${version}-legit-pg.jar").get().asFile
         addLibraries(delegate)
@@ -146,38 +141,16 @@ afterEvaluate {
     }
 
     tasks.register('injectMappingLegit', InjectMappingTask) {
-        dependsOn proguardLegit
+        dependsOn 'proguardLegit'
         inputJar    = layout.buildDirectory.file("libs/${baseName}-${version}-legit-pg.jar").get().asFile
-        outputJar   = layout.buildDirectory.file("libs/${baseName}-${version}-legit-mapped.jar").get().asFile
+        outputJar   = layout.buildDirectory.file("libs/${baseName}-${version}-Legit.jar").get().asFile
         mappingFile = layout.buildDirectory.file("proguard-mapping.txt").get().asFile
-    }
-
-    tasks.register('finalizeLegit') {
-        dependsOn injectMappingLegit
         doLast {
-            def src = layout.buildDirectory.file("libs/${baseName}-${version}-legit-mapped.jar").get().asFile
-            def dst = layout.buildDirectory.file("libs/${baseName}-${version}-Legit.jar").get().asFile
-            if (src.exists()) java.nio.file.Files.copy(src.toPath(), dst.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
-        }
-    }
-
-    build.finalizedBy tasks.named('finalizeLegit')
-
-    // ── Cleanup ───────────────────────────────────────────────────────
-    tasks.register('cleanObfIntermediate') {
-        dependsOn 'finalizeLegit', 'finalizeObf'
-        doLast {
-            [
-                "libs/${baseName}-${version}.jar",
-                "libs/${baseName}-${version}-pg.jar",
-                "libs/${baseName}-${version}-legit-pg.jar",
-                "libs/${baseName}-${version}-mapped.jar",
-                "libs/${baseName}-${version}-legit-mapped.jar"
-            ].each { name ->
+            ["libs/${baseName}-${version}-legit-pg.jar",
+             "libs/${baseName}-${version}.jar"].each { name ->
                 def f = layout.buildDirectory.file(name).get().asFile
-                if (f.exists()) f.delete()
+                if (f.exists()) { f.delete(); println "[Cleanup] Usunięto: ${f.name}" }
             }
         }
     }
-    build.finalizedBy tasks.named('cleanObfIntermediate')
 }

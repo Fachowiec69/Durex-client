@@ -26,10 +26,6 @@ public final class FriendModule {
 
     public void register() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            if (!pl.durex.client.license.LicenseManager.getInstance().isValid()) {
-                wasKeyDown = false;
-                return;
-            }
             if (client.currentScreen == null && client.player != null) {
                 long handle = client.getWindow().getHandle();
                 boolean isDown = addKey.getCode() != -1 && InputUtil.isKeyPressed(handle, addKey.getCode());

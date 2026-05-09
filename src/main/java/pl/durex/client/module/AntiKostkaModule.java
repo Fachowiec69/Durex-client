@@ -154,7 +154,7 @@ public final class AntiKostkaModule {
             for (int i = 0; i < MAX_SLOTS; i++) wasKeyDown[i] = false;
             return;
         }
-        if (!pl.durex.client.license.LicenseManager.getInstance().isValid()) return;
+        
 
         long handle = client.getWindow().getHandle();
         for (int i = 0; i < slots.size(); i++) {
